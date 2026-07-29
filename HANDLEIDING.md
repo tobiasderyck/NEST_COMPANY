@@ -44,6 +44,18 @@ naar `content/site.json` op je schijf. Ideaal om te testen vóór de klant erin 
 6. Nodig de klant uit als gebruiker bij *Collaborators*. Die krijgt een eigen
    login en hoeft niets van GitHub te weten.
 
+> **Twee valkuilen bij het aanmaken van het Tina Cloud-project**
+>
+> - De **projectnaam** mag geen underscore bevatten. `NEST_COMPANY` wordt
+>   geweigerd (toegestaan zijn letters, cijfers en `+=,.@'-`); gebruik
+>   `NESTCOMPANY` of `NEST-COMPANY`. De foutmelding staat onder het naamveld,
+>   maar je gaat gemakkelijk in het URL-veld zoeken.
+> - Krijg je bij *Create Project* de rode balk **"Could not load the project"**:
+>   dat is een bekende bug in Tina Cloud
+>   ([issue #7236](https://github.com/tinacms/tinacms/issues/7236)). Het project
+>   is wél aangemaakt. Klik dus niet opnieuw op de knop, maar ververs de pagina
+>   en open het project via **Projects**.
+
 ### 1.3 Online zetten
 
 Werkt op Vercel, Netlify of Cloudflare Pages. Instellingen:
