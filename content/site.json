@@ -1,0 +1,275 @@
+{
+  "merk": {
+    "naam": "NEST",
+    "naamVervolg": "COMPANY BV",
+    "telefoon": "0492 86 42 02",
+    "telefoonLink": "+32492864202",
+    "email": "info@nestcompany.be",
+    "paginaTitel": "NEST COMPANY — Van huis. Naar nest.",
+    "paginaOmschrijving": "Nest Company BV, Machelen. Dakwerken, zonnepanelen, gevelrenovatie, warmtepompen en totale renovatie. Scroll en zie een huis transformeren tot nest.",
+    "deelTitel": "NEST COMPANY — Van huis. Naar nest.",
+    "deelOmschrijving": "Scroll en zie een huis transformeren tot nest. Dakwerken, zonnepanelen, gevel, warmtepompen en totale renovatie in Vlaams-Brabant.",
+    "deelBeeld": "/assets/keyframes2/k5_nest.jpg"
+  },
+  "menu": [
+    {
+      "label": "DE TRANSFORMATIE",
+      "anker": "#journey"
+    },
+    {
+      "label": "DIENSTEN",
+      "anker": "#diensten"
+    },
+    {
+      "label": "REALISATIES",
+      "anker": "#realisaties"
+    },
+    {
+      "label": "AANPAK",
+      "anker": "#aanpak"
+    }
+  ],
+  "knopBoven": "MAAK EEN AFSPRAAK",
+  "laadscherm": {
+    "naam": "NEST COMPANY BV",
+    "stap1": "PLANNEN",
+    "stap2": "OPBOUW",
+    "stap3": "AFWERKING",
+    "klaar": "WELKOM THUIS."
+  },
+  "film": {
+    "rail": [
+      {
+        "label": "01 HET DAK"
+      },
+      {
+        "label": "02 DE ZON"
+      },
+      {
+        "label": "03 DE GEVEL"
+      },
+      {
+        "label": "04 HET NEST"
+      }
+    ],
+    "hero": {
+      "kicker": "— RENOVEREN MET GOESTING, VLAAMS-BRABANT —",
+      "titelRegel1": "VAN HUIS.",
+      "titelRegel2": "NAAR NEST.",
+      "ondertitel": "Samen bouwen aan jouw",
+      "ondertitelAccent": "droomnest.",
+      "voetLinks": "ÉÉN HUIS",
+      "voetMidden": "SCROLL — EN ZIE HET TRANSFORMEREN ↓",
+      "voetRechts": "ÉÉN NEST"
+    },
+    "aktes": [
+      {
+        "kicker": "AKTE 01 — DAKWERKEN",
+        "titel": "Eerst het dak.",
+        "titelAccent": "Altijd eerst het dak.",
+        "tekst": "Nieuwe pannen, isolatie en zinkwerk. Vakwerk dat er de komende vijftig winters staat.",
+        "start": 0.055,
+        "einde": 0.15
+      },
+      {
+        "kicker": "AKTE 02 — ZONNEPANELEN",
+        "titel": "Je dak gaat werken.",
+        "titelAccent": "Voor jou.",
+        "tekst": "Strak in het vlak gelegd, tot op de centimeter. Elke zonnestraal wordt rendement.",
+        "start": 0.305,
+        "einde": 0.4
+      },
+      {
+        "kicker": "AKTE 03 — GEVELRENOVATIE",
+        "titel": "Een gevel om",
+        "titelAccent": "trots op te zijn.",
+        "tekst": "Crepi, gevelbekleding en nieuw schrijnwerk — je huis krijgt zijn tweede jeugd.",
+        "start": 0.53,
+        "einde": 0.6
+      },
+      {
+        "kicker": "AKTE 03½ — WARMTEPOMPEN & AIRCO'S",
+        "titel": "Warm in januari.",
+        "titelAccent": "Koel in juli.",
+        "tekst": "Eén stille buitenunit, het hele jaar comfort. En je energiefactuur? Die krimpt.",
+        "start": 0.635,
+        "einde": 0.72
+      },
+      {
+        "kicker": "AKTE 04 — TOTALE RENOVATIE",
+        "titel": "En dan gaan",
+        "titelAccent": "de lichten aan.",
+        "tekst": "Van plan tot oplevering: één team, één aanspreekpunt, nul kopzorgen.",
+        "start": 0.79,
+        "einde": 0.875
+      }
+    ],
+    "slot": {
+      "kicker": "NEST COMPANY BV — MACHELEN",
+      "titel": "Welkom in je",
+      "titelAccent": "droomnest.",
+      "knop": "→ MAAK VANDAAG UW AFSPRAAK",
+      "start": 0.925,
+      "einde": 0.998
+    }
+  },
+  "statement": {
+    "regel1": "Wij renoveren geen huizen.",
+    "regel2": "Wij bouwen",
+    "regel2Accent": "nesten.",
+    "onderschrift": "DAKWERKEN — ZONNEPANELEN — GEVEL — WARMTEPOMPEN — TOTALE RENOVATIE"
+  },
+  "diensten": {
+    "kicker": "ONZE DIENSTEN",
+    "titel": "Vijf vakgebieden.",
+    "titelAccent": "Eén dak.",
+    "items": [
+      {
+        "nummer": "01",
+        "titel": "Dakwerken",
+        "subtitel": "Pannen, isolatie, zinkwerk & herstellingen",
+        "beeld": "/assets/keyframes2/k2_dak.jpg"
+      },
+      {
+        "nummer": "02",
+        "titel": "Zonnepanelen",
+        "subtitel": "Installatie, omvormers & thuisbatterijen",
+        "beeld": "/assets/keyframes2/k3_zon.jpg"
+      },
+      {
+        "nummer": "03",
+        "titel": "Gevelrenovatie",
+        "subtitel": "Crepi, gevelbekleding & buitenschrijnwerk",
+        "beeld": "/assets/keyframes2/k4_gevel.jpg"
+      },
+      {
+        "nummer": "04",
+        "titel": "Warmtepompen & Airco's",
+        "subtitel": "Verwarmen én koelen, fluisterstil",
+        "beeld": "/assets/keyframes2/k4_gevel.jpg"
+      },
+      {
+        "nummer": "05",
+        "titel": "Totale Renovatie",
+        "subtitel": "Van eerste plan tot sleutel op de deur",
+        "beeld": "/assets/keyframes2/k5_nest.jpg"
+      },
+      {
+        "nummer": "06",
+        "titel": "Industriële Oplossingen",
+        "subtitel": "Ook voor bedrijfspanden & kmo's",
+        "beeld": "/assets/keyframes2/k1_oud.jpg"
+      }
+    ]
+  },
+  "voorna": {
+    "kicker": "VOOR & NA",
+    "titel": "Zie het verschil.",
+    "titelAccent": "Sleep maar.",
+    "beeldVoor": "/assets/keyframes2/k1_oud.jpg",
+    "beeldVoorAlt": "Voor: verweerd huis",
+    "beeldNa": "/assets/keyframes2/k5_nest.jpg",
+    "beeldNaAlt": "Na: volledig gerenoveerd huis met verlichte ramen",
+    "labelVoor": "VOOR",
+    "labelNa": "NA",
+    "hint": "ÉÉN ADRES — VAN VERWEERD HUIS TOT WARM NEST"
+  },
+  "realisaties": {
+    "kicker": "REALISATIES",
+    "titel": "Ons werk.",
+    "titelAccent": "In het echt.",
+    "items": [
+      {
+        "beeld": "/assets/realisaties/leuven.jpg",
+        "tag": "DAK + ZON",
+        "titel": "Dakwerk & zonnepanelen — Leuven",
+        "alt": "Dakwerk en zonnepanelen te Leuven"
+      },
+      {
+        "beeld": "/assets/realisaties/dak-lucht.jpg",
+        "tag": "DAKRENOVATIE",
+        "titel": "Nieuwe pannen, tot in de nok",
+        "alt": "Nieuwe dakpannen met zonnepanelen, gezien vanuit de lucht"
+      },
+      {
+        "beeld": "/assets/realisaties/werf.jpg",
+        "tag": "TOTAALPROJECT",
+        "titel": "Renovatie mét bijgebouw",
+        "alt": "Totaalrenovatie met bijgebouw en zonnepanelen"
+      },
+      {
+        "beeld": "/assets/realisaties/kempen.jpg",
+        "tag": "INDUSTRIEEL",
+        "titel": "Slim gestuurd systeem — Kempen",
+        "alt": "Industriële zonnepaneleninstallatie in de Kempen"
+      },
+      {
+        "beeld": "/assets/realisaties/zolder.jpg",
+        "tag": "ISOLATIE",
+        "titel": "Warm tot onder de nok",
+        "alt": "Geïsoleerde zolder met nieuwe dakstructuur"
+      }
+    ],
+    "hint": "SLEEP DOOR DE PROJECTEN — OF BEKIJK",
+    "hintLinkTekst": "ALLE REALISATIES ↗",
+    "hintLink": "https://nestcompany.be/realisaties"
+  },
+  "aanpak": {
+    "kicker": "ONZE AANPAK",
+    "titel": "Zet de koffie maar",
+    "titelAccent": "klaar.",
+    "stappen": [
+      {
+        "nummer": "01",
+        "titel": "De koffie",
+        "tekst": "Wij komen naar jou. Jij zet het koffiezetapparaat aan, wij luisteren, meten op en denken mee."
+      },
+      {
+        "nummer": "02",
+        "titel": "Het plan",
+        "tekst": "Eén helder voorstel, premies meegerekend, zonder kleine lettertjes of verrassingen achteraf."
+      },
+      {
+        "nummer": "03",
+        "titel": "De werf",
+        "tekst": "Eén team en één aanspreekpunt, van de eerste pan tot de laatste plint. Jij ziet je nest groeien."
+      }
+    ],
+    "cijfers": [
+      {
+        "waarde": "5",
+        "label": "VAKGEBIEDEN",
+        "telOp": true
+      },
+      {
+        "waarde": "1",
+        "label": "AANSPREEKPUNT",
+        "telOp": false
+      },
+      {
+        "waarde": "∞",
+        "label": "GOESTING",
+        "telOp": false
+      }
+    ]
+  },
+  "calculator": {
+    "kicker": "BENIEUWD NAAR DE PRIJS?",
+    "titel": "Bereken uw",
+    "titelAccent": "dakrenovatie.",
+    "knop": "→ NAAR DE CALCULATOR",
+    "link": "https://nestcompany.be"
+  },
+  "contact": {
+    "kicker": "GENOEG GESCROLD",
+    "titel": "WIJ KOMEN",
+    "titelAccent": "NAAR JOU.",
+    "tekst": "Gezellig alles bespreken aan jouw keukentafel — offerte inbegrepen.",
+    "adres": "NEST COMPANY BV — DE KLEETLAAN 5, 1831 MACHELEN, VLAAMS-BRABANT"
+  },
+  "voet": {
+    "links": "NEST COMPANY BV — MACHELEN",
+    "midden": "DAK — ZON — GEVEL — WARMTE — RENOVATIE",
+    "rechts": "© 2026 — VAN HUIS. NAAR NEST."
+  }
+}

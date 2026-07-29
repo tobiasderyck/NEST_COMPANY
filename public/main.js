@@ -53,15 +53,21 @@ let timedOut = false;
 document.addEventListener("scrub:ready", () => { framesReady = true; });
 setTimeout(() => { timedOut = true; }, 9000); // nooit eeuwig blokkeren
 
+// teksten komen uit content/site.json (via de pagina); vaste waarden als vangnet
+const T = Object.assign(
+  { stap1: "PLANNEN", stap2: "OPBOUW", stap3: "AFWERKING", klaar: "WELKOM THUIS." },
+  window.NEST_TEKSTEN || {}
+);
+
 const bouw = setInterval(() => {
   const cap = (framesReady || timedOut) ? 100 : 92;
   pct = Math.min(cap, pct + 3 + Math.random() * 9);
   preBar.style.width = pct + "%";
   preStatus.textContent =
-    pct < 35 ? `PLANNEN — ${Math.round(pct)}%` :
-    pct < 70 ? `OPBOUW — ${Math.round(pct)}%` :
-    pct < 100 ? `AFWERKING — ${Math.round(pct)}%` :
-    "WELKOM THUIS.";
+    pct < 35 ? `${T.stap1} — ${Math.round(pct)}%` :
+    pct < 70 ? `${T.stap2} — ${Math.round(pct)}%` :
+    pct < 100 ? `${T.stap3} — ${Math.round(pct)}%` :
+    T.klaar;
   if (pct >= 100) {
     clearInterval(bouw);
     setTimeout(() => {

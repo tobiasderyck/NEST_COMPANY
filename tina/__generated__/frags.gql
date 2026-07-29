@@ -1,0 +1,155 @@
+fragment SiteParts on Site {
+  __typename
+  merk {
+    __typename
+    naam
+    naamVervolg
+    telefoon
+    telefoonLink
+    email
+    paginaTitel
+    paginaOmschrijving
+    deelTitel
+    deelOmschrijving
+    deelBeeld
+  }
+  menu {
+    __typename
+    label
+    anker
+  }
+  knopBoven
+  laadscherm {
+    __typename
+    naam
+    stap1
+    stap2
+    stap3
+    klaar
+  }
+  film {
+    __typename
+    rail {
+      __typename
+      label
+    }
+    hero {
+      __typename
+      kicker
+      titelRegel1
+      titelRegel2
+      ondertitel
+      ondertitelAccent
+      voetLinks
+      voetMidden
+      voetRechts
+    }
+    aktes {
+      __typename
+      kicker
+      titel
+      titelAccent
+      tekst
+      start
+      einde
+    }
+    slot {
+      __typename
+      kicker
+      titel
+      titelAccent
+      knop
+      start
+      einde
+    }
+  }
+  statement {
+    __typename
+    regel1
+    regel2
+    regel2Accent
+    onderschrift
+  }
+  diensten {
+    __typename
+    kicker
+    titel
+    titelAccent
+    items {
+      __typename
+      nummer
+      titel
+      subtitel
+      beeld
+    }
+  }
+  voorna {
+    __typename
+    kicker
+    titel
+    titelAccent
+    beeldVoor
+    beeldVoorAlt
+    beeldNa
+    beeldNaAlt
+    labelVoor
+    labelNa
+    hint
+  }
+  realisaties {
+    __typename
+    kicker
+    titel
+    titelAccent
+    items {
+      __typename
+      beeld
+      tag
+      titel
+      alt
+    }
+    hint
+    hintLinkTekst
+    hintLink
+  }
+  aanpak {
+    __typename
+    kicker
+    titel
+    titelAccent
+    stappen {
+      __typename
+      nummer
+      titel
+      tekst
+    }
+    cijfers {
+      __typename
+      waarde
+      label
+      telOp
+    }
+  }
+  calculator {
+    __typename
+    kicker
+    titel
+    titelAccent
+    knop
+    link
+  }
+  contact {
+    __typename
+    kicker
+    titel
+    titelAccent
+    tekst
+    adres
+  }
+  voet {
+    __typename
+    links
+    midden
+    rechts
+  }
+}

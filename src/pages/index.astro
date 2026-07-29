@@ -1,0 +1,271 @@
+---
+/* De volledige pagina. Alle tekst en beelden komen uit content/site.json,
+   dat via TinaCMS (/admin) bewerkt wordt. De opmaak, de scrollfilm en de
+   animaties zitten in public/style.css, public/scrub.js en public/main.js. */
+import site from "../../content/site.json";
+
+/* Tina bewaart mediapaden soms zonder beginslash; hier rechttrekken. */
+const pad = (p: string) => (!p ? "" : p.startsWith("http") || p.startsWith("/") ? p : "/" + p);
+
+const { merk, menu, film, statement, diensten, voorna, realisaties, aanpak, calculator, contact, voet, laadscherm } = site;
+
+const logoSvg = `<path d="M30 34 L54 12 L88 43 L88 78 L58 78 L58 70 L80 70 L80 46 L54 23 L36 40 Z" fill="#e8542f"/>
+      <rect x="14" y="52" width="7" height="20" rx="3.5" fill="#3fa9dc"/>
+      <rect x="24" y="27" width="7" height="45" rx="3.5" fill="#189a49"/>
+      <rect x="34" y="36" width="7" height="36" rx="3.5" fill="#e23b3b"/>
+      <rect x="44" y="43" width="7" height="29" rx="3.5" fill="#35318f"/>
+      <rect x="54" y="58" width="7" height="14" rx="3.5" fill="#8f3f87"/>`;
+---
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{merk.paginaTitel}</title>
+<meta name="description" content={merk.paginaOmschrijving}>
+<meta property="og:title" content={merk.deelTitel}>
+<meta property="og:description" content={merk.deelOmschrijving}>
+<meta property="og:image" content={pad(merk.deelBeeld)}>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80'%3E%3Cpath d='M30 34 L54 12 L88 43 L88 78 L58 78 L58 70 L80 70 L80 46 L54 23 L36 40 Z' fill='%23e8542f'/%3E%3Crect x='14' y='52' width='7' height='20' rx='3.5' fill='%233fa9dc'/%3E%3Crect x='24' y='27' width='7' height='45' rx='3.5' fill='%23189a49'/%3E%3Crect x='34' y='36' width='7' height='36' rx='3.5' fill='%23e23b3b'/%3E%3Crect x='44' y='43' width='7' height='29' rx='3.5' fill='%2335318f'/%3E%3Crect x='54' y='58' width='7' height='14' rx='3.5' fill='%238f3f87'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=Fragment+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script is:inline>
+  /* thema vóór de eerste verf zetten, anders flitst de verkeerde wereld even door */
+  (function () {
+    try {
+      var k = localStorage.getItem("nest-thema");
+      if (!k) k = matchMedia("(prefers-color-scheme: light)").matches ? "licht" : "donker";
+      if (k === "licht") document.documentElement.setAttribute("data-thema", "licht");
+    } catch (e) {}
+  })();
+</script>
+<script is:inline set:html={`window.NEST_TEKSTEN = ${JSON.stringify(laadscherm)};`}></script>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+  <div class="pre-inner">
+    <span class="pre-huis" aria-hidden="true">
+      <svg viewBox="0 0 100 80" fill="none">
+        <path class="nl-huis" d="M30 34 L54 12 L88 43 L88 78 L58 78 L58 70 L80 70 L80 46 L54 23 L36 40 Z" fill="#e8542f"/>
+        <rect class="nl-b nl-b1" x="14" y="52" width="7" height="20" rx="3.5" fill="#3fa9dc"/>
+        <rect class="nl-b nl-b2" x="24" y="27" width="7" height="45" rx="3.5" fill="#189a49"/>
+        <rect class="nl-b nl-b3" x="34" y="36" width="7" height="36" rx="3.5" fill="#e23b3b"/>
+        <rect class="nl-b nl-b4" x="44" y="43" width="7" height="29" rx="3.5" fill="#35318f"/>
+        <rect class="nl-b nl-b5" x="54" y="58" width="7" height="14" rx="3.5" fill="#8f3f87"/>
+      </svg>
+    </span>
+    <div class="pre-word" aria-hidden="true">{laadscherm.naam}</div>
+    <div class="pre-bar"><i id="preBar"></i></div>
+    <div class="pre-status mono" id="preStatus">{laadscherm.stap1} — 0%</div>
+  </div>
+</div>
+
+<!-- GRAIN -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- AKTE-RAIL -->
+<nav class="rail mono" id="rail" aria-hidden="true">
+  {film.rail.map((r) => <span>{r.label}</span>)}
+</nav>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <a class="logo" href="#top">
+    <svg class="logo-huis" viewBox="0 0 100 80" fill="none" aria-hidden="true" set:html={logoSvg}></svg>
+    {merk.naam}<span class="logo-co">{merk.naamVervolg}</span>
+  </a>
+  <nav class="mono">
+    {menu.map((m) => <a href={m.anker}>{m.label}</a>)}
+  </nav>
+  <div class="kop-rechts">
+    <button class="thema-knop" id="themaKnop" type="button" aria-label="Wissel naar dagmodus" title="Dag- of nachtmodus">
+      <svg class="ikoon-maan" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+      </svg>
+      <svg class="ikoon-zon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <a class="mono header-cta" href="#contact">{site.knopBoven}</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ═══════════ DE TRANSFORMATIE — één doorlopende film ═══════════ -->
+  <div class="journey" id="journey">
+    <div class="journey-stage">
+      <canvas id="journeyCanvas"></canvas>
+      <div class="scrub-shade" aria-hidden="true"></div>
+
+      <div class="hero-overlay" data-in="0" data-out="0.03">
+        <div class="hero-center">
+          <div class="hero-kicker mono">{film.hero.kicker}</div>
+          <h1 class="hero-title">{film.hero.titelRegel1}<br>{film.hero.titelRegel2}</h1>
+          <p class="hero-sub serif">{film.hero.ondertitel} <em>{film.hero.ondertitelAccent}</em></p>
+        </div>
+        <div class="hero-foot mono">
+          <span>{film.hero.voetLinks}</span>
+          <span class="scroll-hint">{film.hero.voetMidden}</span>
+          <span>{film.hero.voetRechts}</span>
+        </div>
+      </div>
+
+      {film.aktes.map((akte) => (
+        <div class="scrub-copy" data-in={akte.start} data-out={akte.einde}>
+          <span class="mono act-kicker">{akte.kicker}</span>
+          <h2 class="act-title">{akte.titel}<br><em class="serif">{akte.titelAccent}</em></h2>
+          <p class="act-line">{akte.tekst}</p>
+        </div>
+      ))}
+
+      <div class="scrub-copy is-final" data-in={film.slot.start} data-out={film.slot.einde}>
+        <span class="mono act-kicker">{film.slot.kicker}</span>
+        <h2 class="act-title">{film.slot.titel}<br><em class="serif">{film.slot.titelAccent}</em></h2>
+        <a class="cta cta-solid" href="#contact"><span class="mono">{film.slot.knop}</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ NA DE FILM ═══════════ -->
+  <div class="after">
+
+    <!-- STATEMENT -->
+    <section class="seal">
+      <p class="seal-text rv">{statement.regel1}<br>{statement.regel2} <em class="serif">{statement.regel2Accent}</em></p>
+      <p class="mono seal-sub rv">{statement.onderschrift}</p>
+    </section>
+
+    <!-- DIENSTEN -->
+    <section class="diensten" id="diensten">
+      <div class="act-head rv">
+        <span class="mono act-kicker">{diensten.kicker}</span>
+        <h2>{diensten.titel} <em class="serif">{diensten.titelAccent}</em></h2>
+      </div>
+      <ul class="dienst-rows" id="dienstRows">
+        {diensten.items.map((d) => (
+          <li class="rv" data-beeld={pad(d.beeld)}>
+            <a href="#contact">
+              <span class="mono d-nr">{d.nummer}</span>
+              <span class="d-titel">{d.titel}</span>
+              <span class="d-sub">{d.subtitel}</span>
+              <span class="mono d-pijl">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="dienst-peek" id="dienstPeek" aria-hidden="true"><img alt="" id="dienstPeekImg"></div>
+    </section>
+
+    <!-- VOOR / NA -->
+    <section class="voorna" id="voorna">
+      <div class="act-head rv">
+        <span class="mono act-kicker">{voorna.kicker}</span>
+        <h2>{voorna.titel} <em class="serif">{voorna.titelAccent}</em></h2>
+      </div>
+      <div class="vn-stage rv" id="vnStage">
+        <img class="vn-na" src={pad(voorna.beeldNa)} alt={voorna.beeldNaAlt}>
+        <div class="vn-voor" id="vnVoor"><img src={pad(voorna.beeldVoor)} alt={voorna.beeldVoorAlt}></div>
+        <div class="vn-lijn" id="vnLijn"><span class="vn-knop mono">◂ ▸</span></div>
+        <span class="vn-label mono vn-label-l">{voorna.labelVoor}</span>
+        <span class="vn-label mono vn-label-r">{voorna.labelNa}</span>
+      </div>
+      <p class="mono vn-hint rv">{voorna.hint}</p>
+    </section>
+
+    <!-- REALISATIES -->
+    <section class="realisaties" id="realisaties">
+      <div class="act-head rv">
+        <span class="mono act-kicker">{realisaties.kicker}</span>
+        <h2>{realisaties.titel} <em class="serif">{realisaties.titelAccent}</em></h2>
+      </div>
+      <div class="werk-rail rv" id="werkRail">
+        {realisaties.items.map((w) => (
+          <figure class="werk">
+            <div class="werk-plate"><img src={pad(w.beeld)} alt={w.alt} loading="lazy"></div>
+            <figcaption>
+              <span class="mono w-tag">{w.tag}</span>
+              <span class="w-titel">{w.titel}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <p class="mono werk-hint rv">{realisaties.hint} <a href={realisaties.hintLink} target="_blank" rel="noopener">{realisaties.hintLinkTekst}</a></p>
+    </section>
+
+    <!-- AANPAK -->
+    <section class="aanpak" id="aanpak">
+      <div class="act-head rv">
+        <span class="mono act-kicker">{aanpak.kicker}</span>
+        <h2>{aanpak.titel} <em class="serif">{aanpak.titelAccent}</em></h2>
+      </div>
+      <ol class="stappen">
+        {aanpak.stappen.map((s) => (
+          <li class="rv">
+            <span class="stap-nr serif">{s.nummer}</span>
+            <div>
+              <h3>{s.titel}</h3>
+              <p>{s.tekst}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <div class="cijfers rv">
+        {aanpak.cijfers.map((c) => (
+          <div>
+            {c.telOp
+              ? <span class="c-groot" data-count={c.waarde}>0</span>
+              : <span class="c-groot">{c.waarde}</span>}
+            <span class="mono c-sub">{c.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CALCULATOR CTA -->
+    <section class="calc rv">
+      <div class="calc-inner">
+        <span class="mono act-kicker">{calculator.kicker}</span>
+        <h2>{calculator.titel} <em class="serif">{calculator.titelAccent}</em></h2>
+        <a class="cta cta-solid" href={calculator.link} target="_blank" rel="noopener"><span class="mono">{calculator.knop}</span></a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="cta-block" id="contact">
+      <p class="cta-kicker mono rv">{contact.kicker}</p>
+      <h2 class="cta-title rv">{contact.titel} <em class="serif">{contact.titelAccent}</em></h2>
+      <p class="cta-tekst rv">{contact.tekst}</p>
+      <div class="cta-row rv">
+        <a class="cta" href={`tel:${merk.telefoonLink}`}><span class="mono">→ {merk.telefoon}</span></a>
+        <a class="cta" href={`mailto:${merk.email}`}><span class="mono">→ {merk.email.toUpperCase()}</span></a>
+      </div>
+      <p class="mono cta-adres rv">{contact.adres}</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="foot mono">
+      <span>{voet.links}</span>
+      <span class="hide-m">{voet.midden}</span>
+      <span>{voet.rechts}</span>
+    </footer>
+
+  </div>
+
+</main>
+
+<script is:inline src="/vendor/lenis.min.js"></script>
+<script is:inline src="/smooth.js"></script>
+<script is:inline src="/main.js"></script>
+<script is:inline src="/scrub.js"></script>
+</body>
+</html>
