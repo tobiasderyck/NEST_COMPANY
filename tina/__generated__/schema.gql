@@ -60,12 +60,24 @@ type Query {
   editorialConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: EditorialFilter): EditorialConnection!
   homepage(relativePath: String): Homepage!
   homepageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: HomepageFilter): HomepageConnection!
+  reviews(relativePath: String): Reviews!
+  reviewsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ReviewsFilter): ReviewsConnection!
+  privacy(relativePath: String): Privacy!
+  privacyConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PrivacyFilter): PrivacyConnection!
+  cookies(relativePath: String): Cookies!
+  cookiesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CookiesFilter): CookiesConnection!
+  voorwaarden(relativePath: String): Voorwaarden!
+  voorwaardenConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: VoorwaardenFilter): VoorwaardenConnection!
 }
 
 input DocumentFilter {
   services: ServicesFilter
   editorial: EditorialFilter
   homepage: HomepageFilter
+  reviews: ReviewsFilter
+  privacy: PrivacyFilter
+  cookies: CookiesFilter
+  voorwaarden: VoorwaardenFilter
 }
 
 type DocumentConnectionEdges {
@@ -91,7 +103,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Services | Editorial | Homepage | Folder
+union DocumentNode = Services | Editorial | Homepage | Reviews | Privacy | Cookies | Voorwaarden | Folder
 
 type ServicesItemsSections {
   title: String
@@ -228,35 +240,112 @@ type EditorialConnection implements Connection {
   edges: [EditorialConnectionEdges]
 }
 
+type HomepageHero {
+  regel1: String
+  regel2: String
+  nadruk: String
+  tekst: String
+  knop: String
+  bewijs: String
+}
+
+type HomepageDelen {
+  naam: String
+  titel: String
+  tekst: String
+  punten: [String]
+  link: String
+  knop: String
+  film: String
+  foto: String
+  fotoTekst: String
+}
+
+type HomepagePloegMensen {
+  naam: String
+  vak: String
+}
+
+type HomepagePloeg {
+  titel: String
+  tekst: String
+  fotoNoot: String
+  googleLink: String
+  mensen: [HomepagePloegMensen]
+}
+
+type HomepageMeter {
+  titel: String
+  tekst: String
+  slotTitel: String
+  slotTekst: String
+  knop: String
+}
+
 type Homepage implements Node & Document {
-  titleStart: String
-  titleEnd: String
-  titleAccent: String
-  promise: String
-  description: String
-  adviceButton: String
-  servicesLink: String
-  intro: String
-  servicesTitle: String
-  servicesAccent: String
-  servicesDescription: String
+  hero: HomepageHero
+  delen: [HomepageDelen]
+  ploeg: HomepagePloeg
+  meter: HomepageMeter
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
+input HomepageHeroFilter {
+  regel1: StringFilter
+  regel2: StringFilter
+  nadruk: StringFilter
+  tekst: StringFilter
+  knop: StringFilter
+  bewijs: StringFilter
+}
+
+input ImageFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input HomepageDelenFilter {
+  naam: StringFilter
+  titel: StringFilter
+  tekst: StringFilter
+  punten: StringFilter
+  link: StringFilter
+  knop: StringFilter
+  film: StringFilter
+  foto: ImageFilter
+  fotoTekst: StringFilter
+}
+
+input HomepagePloegMensenFilter {
+  naam: StringFilter
+  vak: StringFilter
+}
+
+input HomepagePloegFilter {
+  titel: StringFilter
+  tekst: StringFilter
+  fotoNoot: StringFilter
+  googleLink: StringFilter
+  mensen: HomepagePloegMensenFilter
+}
+
+input HomepageMeterFilter {
+  titel: StringFilter
+  tekst: StringFilter
+  slotTitel: StringFilter
+  slotTekst: StringFilter
+  knop: StringFilter
+}
+
 input HomepageFilter {
-  titleStart: StringFilter
-  titleEnd: StringFilter
-  titleAccent: StringFilter
-  promise: StringFilter
-  description: StringFilter
-  adviceButton: StringFilter
-  servicesLink: StringFilter
-  intro: StringFilter
-  servicesTitle: StringFilter
-  servicesAccent: StringFilter
-  servicesDescription: StringFilter
+  hero: HomepageHeroFilter
+  delen: HomepageDelenFilter
+  ploeg: HomepagePloegFilter
+  meter: HomepageMeterFilter
 }
 
 type HomepageConnectionEdges {
@@ -268,6 +357,180 @@ type HomepageConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [HomepageConnectionEdges]
+}
+
+type ReviewsItems {
+  klant: String
+  tekst: String
+  sterren: Float
+  over: String
+}
+
+type Reviews implements Node & Document {
+  gemiddelde: String
+  aantal: Float
+  items: [ReviewsItems]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
+input ReviewsItemsFilter {
+  klant: StringFilter
+  tekst: StringFilter
+  sterren: NumberFilter
+  over: StringFilter
+}
+
+input ReviewsFilter {
+  gemiddelde: StringFilter
+  aantal: NumberFilter
+  items: ReviewsItemsFilter
+}
+
+type ReviewsConnectionEdges {
+  cursor: String!
+  node: Reviews
+}
+
+type ReviewsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ReviewsConnectionEdges]
+}
+
+type PrivacySecties {
+  titel: String
+  tekst: String
+}
+
+type Privacy implements Node & Document {
+  titel: String
+  intro: String
+  bijgewerkt: String
+  secties: [PrivacySecties]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input PrivacySectiesFilter {
+  titel: StringFilter
+  tekst: StringFilter
+}
+
+input PrivacyFilter {
+  titel: StringFilter
+  intro: StringFilter
+  bijgewerkt: StringFilter
+  secties: PrivacySectiesFilter
+}
+
+type PrivacyConnectionEdges {
+  cursor: String!
+  node: Privacy
+}
+
+type PrivacyConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [PrivacyConnectionEdges]
+}
+
+type CookiesSecties {
+  titel: String
+  tekst: String
+}
+
+type Cookies implements Node & Document {
+  titel: String
+  intro: String
+  bijgewerkt: String
+  secties: [CookiesSecties]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input CookiesSectiesFilter {
+  titel: StringFilter
+  tekst: StringFilter
+}
+
+input CookiesFilter {
+  titel: StringFilter
+  intro: StringFilter
+  bijgewerkt: StringFilter
+  secties: CookiesSectiesFilter
+}
+
+type CookiesConnectionEdges {
+  cursor: String!
+  node: Cookies
+}
+
+type CookiesConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [CookiesConnectionEdges]
+}
+
+type VoorwaardenArtikelsLeden {
+  nr: String
+  tekst: String
+}
+
+type VoorwaardenArtikels {
+  nr: Float
+  titel: String
+  leden: [VoorwaardenArtikelsLeden]
+}
+
+type Voorwaarden implements Node & Document {
+  titel: String
+  versie: String
+  artikels: [VoorwaardenArtikels]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input VoorwaardenArtikelsLedenFilter {
+  nr: StringFilter
+  tekst: StringFilter
+}
+
+input VoorwaardenArtikelsFilter {
+  nr: NumberFilter
+  titel: StringFilter
+  leden: VoorwaardenArtikelsLedenFilter
+}
+
+input VoorwaardenFilter {
+  titel: StringFilter
+  versie: StringFilter
+  artikels: VoorwaardenArtikelsFilter
+}
+
+type VoorwaardenConnectionEdges {
+  cursor: String!
+  node: Voorwaarden
+}
+
+type VoorwaardenConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [VoorwaardenConnectionEdges]
 }
 
 type Mutation {
@@ -282,12 +545,24 @@ type Mutation {
   createEditorial(relativePath: String!, params: EditorialMutation!): Editorial!
   updateHomepage(relativePath: String!, params: HomepageMutation!): Homepage!
   createHomepage(relativePath: String!, params: HomepageMutation!): Homepage!
+  updateReviews(relativePath: String!, params: ReviewsMutation!): Reviews!
+  createReviews(relativePath: String!, params: ReviewsMutation!): Reviews!
+  updatePrivacy(relativePath: String!, params: PrivacyMutation!): Privacy!
+  createPrivacy(relativePath: String!, params: PrivacyMutation!): Privacy!
+  updateCookies(relativePath: String!, params: CookiesMutation!): Cookies!
+  createCookies(relativePath: String!, params: CookiesMutation!): Cookies!
+  updateVoorwaarden(relativePath: String!, params: VoorwaardenMutation!): Voorwaarden!
+  createVoorwaarden(relativePath: String!, params: VoorwaardenMutation!): Voorwaarden!
 }
 
 input DocumentUpdateMutation {
   services: ServicesMutation
   editorial: EditorialMutation
   homepage: HomepageMutation
+  reviews: ReviewsMutation
+  privacy: PrivacyMutation
+  cookies: CookiesMutation
+  voorwaarden: VoorwaardenMutation
   relativePath: String
 }
 
@@ -295,6 +570,10 @@ input DocumentMutation {
   services: ServicesMutation
   editorial: EditorialMutation
   homepage: HomepageMutation
+  reviews: ReviewsMutation
+  privacy: PrivacyMutation
+  cookies: CookiesMutation
+  voorwaarden: VoorwaardenMutation
 }
 
 input ServicesItemsSectionsMutation {
@@ -347,18 +626,107 @@ input EditorialMutation {
   items: [EditorialItemsMutation]
 }
 
+input HomepageHeroMutation {
+  regel1: String
+  regel2: String
+  nadruk: String
+  tekst: String
+  knop: String
+  bewijs: String
+}
+
+input HomepageDelenMutation {
+  naam: String
+  titel: String
+  tekst: String
+  punten: [String]
+  link: String
+  knop: String
+  film: String
+  foto: String
+  fotoTekst: String
+}
+
+input HomepagePloegMensenMutation {
+  naam: String
+  vak: String
+}
+
+input HomepagePloegMutation {
+  titel: String
+  tekst: String
+  fotoNoot: String
+  googleLink: String
+  mensen: [HomepagePloegMensenMutation]
+}
+
+input HomepageMeterMutation {
+  titel: String
+  tekst: String
+  slotTitel: String
+  slotTekst: String
+  knop: String
+}
+
 input HomepageMutation {
-  titleStart: String
-  titleEnd: String
-  titleAccent: String
-  promise: String
-  description: String
-  adviceButton: String
-  servicesLink: String
+  hero: HomepageHeroMutation
+  delen: [HomepageDelenMutation]
+  ploeg: HomepagePloegMutation
+  meter: HomepageMeterMutation
+}
+
+input ReviewsItemsMutation {
+  klant: String
+  tekst: String
+  sterren: Float
+  over: String
+}
+
+input ReviewsMutation {
+  gemiddelde: String
+  aantal: Float
+  items: [ReviewsItemsMutation]
+}
+
+input PrivacySectiesMutation {
+  titel: String
+  tekst: String
+}
+
+input PrivacyMutation {
+  titel: String
   intro: String
-  servicesTitle: String
-  servicesAccent: String
-  servicesDescription: String
+  bijgewerkt: String
+  secties: [PrivacySectiesMutation]
+}
+
+input CookiesSectiesMutation {
+  titel: String
+  tekst: String
+}
+
+input CookiesMutation {
+  titel: String
+  intro: String
+  bijgewerkt: String
+  secties: [CookiesSectiesMutation]
+}
+
+input VoorwaardenArtikelsLedenMutation {
+  nr: String
+  tekst: String
+}
+
+input VoorwaardenArtikelsMutation {
+  nr: Float
+  titel: String
+  leden: [VoorwaardenArtikelsLedenMutation]
+}
+
+input VoorwaardenMutation {
+  titel: String
+  versie: String
+  artikels: [VoorwaardenArtikelsMutation]
 }
 
 schema {

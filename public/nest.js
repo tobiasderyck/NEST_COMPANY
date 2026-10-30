@@ -142,3 +142,10 @@
   if(!reduced.matches&&!navigator.connection?.saveData){intent=true;showControl();start();}
  }
 })();
+
+/* Plooimeter op de homepage → vul het bericht voor, enkel als de bezoeker dat zelf zo gekozen heeft.
+   Niets wordt verstuurd; de bezoeker leest het na en past aan. */
+(()=>{const veld=document.getElementById('message');if(!veld)return;
+ try{const o=JSON.parse(sessionStorage.getItem('nest-opmeting')||'null');
+  if(o&&typeof o.tekst==='string'&&o.tekst.length<2000&&Date.now()-o.gemaakt<7200000&&!veld.value.trim()){veld.value=o.tekst+'\n\n';}
+  sessionStorage.removeItem('nest-opmeting');}catch{}})();

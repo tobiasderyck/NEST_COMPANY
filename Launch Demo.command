@@ -1,7 +1,7 @@
 #!/bin/bash
-# NEST COMPANY — demo-launcher. Dubbelklik om de site lokaal te starten.
+# NEST Company: dubbelklik om de site lokaal te starten (met de Tina-bewerkomgeving op /admin/index.html).
 cd "$(dirname "$0")"
 PORT=4327
-echo "NEST COMPANY — http://localhost:$PORT"
-(sleep 1 && open "http://localhost:$PORT") &
-python3 -m http.server "$PORT"
+echo "NEST Company: http://localhost:$PORT"
+(sleep 4 && open "http://localhost:$PORT") &
+npm run dev

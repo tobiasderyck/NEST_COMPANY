@@ -1,0 +1,6 @@
+---
+import Juridisch from '../components/Juridisch.astro';
+import c from '../../content/juridisch/cookies.json';
+const blokken = c.secties.map((s, i) => ({ id: `deel-${i + 1}`, titel: s.titel, tekst: s.tekst }));
+---
+<Juridisch titel={c.titel} beschrijving="NEST Company zet geen trackingcookies. Lees welke kleine dingen de website wel op je toestel bewaart en waarom." intro={c.intro} bijgewerkt={c.bijgewerkt} blokken={blokken}/>

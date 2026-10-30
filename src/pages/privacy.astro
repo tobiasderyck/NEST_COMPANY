@@ -1,0 +1,6 @@
+---
+import Juridisch from '../components/Juridisch.astro';
+import p from '../../content/juridisch/privacy.json';
+const blokken = p.secties.map((s, i) => ({ id: `deel-${i + 1}`, titel: s.titel, tekst: s.tekst }));
+---
+<Juridisch titel={p.titel} beschrijving="Hoe NEST Company BV omgaat met je persoonsgegevens: welke gegevens, waarom, hoe lang en wat je rechten zijn." intro={p.intro} bijgewerkt={p.bijgewerkt} blokken={blokken}/>

@@ -1,0 +1,47 @@
+{
+  "titel": "Privacyverklaring",
+  "intro": "Je gegevens zijn bij ons in goede handen. Hier lees je in gewone taal welke gegevens NEST Company via deze website verwerkt, waarom, hoe lang, en wat jouw rechten zijn.",
+  "bijgewerkt": "november 2026",
+  "secties": [
+    {
+      "titel": "Wie is verantwoordelijk?",
+      "tekst": "NEST Company BV is verantwoordelijk voor de verwerking van je persoonsgegevens.\n\n- De Kleetlaan 5/BC, 1831 Machelen\n- Ondernemingsnummer BE 1013.321.485\n- info@nestcompany.be\n- 0492 86 42 02\n\nVoor elke vraag over je gegevens kun je ons op die adressen bereiken."
+    },
+    {
+      "titel": "Welke gegevens verwerken we via de website?",
+      "tekst": "- Als je een adviesaanvraag doet: je naam, je e-mailadres, je bericht, en de onderwerpen die je zelf aanduidt (bijvoorbeeld dak of thuisbatterij, het soort woning en wanneer je wil starten).\n- Als je ons belt of mailt: de gegevens die je ons zelf geeft.\n- De NEST-verkenner rekent enkel in je eigen browser. Er gaat niets naar ons, tenzij je zelf kiest om je berekening mee te sturen met een aanvraag.\n- Onze hostingpartner bewaart technische serverlogs (zoals IP-adres en tijdstip) om de website veilig en bereikbaar te houden.\n\nWe gebruiken geen statistiekcookies, geen advertentiecookies en geen trackingpixels van sociale media."
+    },
+    {
+      "titel": "Waarom en op welke grond?",
+      "tekst": "- Om je vraag te beantwoorden, je te bezoeken en een offerte op te maken. Dat zijn stappen die je zelf vraagt vóór een overeenkomst (artikel 6.1.b AVG).\n- Om de werken uit te voeren en op te volgen, als je klant wordt (artikel 6.1.b AVG).\n- Om aan onze wettelijke verplichtingen te voldoen, zoals de boekhoudkundige en fiscale regels (artikel 6.1.c AVG).\n- Om de website te beveiligen. Dat is ons gerechtvaardigd belang (artikel 6.1.f AVG).\n\nAls je klant wordt, gelden daarnaast onze algemene voorwaarden. Artikel 3 daarvan gaat over de opslag van klantgegevens."
+    },
+    {
+      "titel": "Hoe lang bewaren we je gegevens?",
+      "tekst": "- Een aanvraag die geen opdracht wordt, bewaren we tot twee jaar na het laatste contact. Daarna wissen we ze.\n- Gegevens van klanten bewaren we zolang dat nodig is voor de opvolging, de garantie en onze aansprakelijkheid als aannemer, en minstens zo lang als de boekhoudwetgeving vraagt (zeven jaar).\n- Serverlogs worden na korte tijd automatisch verwijderd door de hostingpartner."
+    },
+    {
+      "titel": "Met wie delen we je gegevens?",
+      "tekst": "We verkopen je gegevens nooit. We delen ze alleen als dat nodig is:\n\n- met onze hosting- en e-mailpartners, die de website en onze mailbox draaiende houden;\n- met onze boekhouder;\n- met een keuringsorganisme of netbeheerder, als dat nodig is voor de keuring of de aanmelding van je installatie;\n- met de overheid, als je ons vraagt een premie voor je aan te vragen, of als de wet het verplicht.\n\nMet elke partner die je gegevens voor ons verwerkt, maken we afspraken over beveiliging en vertrouwelijkheid."
+    },
+    {
+      "titel": "Gegevens buiten de Europese Unie",
+      "tekst": "Sommige van onze dienstverleners zijn gevestigd buiten de Europese Economische Ruimte, bijvoorbeeld in de Verenigde Staten. We werken dan enkel met partners die de waarborgen uit de AVG bieden, zoals de standaardcontractbepalingen van de Europese Commissie of het EU-VS-gegevensprivacykader."
+    },
+    {
+      "titel": "Jouw rechten",
+      "tekst": "Je hebt het recht om:\n\n- je gegevens in te kijken;\n- ze te laten verbeteren als ze niet kloppen;\n- ze te laten wissen, behalve als de wet ons verplicht ze te bewaren;\n- de verwerking tijdelijk te laten beperken;\n- je gegevens te krijgen in een gangbaar bestand, om ze aan een ander bedrijf te geven;\n- bezwaar te maken tegen een verwerking op basis van ons gerechtvaardigd belang.\n\nStuur je vraag naar info@nestcompany.be. We antwoorden binnen één maand."
+    },
+    {
+      "titel": "Een klacht?",
+      "tekst": "Kom je er met ons niet uit, dan kun je een klacht indienen bij de Gegevensbeschermingsautoriteit, Drukpersstraat 35, 1000 Brussel, contact@apd-gba.be, www.gegevensbeschermingsautoriteit.be."
+    },
+    {
+      "titel": "Beveiliging",
+      "tekst": "De website werkt enkel via een versleutelde verbinding (https). We nemen technische en organisatorische maatregelen om je gegevens te beschermen tegen verlies, misbruik en toegang door onbevoegden."
+    },
+    {
+      "titel": "Cookies",
+      "tekst": "Hoe we met cookies en de opslag op je toestel omgaan, lees je in ons cookiebeleid."
+    }
+  ]
+}

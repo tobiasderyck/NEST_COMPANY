@@ -1,0 +1,10 @@
+---
+import Juridisch from '../components/Juridisch.astro';
+import av from '../../content/juridisch/algemene-voorwaarden.json';
+/* Elk artikel wordt één blok; de leden (2.1, 2.2 …) blijven genummerd in de tekst. */
+const blokken = av.artikels.map(a => ({
+  id: `artikel-${a.nr}`, nr: String(a.nr), titel: a.titel,
+  tekst: a.leden.map(l => (l.nr ? `${l.nr}  ` : '') + l.tekst).join('\n\n')
+}));
+---
+<Juridisch titel={av.titel} beschrijving="De algemene voorwaarden van NEST Company BV voor offertes, uitvoering, betaling, garantie en aansprakelijkheid." intro="Deze voorwaarden gelden voor alle overeenkomsten tussen NEST Company BV en haar klanten. Je vindt ze ook terug op elke offerte." blokken={blokken} pdf="/documenten/algemene-voorwaarden-nest-company.pdf"/>

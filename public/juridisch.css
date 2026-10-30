@@ -1,0 +1,29 @@
+/* Juridische pagina's: rustig leesbaar, met een inhoud die meeloopt op brede schermen. */
+.jur { padding: clamp(40px, 6vw, 90px) 0 clamp(80px, 9vw, 140px); }
+.jur-kop { max-width: 820px; padding-bottom: clamp(30px, 4vw, 54px); border-bottom: 1px solid var(--line); }
+.jur-kop h1 { font: 600 clamp(42px, 5.4vw, 84px)/.96 var(--serif); letter-spacing: -.045em; }
+.jur-kop p { margin-top: 18px; font-size: 19px; color: var(--muted); }
+.jur-meta { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; font-size: 14px; color: var(--muted); }
+.jur-meta .text-link { margin: 0; color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
+.jur-raster { display: grid; grid-template-columns: minmax(200px, 3fr) minmax(0, 8fr); gap: clamp(30px, 6vw, 110px); margin-top: clamp(30px, 4vw, 54px); align-items: start; }
+.jur-inhoud { position: sticky; top: 120px; max-height: calc(100vh - 150px); overflow: auto; }
+.jur-inhoud ol { list-style: none; display: grid; gap: 2px; font-size: 14px; }
+.jur-inhoud a { display: flex; gap: 10px; padding: 6px 0; color: var(--muted); line-height: 1.35; }
+.jur-inhoud a span { min-width: 20px; color: var(--ink); font-variant-numeric: tabular-nums; font-weight: 600; }
+.jur-inhoud a:hover { color: var(--ink); }
+.jur-tekst { max-width: 760px; }
+.jur-tekst section { padding: 0 0 34px; margin-bottom: 34px; border-bottom: 1px solid var(--line); scroll-margin-top: 120px; }
+.jur-tekst section:last-child { border-bottom: 0; }
+.jur-tekst h2 { font: 600 clamp(22px, 2vw, 28px)/1.15 var(--serif); letter-spacing: -.03em; margin-bottom: 14px; display: flex; gap: 14px; align-items: baseline; }
+.jur-nr { font-size: .7em; color: var(--orange); font-variant-numeric: tabular-nums; min-width: 1.4em; }
+.jur-tekst p { font-size: 16.5px; line-height: 1.65; margin-bottom: 14px; max-width: 70ch; }
+.jur-tekst ul { margin: 0 0 14px; padding-left: 0; list-style: none; display: grid; gap: 8px; }
+.jur-tekst li { position: relative; padding-left: 22px; font-size: 16.5px; line-height: 1.6; }
+.jur-tekst li::before { content: ""; position: absolute; left: 2px; top: .8em; width: 10px; height: 1.5px; background: var(--orange); }
+.jur-tekst a { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.jur-tekst a:hover { color: var(--orange); }
+@media (max-width: 860px) {
+  .jur-raster { grid-template-columns: 1fr; }
+  .jur-inhoud { position: static; max-height: none; border: 1px solid var(--line); padding: 14px 16px; }
+  .jur-inhoud ol { grid-template-columns: 1fr 1fr; gap: 0 14px; }
+}

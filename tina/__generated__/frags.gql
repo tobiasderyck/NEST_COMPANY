@@ -48,15 +48,98 @@ fragment EditorialParts on Editorial {
 
 fragment HomepageParts on Homepage {
   __typename
-  titleStart
-  titleEnd
-  titleAccent
-  promise
-  description
-  adviceButton
-  servicesLink
+  hero {
+    __typename
+    regel1
+    regel2
+    nadruk
+    tekst
+    knop
+    bewijs
+  }
+  delen {
+    __typename
+    naam
+    titel
+    tekst
+    punten
+    link
+    knop
+    film
+    foto
+    fotoTekst
+  }
+  ploeg {
+    __typename
+    titel
+    tekst
+    fotoNoot
+    googleLink
+    mensen {
+      __typename
+      naam
+      vak
+    }
+  }
+  meter {
+    __typename
+    titel
+    tekst
+    slotTitel
+    slotTekst
+    knop
+  }
+}
+
+fragment ReviewsParts on Reviews {
+  __typename
+  gemiddelde
+  aantal
+  items {
+    __typename
+    klant
+    tekst
+    sterren
+    over
+  }
+}
+
+fragment PrivacyParts on Privacy {
+  __typename
+  titel
   intro
-  servicesTitle
-  servicesAccent
-  servicesDescription
+  bijgewerkt
+  secties {
+    __typename
+    titel
+    tekst
+  }
+}
+
+fragment CookiesParts on Cookies {
+  __typename
+  titel
+  intro
+  bijgewerkt
+  secties {
+    __typename
+    titel
+    tekst
+  }
+}
+
+fragment VoorwaardenParts on Voorwaarden {
+  __typename
+  titel
+  versie
+  artikels {
+    __typename
+    nr
+    titel
+    leden {
+      __typename
+      nr
+      tekst
+    }
+  }
 }

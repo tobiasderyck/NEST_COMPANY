@@ -1,0 +1,27 @@
+{
+  "titel": "Cookiebeleid",
+  "intro": "Kort: deze website zet geen cookies om je te volgen. Daarom vragen we je ook niet om iets te aanvaarden.",
+  "bijgewerkt": "november 2026",
+  "secties": [
+    {
+      "titel": "Geen tracking",
+      "tekst": "We gebruiken geen statistiek- of advertentiecookies, geen Google Analytics en geen pixels van Facebook of andere sociale media. De lettertypes, foto's en filmpjes komen van onze eigen server, niet van een externe dienst."
+    },
+    {
+      "titel": "Wat we wel op je toestel bewaren",
+      "tekst": "Een paar functies onthouden iets op je eigen toestel. Dat is nodig om te doen wat je zelf vraagt, en de gegevens gaan nooit vanzelf naar ons.\n\n- Jouw plan: de diensten die je met het plusje bewaart (alleen de namen, zoals \"Thuisbatterijen\"). Blijft staan tot je ze zelf verwijdert.\n- De antwoorden van de plooimeter op de homepage: tijdelijk, om ze in je aanvraag in te vullen. Ze verdwijnen zodra je de aanvraag opent, of uiterlijk na twee uur.\n- Een berekening uit de NEST-verkenner, als je ze zelf meeneemt naar het contactformulier. Ook tijdelijk.\n\nJe naam, e-mailadres en bericht worden nooit op je toestel bewaard."
+    },
+    {
+      "titel": "Links naar andere websites",
+      "tekst": "Klik je op een link naar bijvoorbeeld onze reviews op Google, dan kom je op een website van een ander bedrijf, met een eigen cookie- en privacybeleid. Zolang je niet klikt, laadt onze website niets van die diensten."
+    },
+    {
+      "titel": "Zelf wissen",
+      "tekst": "Je kunt alles wat de website op je toestel bewaart op elk moment wissen via de instellingen van je browser (meestal onder Privacy, Websitegegevens of Cookies en sitegegevens)."
+    },
+    {
+      "titel": "Vragen",
+      "tekst": "Mail naar info@nestcompany.be. Meer over hoe we met je gegevens omgaan, lees je in onze privacyverklaring."
+    }
+  ]
+}

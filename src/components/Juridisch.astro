@@ -1,0 +1,34 @@
+---
+// Eén sjabloon voor algemene voorwaarden, privacyverklaring en cookiebeleid.
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Icon from './Icon.astro';
+import { naarHtml as html } from '../data/juridisch.js';
+const { titel, intro, bijgewerkt, blokken, pdf, beschrijving } = Astro.props;
+
+---
+<SiteLayout title={titel} description={beschrijving} surface="contact">
+ <link slot="head" rel="stylesheet" href="/juridisch.css"/>
+ <article class="jur wrap">
+  <header class="jur-kop">
+   <h1>{titel}</h1>
+   <p>{intro}</p>
+   <div class="jur-meta">
+    {bijgewerkt && <span>Laatst bijgewerkt: {bijgewerkt}</span>}
+    {pdf && <a class="text-link" href={pdf} download>Download als PDF <Icon name="arrow" size={16}/></a>}
+   </div>
+  </header>
+  <div class="jur-raster">
+   <nav class="jur-inhoud" aria-label="Inhoud">
+    <ol>{blokken.map(b => <li><a href={`#${b.id}`}>{b.nr && <span>{b.nr}</span>}{b.titel}</a></li>)}</ol>
+   </nav>
+   <div class="jur-tekst">
+    {blokken.map(b => (
+     <section id={b.id}>
+      <h2>{b.nr && <span class="jur-nr">{b.nr}</span>}{b.titel}</h2>
+      <Fragment set:html={html(b.tekst)}/>
+     </section>
+    ))}
+   </div>
+  </div>
+ </article>
+</SiteLayout>

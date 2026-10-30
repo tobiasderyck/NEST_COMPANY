@@ -4,6 +4,7 @@ export const services = serviceData.items;
 export const editorial = editorialData.items;
 export const url = (slug: string) => `/${slug}/`;
 export const asset = (name: string) => `/assets/web/${name}.webp`;
+export const srcset = (name: string) => `/assets/web/${name}-800.webp 800w, /assets/web/${name}-1280.webp 1280w, /assets/web/${name}.webp 1700w`;
 export const serviceById = (id: string) => services.find(s => s.slug.split('/').pop() === id);
 export const groups = [
  {id:'dak',name:'Dakwerken',line:'De basis van een goed nest.',image:'dak-lucht',url:'/dakwerken/'},
