@@ -1,0 +1,4 @@
+---
+const {name,label,unit='',hint='',value='',min=0,max=100000,step='any',optional=false}=Astro.props;
+---
+<div class="calc-field"><label for={'calc-'+name}>{label}{optional&&<span>Optioneel</span>}</label><div class="calc-input-wrap"><input id={'calc-'+name} name={name} type="number" inputmode="decimal" min={min} max={max} step={step} value={value} aria-describedby={'hint-'+name+' error-'+name}/>{unit&&<span>{unit}</span>}</div>{hint&&<p id={'hint-'+name} class="field-hint">{hint}</p>}<p id={'error-'+name} class="field-error" data-error={name}></p></div>

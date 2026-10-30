@@ -54,12 +54,18 @@ type Query {
   collections: [Collection!]!
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
-  site(relativePath: String): Site!
-  siteConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SiteFilter): SiteConnection!
+  services(relativePath: String): Services!
+  servicesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ServicesFilter): ServicesConnection!
+  editorial(relativePath: String): Editorial!
+  editorialConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: EditorialFilter): EditorialConnection!
+  homepage(relativePath: String): Homepage!
+  homepageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: HomepageFilter): HomepageConnection!
 }
 
 input DocumentFilter {
-  site: SiteFilter
+  services: ServicesFilter
+  editorial: EditorialFilter
+  homepage: HomepageFilter
 }
 
 type DocumentConnectionEdges {
@@ -85,181 +91,34 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Site | Folder
+union DocumentNode = Services | Editorial | Homepage | Folder
 
-type SiteMerk {
-  naam: String
-  naamVervolg: String
-  telefoon: String
-  telefoonLink: String
-  email: String
-  paginaTitel: String
-  paginaOmschrijving: String
-  deelTitel: String
-  deelOmschrijving: String
-  deelBeeld: String
+type ServicesItemsSections {
+  title: String
+  text: String
+  items: [String]
 }
 
-type SiteMenu {
-  label: String
-  anker: String
+type ServicesItems {
+  slug: String!
+  title: String!
+  headline: String
+  summary: String
+  image: String
+  sections: [ServicesItemsSections]
+  question: String
+  cta: String
+  group: String!
+  imageAlt: String
+  intro: String
+  benefits: [String]
+  brands: [String]
+  related: [String]
+  source: String
 }
 
-type SiteLaadscherm {
-  naam: String
-  stap1: String
-  stap2: String
-  stap3: String
-  klaar: String
-}
-
-type SiteFilmRail {
-  label: String
-}
-
-type SiteFilmHero {
-  kicker: String
-  titelRegel1: String
-  titelRegel2: String
-  ondertitel: String
-  ondertitelAccent: String
-  voetLinks: String
-  voetMidden: String
-  voetRechts: String
-}
-
-type SiteFilmAktes {
-  kicker: String
-  titel: String
-  titelAccent: String
-  tekst: String
-  start: Float
-  einde: Float
-}
-
-type SiteFilmSlot {
-  kicker: String
-  titel: String
-  titelAccent: String
-  knop: String
-  start: Float
-  einde: Float
-}
-
-type SiteFilm {
-  rail: [SiteFilmRail]
-  hero: SiteFilmHero
-  aktes: [SiteFilmAktes]
-  slot: SiteFilmSlot
-}
-
-type SiteStatement {
-  regel1: String
-  regel2: String
-  regel2Accent: String
-  onderschrift: String
-}
-
-type SiteDienstenItems {
-  nummer: String
-  titel: String
-  subtitel: String
-  beeld: String
-}
-
-type SiteDiensten {
-  kicker: String
-  titel: String
-  titelAccent: String
-  items: [SiteDienstenItems]
-}
-
-type SiteVoorna {
-  kicker: String
-  titel: String
-  titelAccent: String
-  beeldVoor: String
-  beeldVoorAlt: String
-  beeldNa: String
-  beeldNaAlt: String
-  labelVoor: String
-  labelNa: String
-  hint: String
-}
-
-type SiteRealisatiesItems {
-  beeld: String
-  tag: String
-  titel: String
-  alt: String
-}
-
-type SiteRealisaties {
-  kicker: String
-  titel: String
-  titelAccent: String
-  items: [SiteRealisatiesItems]
-  hint: String
-  hintLinkTekst: String
-  hintLink: String
-}
-
-type SiteAanpakStappen {
-  nummer: String
-  titel: String
-  tekst: String
-}
-
-type SiteAanpakCijfers {
-  waarde: String
-  label: String
-  telOp: Boolean
-}
-
-type SiteAanpak {
-  kicker: String
-  titel: String
-  titelAccent: String
-  stappen: [SiteAanpakStappen]
-  cijfers: [SiteAanpakCijfers]
-}
-
-type SiteCalculator {
-  kicker: String
-  titel: String
-  titelAccent: String
-  knop: String
-  link: String
-}
-
-type SiteContact {
-  kicker: String
-  titel: String
-  titelAccent: String
-  tekst: String
-  adres: String
-}
-
-type SiteVoet {
-  links: String
-  midden: String
-  rechts: String
-}
-
-type Site implements Node & Document {
-  merk: SiteMerk
-  menu: [SiteMenu]
-  knopBoven: String
-  laadscherm: SiteLaadscherm
-  film: SiteFilm
-  statement: SiteStatement
-  diensten: SiteDiensten
-  voorna: SiteVoorna
-  realisaties: SiteRealisaties
-  aanpak: SiteAanpak
-  calculator: SiteCalculator
-  contact: SiteContact
-  voet: SiteVoet
+type Services implements Node & Document {
+  items: [ServicesItems]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -272,212 +131,143 @@ input StringFilter {
   in: [String]
 }
 
-input ImageFilter {
-  startsWith: String
-  eq: String
-  exists: Boolean
-  in: [String]
+input ServicesItemsSectionsFilter {
+  title: StringFilter
+  text: StringFilter
+  items: StringFilter
 }
 
-input SiteMerkFilter {
-  naam: StringFilter
-  naamVervolg: StringFilter
-  telefoon: StringFilter
-  telefoonLink: StringFilter
-  email: StringFilter
-  paginaTitel: StringFilter
-  paginaOmschrijving: StringFilter
-  deelTitel: StringFilter
-  deelOmschrijving: StringFilter
-  deelBeeld: ImageFilter
+input ServicesItemsFilter {
+  slug: StringFilter
+  title: StringFilter
+  headline: StringFilter
+  summary: StringFilter
+  image: StringFilter
+  sections: ServicesItemsSectionsFilter
+  question: StringFilter
+  cta: StringFilter
+  group: StringFilter
+  imageAlt: StringFilter
+  intro: StringFilter
+  benefits: StringFilter
+  brands: StringFilter
+  related: StringFilter
+  source: StringFilter
 }
 
-input SiteMenuFilter {
-  label: StringFilter
-  anker: StringFilter
+input ServicesFilter {
+  items: ServicesItemsFilter
 }
 
-input SiteLaadschermFilter {
-  naam: StringFilter
-  stap1: StringFilter
-  stap2: StringFilter
-  stap3: StringFilter
-  klaar: StringFilter
-}
-
-input SiteFilmRailFilter {
-  label: StringFilter
-}
-
-input SiteFilmHeroFilter {
-  kicker: StringFilter
-  titelRegel1: StringFilter
-  titelRegel2: StringFilter
-  ondertitel: StringFilter
-  ondertitelAccent: StringFilter
-  voetLinks: StringFilter
-  voetMidden: StringFilter
-  voetRechts: StringFilter
-}
-
-input NumberFilter {
-  lt: Float
-  lte: Float
-  gte: Float
-  gt: Float
-  eq: Float
-  exists: Boolean
-  in: [Float]
-}
-
-input SiteFilmAktesFilter {
-  kicker: StringFilter
-  titel: StringFilter
-  titelAccent: StringFilter
-  tekst: StringFilter
-  start: NumberFilter
-  einde: NumberFilter
-}
-
-input SiteFilmSlotFilter {
-  kicker: StringFilter
-  titel: StringFilter
-  titelAccent: StringFilter
-  knop: StringFilter
-  start: NumberFilter
-  einde: NumberFilter
-}
-
-input SiteFilmFilter {
-  rail: SiteFilmRailFilter
-  hero: SiteFilmHeroFilter
-  aktes: SiteFilmAktesFilter
-  slot: SiteFilmSlotFilter
-}
-
-input SiteStatementFilter {
-  regel1: StringFilter
-  regel2: StringFilter
-  regel2Accent: StringFilter
-  onderschrift: StringFilter
-}
-
-input SiteDienstenItemsFilter {
-  nummer: StringFilter
-  titel: StringFilter
-  subtitel: StringFilter
-  beeld: ImageFilter
-}
-
-input SiteDienstenFilter {
-  kicker: StringFilter
-  titel: StringFilter
-  titelAccent: StringFilter
-  items: SiteDienstenItemsFilter
-}
-
-input SiteVoornaFilter {
-  kicker: StringFilter
-  titel: StringFilter
-  titelAccent: StringFilter
-  beeldVoor: ImageFilter
-  beeldVoorAlt: StringFilter
-  beeldNa: ImageFilter
-  beeldNaAlt: StringFilter
-  labelVoor: StringFilter
-  labelNa: StringFilter
-  hint: StringFilter
-}
-
-input SiteRealisatiesItemsFilter {
-  beeld: ImageFilter
-  tag: StringFilter
-  titel: StringFilter
-  alt: StringFilter
-}
-
-input SiteRealisatiesFilter {
-  kicker: StringFilter
-  titel: StringFilter
-  titelAccent: StringFilter
-  items: SiteRealisatiesItemsFilter
-  hint: StringFilter
-  hintLinkTekst: StringFilter
-  hintLink: StringFilter
-}
-
-input SiteAanpakStappenFilter {
-  nummer: StringFilter
-  titel: StringFilter
-  tekst: StringFilter
-}
-
-input BooleanFilter {
-  eq: Boolean
-  exists: Boolean
-}
-
-input SiteAanpakCijfersFilter {
-  waarde: StringFilter
-  label: StringFilter
-  telOp: BooleanFilter
-}
-
-input SiteAanpakFilter {
-  kicker: StringFilter
-  titel: StringFilter
-  titelAccent: StringFilter
-  stappen: SiteAanpakStappenFilter
-  cijfers: SiteAanpakCijfersFilter
-}
-
-input SiteCalculatorFilter {
-  kicker: StringFilter
-  titel: StringFilter
-  titelAccent: StringFilter
-  knop: StringFilter
-  link: StringFilter
-}
-
-input SiteContactFilter {
-  kicker: StringFilter
-  titel: StringFilter
-  titelAccent: StringFilter
-  tekst: StringFilter
-  adres: StringFilter
-}
-
-input SiteVoetFilter {
-  links: StringFilter
-  midden: StringFilter
-  rechts: StringFilter
-}
-
-input SiteFilter {
-  merk: SiteMerkFilter
-  menu: SiteMenuFilter
-  knopBoven: StringFilter
-  laadscherm: SiteLaadschermFilter
-  film: SiteFilmFilter
-  statement: SiteStatementFilter
-  diensten: SiteDienstenFilter
-  voorna: SiteVoornaFilter
-  realisaties: SiteRealisatiesFilter
-  aanpak: SiteAanpakFilter
-  calculator: SiteCalculatorFilter
-  contact: SiteContactFilter
-  voet: SiteVoetFilter
-}
-
-type SiteConnectionEdges {
+type ServicesConnectionEdges {
   cursor: String!
-  node: Site
+  node: Services
 }
 
-type SiteConnection implements Connection {
+type ServicesConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
-  edges: [SiteConnectionEdges]
+  edges: [ServicesConnectionEdges]
+}
+
+type EditorialItemsSections {
+  title: String
+  text: String
+  items: [String]
+}
+
+type EditorialItems {
+  slug: String!
+  title: String!
+  headline: String
+  summary: String
+  image: String
+  sections: [EditorialItemsSections]
+  question: String
+  cta: String
+  kind: String!
+}
+
+type Editorial implements Node & Document {
+  items: [EditorialItems]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input EditorialItemsSectionsFilter {
+  title: StringFilter
+  text: StringFilter
+  items: StringFilter
+}
+
+input EditorialItemsFilter {
+  slug: StringFilter
+  title: StringFilter
+  headline: StringFilter
+  summary: StringFilter
+  image: StringFilter
+  sections: EditorialItemsSectionsFilter
+  question: StringFilter
+  cta: StringFilter
+  kind: StringFilter
+}
+
+input EditorialFilter {
+  items: EditorialItemsFilter
+}
+
+type EditorialConnectionEdges {
+  cursor: String!
+  node: Editorial
+}
+
+type EditorialConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [EditorialConnectionEdges]
+}
+
+type Homepage implements Node & Document {
+  titleStart: String
+  titleEnd: String
+  titleAccent: String
+  promise: String
+  description: String
+  adviceButton: String
+  servicesLink: String
+  intro: String
+  servicesTitle: String
+  servicesAccent: String
+  servicesDescription: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input HomepageFilter {
+  titleStart: StringFilter
+  titleEnd: StringFilter
+  titleAccent: StringFilter
+  promise: StringFilter
+  description: StringFilter
+  adviceButton: StringFilter
+  servicesLink: StringFilter
+  intro: StringFilter
+  servicesTitle: StringFilter
+  servicesAccent: StringFilter
+  servicesDescription: StringFilter
+}
+
+type HomepageConnectionEdges {
+  cursor: String!
+  node: Homepage
+}
+
+type HomepageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [HomepageConnectionEdges]
 }
 
 type Mutation {
@@ -486,192 +276,89 @@ type Mutation {
   deleteDocument(collection: String, relativePath: String!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   createFolder(collection: String, relativePath: String!): DocumentNode!
-  updateSite(relativePath: String!, params: SiteMutation!): Site!
-  createSite(relativePath: String!, params: SiteMutation!): Site!
+  updateServices(relativePath: String!, params: ServicesMutation!): Services!
+  createServices(relativePath: String!, params: ServicesMutation!): Services!
+  updateEditorial(relativePath: String!, params: EditorialMutation!): Editorial!
+  createEditorial(relativePath: String!, params: EditorialMutation!): Editorial!
+  updateHomepage(relativePath: String!, params: HomepageMutation!): Homepage!
+  createHomepage(relativePath: String!, params: HomepageMutation!): Homepage!
 }
 
 input DocumentUpdateMutation {
-  site: SiteMutation
+  services: ServicesMutation
+  editorial: EditorialMutation
+  homepage: HomepageMutation
   relativePath: String
 }
 
 input DocumentMutation {
-  site: SiteMutation
+  services: ServicesMutation
+  editorial: EditorialMutation
+  homepage: HomepageMutation
 }
 
-input SiteMerkMutation {
-  naam: String
-  naamVervolg: String
-  telefoon: String
-  telefoonLink: String
-  email: String
-  paginaTitel: String
-  paginaOmschrijving: String
-  deelTitel: String
-  deelOmschrijving: String
-  deelBeeld: String
+input ServicesItemsSectionsMutation {
+  title: String
+  text: String
+  items: [String]
 }
 
-input SiteMenuMutation {
-  label: String
-  anker: String
+input ServicesItemsMutation {
+  slug: String
+  title: String
+  headline: String
+  summary: String
+  image: String
+  sections: [ServicesItemsSectionsMutation]
+  question: String
+  cta: String
+  group: String
+  imageAlt: String
+  intro: String
+  benefits: [String]
+  brands: [String]
+  related: [String]
+  source: String
 }
 
-input SiteLaadschermMutation {
-  naam: String
-  stap1: String
-  stap2: String
-  stap3: String
-  klaar: String
+input ServicesMutation {
+  items: [ServicesItemsMutation]
 }
 
-input SiteFilmRailMutation {
-  label: String
+input EditorialItemsSectionsMutation {
+  title: String
+  text: String
+  items: [String]
 }
 
-input SiteFilmHeroMutation {
-  kicker: String
-  titelRegel1: String
-  titelRegel2: String
-  ondertitel: String
-  ondertitelAccent: String
-  voetLinks: String
-  voetMidden: String
-  voetRechts: String
+input EditorialItemsMutation {
+  slug: String
+  title: String
+  headline: String
+  summary: String
+  image: String
+  sections: [EditorialItemsSectionsMutation]
+  question: String
+  cta: String
+  kind: String
 }
 
-input SiteFilmAktesMutation {
-  kicker: String
-  titel: String
-  titelAccent: String
-  tekst: String
-  start: Float
-  einde: Float
+input EditorialMutation {
+  items: [EditorialItemsMutation]
 }
 
-input SiteFilmSlotMutation {
-  kicker: String
-  titel: String
-  titelAccent: String
-  knop: String
-  start: Float
-  einde: Float
-}
-
-input SiteFilmMutation {
-  rail: [SiteFilmRailMutation]
-  hero: SiteFilmHeroMutation
-  aktes: [SiteFilmAktesMutation]
-  slot: SiteFilmSlotMutation
-}
-
-input SiteStatementMutation {
-  regel1: String
-  regel2: String
-  regel2Accent: String
-  onderschrift: String
-}
-
-input SiteDienstenItemsMutation {
-  nummer: String
-  titel: String
-  subtitel: String
-  beeld: String
-}
-
-input SiteDienstenMutation {
-  kicker: String
-  titel: String
-  titelAccent: String
-  items: [SiteDienstenItemsMutation]
-}
-
-input SiteVoornaMutation {
-  kicker: String
-  titel: String
-  titelAccent: String
-  beeldVoor: String
-  beeldVoorAlt: String
-  beeldNa: String
-  beeldNaAlt: String
-  labelVoor: String
-  labelNa: String
-  hint: String
-}
-
-input SiteRealisatiesItemsMutation {
-  beeld: String
-  tag: String
-  titel: String
-  alt: String
-}
-
-input SiteRealisatiesMutation {
-  kicker: String
-  titel: String
-  titelAccent: String
-  items: [SiteRealisatiesItemsMutation]
-  hint: String
-  hintLinkTekst: String
-  hintLink: String
-}
-
-input SiteAanpakStappenMutation {
-  nummer: String
-  titel: String
-  tekst: String
-}
-
-input SiteAanpakCijfersMutation {
-  waarde: String
-  label: String
-  telOp: Boolean
-}
-
-input SiteAanpakMutation {
-  kicker: String
-  titel: String
-  titelAccent: String
-  stappen: [SiteAanpakStappenMutation]
-  cijfers: [SiteAanpakCijfersMutation]
-}
-
-input SiteCalculatorMutation {
-  kicker: String
-  titel: String
-  titelAccent: String
-  knop: String
-  link: String
-}
-
-input SiteContactMutation {
-  kicker: String
-  titel: String
-  titelAccent: String
-  tekst: String
-  adres: String
-}
-
-input SiteVoetMutation {
-  links: String
-  midden: String
-  rechts: String
-}
-
-input SiteMutation {
-  merk: SiteMerkMutation
-  menu: [SiteMenuMutation]
-  knopBoven: String
-  laadscherm: SiteLaadschermMutation
-  film: SiteFilmMutation
-  statement: SiteStatementMutation
-  diensten: SiteDienstenMutation
-  voorna: SiteVoornaMutation
-  realisaties: SiteRealisatiesMutation
-  aanpak: SiteAanpakMutation
-  calculator: SiteCalculatorMutation
-  contact: SiteContactMutation
-  voet: SiteVoetMutation
+input HomepageMutation {
+  titleStart: String
+  titleEnd: String
+  titleAccent: String
+  promise: String
+  description: String
+  adviceButton: String
+  servicesLink: String
+  intro: String
+  servicesTitle: String
+  servicesAccent: String
+  servicesDescription: String
 }
 
 schema {

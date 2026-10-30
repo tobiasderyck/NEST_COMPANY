@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept A · Het huis is het menu · NEST</title>
+<link rel="stylesheet" href="/concepten/basis.css">
+<style>
+/* ── kop ── */
+.kop { position: fixed; inset: 0 0 auto; z-index: 20; display: flex; align-items: center; gap: 28px; padding: 18px var(--rand); color: #fff;
+  background: linear-gradient(rgba(14,17,15,.55), rgba(14,17,15,0)); }
+.kop .logo small { color: rgba(255,255,255,.6); }
+.kop nav { display: flex; gap: 26px; font-size: 15px; font-weight: 500; margin-left: 24px; }
+.kop nav a { opacity: .88; } .kop nav a:hover { opacity: 1; }
+.kop.licht { background: rgba(244,241,234,.92); color: var(--inkt); backdrop-filter: blur(12px); } .kop.licht .logo small { color: var(--inkt-dof); }
+.kop { transition: background .25s, color .25s; }
+.kop .rechts { margin-left: auto; display: flex; align-items: center; gap: 22px; }
+
+/* ── hero: het huis ── */
+.hero { position: relative; height: 100svh; min-height: 640px; overflow: hidden; background: #1a1d1a; }
+.podium { position: absolute; left: 50%; top: 50%; width: max(100vw, 100svh * 16 / 9); aspect-ratio: 16/9; translate: -50% -50%; }
+.podium video, .podium img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.scrim { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(14,17,15,.62) 0%, rgba(14,17,15,.18) 46%, rgba(14,17,15,0) 70%),
+              linear-gradient(0deg, rgba(14,17,15,.55) 0%, rgba(14,17,15,0) 34%); }
+
+/* hotspots op het huis */
+.punt { position: absolute; z-index: 3; translate: -50% -50%; display: flex; align-items: center; gap: 10px; color: #fff; font-size: 14px; font-weight: 500; }
+.punt .bol { position: relative; width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,.95); box-shadow: 0 0 0 6px rgba(255,255,255,.18); transition: transform .2s var(--uit), background .2s; }
+.punt .bol::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 1px solid rgba(255,255,255,.7); animation: puls 2.6s var(--uit) infinite; }
+.punt .label { padding: 7px 12px; border-radius: 99px; background: rgba(20,22,20,.42); backdrop-filter: blur(10px) saturate(160%); -webkit-backdrop-filter: blur(10px) saturate(160%); border: 1px solid rgba(255,255,255,.22); white-space: nowrap; transition: background .2s; }
+.punt:hover .bol { transform: scale(1.12); }
+.punt.actief .bol { background: var(--oranje); box-shadow: 0 0 0 6px rgba(224,83,45,.28); }
+.punt.actief .label { background: rgba(255,255,255,.94); color: var(--inkt); }
+@keyframes puls { from { transform: scale(.8); opacity: .9; } to { transform: scale(1.9); opacity: 0; } }
+
+/* dienstkaart die bij het huisdeel opengaat */
+.kaart { position: absolute; z-index: 4; right: var(--rand); top: 50%; translate: 0 -50%; width: 340px; padding: 26px 26px 22px; border-radius: 14px; color: var(--inkt);
+  background: rgba(251,249,244,.86); backdrop-filter: blur(18px) saturate(170%); -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid rgba(255,255,255,.8); box-shadow: 0 30px 60px -30px rgba(0,0,0,.45), inset 0 1px 0 #fff; }
+.kaart .stap { font-size: 13px; color: var(--inkt-dof); display: flex; justify-content: space-between; }
+.kaart h2 { font: 600 30px/1.05 "Archivo"; font-stretch: 112%; letter-spacing: -.02em; margin: 10px 0 10px; }
+.kaart p { font-size: 15px; color: var(--inkt-dof); }
+.kaart ul { list-style: none; margin: 16px 0 20px; display: grid; gap: 8px; font-size: 14.5px; }
+.kaart li { display: flex; gap: 10px; } .kaart li::before { content: ""; flex: 0 0 6px; height: 6px; margin-top: 9px; border-radius: 50%; background: var(--oranje); }
+.kaart .knop { width: 100%; justify-content: space-between; }
+.kaart .voortgang { height: 2px; background: var(--lijn); margin-top: 18px; border-radius: 2px; overflow: hidden; }
+.kaart .voortgang span { display: block; height: 100%; width: 0; background: var(--oranje); }
+
+/* belofte linksonder */
+.belofte { position: absolute; z-index: 4; left: var(--rand); bottom: clamp(28px, 6vh, 64px); width: min(620px, 50vw); color: #fff; }
+.vlaams { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; font-size: 14px; font-weight: 500; }
+.gezichten { display: flex; }
+.gezichten span { width: 34px; height: 34px; border-radius: 50%; margin-left: -9px; border: 2px solid rgba(255,255,255,.9); display: grid; place-items: center; font: 600 12px "Archivo"; color: var(--inkt); }
+.gezichten span:first-child { margin-left: 0; }
+.belofte h1 { font: 600 clamp(44px, 5.4vw, 84px)/.96 "Archivo"; font-stretch: 108%; letter-spacing: -.035em; }
+.belofte h1 em { font-style: normal; color: #ffb79f; }
+.belofte p { margin: 18px 0 26px; font-size: 18px; max-width: 30em; color: rgba(255,255,255,.86); }
+.acties { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+.acties .tel { color: #fff; }
+
+.bewijs { position: absolute; z-index: 4; right: var(--rand); bottom: clamp(28px, 6vh, 64px); color: #fff; display: flex; gap: 28px; font-size: 14px; }
+.bewijs .gscore { padding: 10px 16px; border-radius: 99px; background: rgba(20,22,20,.42); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.2); }
+
+/* ── sectie 2: een dak vol sterren ── */
+.sterrendak { padding: clamp(80px, 11vw, 150px) var(--rand) clamp(70px, 9vw, 120px); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(32px, 6vw, 110px); align-items: center; max-width: 1440px; margin: 0 auto; }
+.sterrendak h2 { font: 600 clamp(36px, 4.2vw, 64px)/1 "Archivo"; font-stretch: 108%; letter-spacing: -.035em; margin-bottom: 14px; }
+.sterrendak .uitleg { color: var(--inkt-dof); max-width: 34em; }
+.huisje { margin-top: 40px; width: min(100%, 620px); }
+.dak { display: grid; justify-items: center; position: relative; padding-top: 14px; }
+.dak::before { content: ""; position: absolute; top: 0; left: 50%; width: 120px; height: 34px; translate: -50% 0; border-top: 8px solid #e8542f; border-left: 8px solid #e8542f; rotate: 45deg; transform-origin: center; display: none; }
+.rij { display: flex; gap: 3px; margin-top: -12px; }
+.rij:first-child { margin-top: 0; }
+.pan { width: 74px; height: 46px; border-radius: 4px 4px 22px 22px / 4px 4px 16px 16px; background: linear-gradient(180deg, #c9643f, #a94a2b); position: relative; transition: transform .2s var(--uit), background .2s; box-shadow: inset 0 -5px 0 rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.25); }
+.pan::after { content: "★"; position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255,232,190,.0); font-size: 15px; transition: color .2s; }
+.pan:hover { transform: translateY(-4px); }
+.pan:hover::after, .pan.actief::after { color: #ffe7b8; }
+.pan.actief { background: linear-gradient(180deg, #2b3430, #1d2420); transform: translateY(-6px); }
+.pan.vier { background: linear-gradient(180deg, #b77a54, #94583a); }
+.muur { margin-top: 8px; border-radius: 4px; background: var(--papier-2); border: 1px solid var(--lijn); padding: 16px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.raam { aspect-ratio: 1; border-radius: 4px; background: linear-gradient(160deg, #e6e0d3, #d8d0bf); display: grid; place-items: end start; padding: 7px; font-size: 11.5px; line-height: 1.2; font-weight: 500; position: relative; overflow: hidden; }
+.raam b { display: block; font-size: 13px; }
+.raam small { color: var(--inkt-dof); }
+.bijschrift { margin-top: 12px; font-size: 13px; color: var(--inkt-dof); display: flex; justify-content: space-between; }
+
+.citaat { padding: clamp(28px, 3vw, 44px); border-radius: 16px; background: var(--papier-2); border: 1px solid var(--lijn); position: relative; }
+.citaat .sterren { color: var(--ster); letter-spacing: 3px; }
+.citaat blockquote { font: 500 clamp(24px, 2.3vw, 34px)/1.22 "Archivo"; font-stretch: 100%; letter-spacing: -.02em; margin: 18px 0 22px; }
+.citaat blockquote mark { background: none; color: var(--oranje-diep); }
+.citaat .wie { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--inkt-dof); padding-top: 18px; border-top: 1px solid var(--lijn); }
+.citaat .wie b { color: var(--inkt); font-weight: 600; }
+.citaat .knoppen { display: flex; gap: 18px; margin-top: 26px; flex-wrap: wrap; align-items: center; }
+.citaat .knoppen a.link { font-size: 15px; font-weight: 500; border-bottom: 1px solid currentColor; }
+
+@media (max-width: 860px) {
+  .kop nav, .kop .rechts .gscore { display: none; }
+  .hero { height: auto; min-height: 0; background: var(--papier); }
+  .podium { position: relative; left: 0; top: 0; translate: none; width: 100%; margin-top: 64px; }
+  .kop { background: var(--papier); color: var(--inkt); }
+  .kop .logo small { color: var(--inkt-dof); }
+  .kop .knop { min-height: 44px; padding: 0 8px 0 14px; font-size: 14px; } .kop .knop .lang { display: none; }
+  .scrim, .kaart, .bewijs { display: none; }
+  .punt .label { display: none; }
+  .belofte { position: relative; left: 0; bottom: 0; width: auto; padding: 26px 22px 40px; color: var(--inkt); }
+  .belofte h1 em { color: var(--oranje-diep); }
+  .belofte p { color: var(--inkt-dof); font-size: 16.5px; }
+  .gezichten span { border-color: var(--papier); }
+  .acties .tel { color: var(--inkt); }
+  .tabs { display: flex !important; }
+  .sterrendak { grid-template-columns: 1fr; }
+  .pan { width: 52px; height: 30px; }
+  .muur { grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 10px; }
+  .raam { font-size: 9px; } .raam b { font-size: 10.5px; }
+}
+.tabs { display: none; gap: 8px; padding: 14px 22px 0; overflow-x: auto; }
+.tabs button { flex: 0 0 auto; padding: 9px 14px; border-radius: 99px; border: 1px solid var(--lijn); font-size: 14px; font-weight: 500; }
+.tabs button.actief { background: var(--inkt); color: var(--papier-2); border-color: var(--inkt); }
+</style>
+</head>
+<body>
+<header class="kop">
+  <a class="logo" href="#"><svg viewBox="0 0 100 80" fill="none" aria-hidden="true"><path d="M30 34 L54 12 L88 43 L88 78 L58 78 L58 70 L80 70 L80 46 L54 23 L36 40 Z" fill="#e8542f"/><rect x="14" y="52" width="7" height="20" rx="3.5" fill="#3fa9dc"/><rect x="24" y="27" width="7" height="45" rx="3.5" fill="#189a49"/><rect x="34" y="36" width="7" height="36" rx="3.5" fill="#e23b3b"/><rect x="44" y="43" width="7" height="29" rx="3.5" fill="#35318f"/><rect x="54" y="58" width="7" height="14" rx="3.5" fill="#8f3f87"/></svg><span>NEST<small>company</small></span></a>
+  <nav><a href="#">Dakwerken</a><a href="#">Energie</a><a href="#">Gevel</a><a href="#">Renovatie</a><a href="#">Realisaties</a></nav>
+  <div class="rechts"><span class="gscore"><span class="sterren">★★★★★</span><b>5,0</b> op Google</span><a class="knop knop--licht" href="#"><span><span class="lang">Gratis </span>advies</span> <i>↗</i></a></div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="podium" data-podium>
+    <img src="/assets/web/k1_oud.webp" alt="Een Vlaamse woning die stap voor stap gerenoveerd wordt" fetchpriority="high">
+    <video data-film muted playsinline preload="auto" aria-hidden="true"></video>
+    <button class="punt" data-deel="0" style="left:36%;top:21%"><span class="bol"></span><span class="label">Dak</span></button>
+    <button class="punt" data-deel="1" style="left:58%;top:31%"><span class="bol"></span><span class="label">Zonnepanelen</span></button>
+    <button class="punt" data-deel="2" style="left:47%;top:47%"><span class="bol"></span><span class="label">Gevel</span></button>
+    <button class="punt" data-deel="3" style="left:61%;top:70%"><span class="bol"></span><span class="label">Batterij &amp; warmte</span></button>
+  </div>
+  <div class="scrim"></div>
+
+  <div class="belofte">
+    <div class="vlaams"><span class="gezichten"><span style="background:#e9c7b3">T</span><span style="background:#c9d6cf">J</span><span style="background:#e6dcc0">D</span><span style="background:#d5d0e4">G</span><span style="background:#f1d6a8">+6</span></span>Onze eigen Vlaamse ploeg, uit Machelen</div>
+    <h1>Je hele huis.<br><em>Eén ploeg.</em></h1>
+    <p>Dak, zonnepanelen, batterij en gevel. We leggen alles uit aan je keukentafel, met cijfers erbij, en doen het werk zelf.</p>
+    <div class="acties"><a class="knop knop--licht" href="#">Plan een gratis adviesbezoek <i>↗</i></a><a class="tel" href="tel:+32492864202">0492 86 42 02</a></div>
+  </div>
+
+  <aside class="kaart" aria-live="polite">
+    <div class="stap"><span data-k-nr>01 / 04</span><span>Klik op het huis</span></div>
+    <h2 data-k-titel>Dakwerken</h2>
+    <p data-k-tekst>Nieuwe pannen of leien, isolatie en zinkwerk. Asbest halen we veilig weg.</p>
+    <ul data-k-lijst><li>Dakrenovatie</li><li>Dakisolatie</li><li>Asbest verwijderen</li></ul>
+    <a class="knop" href="#"><span data-k-knop>Advies voor je dak</span> <i>↗</i></a>
+    <div class="voortgang"><span data-k-balk></span></div>
+  </aside>
+
+  <div class="bewijs"><span class="gscore"><svg class="g-logo" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.5z"/></svg><span class="sterren">★★★★★</span><b>5,0</b>&nbsp;· 20 reviews</span></div>
+</section>
+
+<nav class="tabs" aria-label="Kies een deel van het huis"><button class="actief" data-tab="0">Dak</button><button data-tab="1">Zonnepanelen</button><button data-tab="2">Gevel</button><button data-tab="3">Batterij &amp; warmte</button></nav>
+
+<section class="sterrendak">
+  <div>
+    <h2>Een dak vol sterren.</h2>
+    <p class="uitleg">Elke pan is een echte Google-review. Twintig klanten, gemiddeld 5,0. De muren eronder: de mensen die het werk doen.</p>
+    <div class="huisje">
+      <div class="dak" data-dak></div>
+      <div class="muur">
+        <div class="raam"><span><b>Tommy</b><small>dak, oprichter</small></span></div>
+        <div class="raam"><span><b>Joeri</b><small>energie, oprichter</small></span></div>
+        <div class="raam"><span><b>Danny</b><small>projectleiding dak</small></span></div>
+        <div class="raam"><span><b>Glenn</b><small>elektricien</small></span></div>
+        <div class="raam"><span><b>Tessa</b><small>backoffice</small></span></div>
+      </div>
+      <div class="bijschrift"><span>Teamfoto's volgen na de fotoshoot</span><span>Tik op een pan</span></div>
+    </div>
+  </div>
+  <div class="citaat" aria-live="polite">
+    <span class="sterren" data-c-ster>★★★★★</span>
+    <blockquote data-c-tekst>“Tommy werkte met duidelijke cijfervoorbeelden om de juiste batterijcapaciteit te berekenen.”</blockquote>
+    <div class="wie"><span><b data-c-naam>David Coppens</b> · <span data-c-wat>thuisbatterij en laadpaal</span></span><span data-c-wanneer>een jaar geleden</span></div>
+    <div class="knoppen"><a class="knop" href="#">Plan je adviesbezoek <i>↗</i></a><a class="link" href="#">Alle 20 reviews op Google</a></div>
+  </div>
+</section>
+</main>
+
+<script>
+const delen = [
+  { titel: "Dakwerken", tekst: "Nieuwe pannen of leien, isolatie en zinkwerk. Asbest halen we veilig weg.", lijst: ["Dakrenovatie", "Dakisolatie", "Asbest verwijderen"], knop: "Advies voor je dak", film: "v1_dak" },
+  { titel: "Zonnepanelen", tekst: "Strak gelegd, merkonafhankelijk gekozen en afgestemd op je verbruik.", lijst: ["Zonnepanelen", "Omvormer en monitoring", "Premies en keuring"], knop: "Advies voor zonnepanelen", film: "v2_zon" },
+  { titel: "Gevelrenovatie", tekst: "Crepi, isolatie en nieuw schrijnwerk. Je huis krijgt een tweede jeugd.", lijst: ["Gevelisolatie", "Crepi en bekleding", "Totaalrenovatie"], knop: "Advies voor je gevel", film: "v3_gevel" },
+  { titel: "Batterij & warmte", tekst: "Bewaar je eigen stroom en stuur alles slim. Warm in januari, koel in juli.", lijst: ["Thuisbatterij en EMS", "Warmtepompboiler en airco", "Laadpaal"], knop: "Advies voor je energie", film: "v4_nest" }
+];
+const film = document.querySelector("[data-film]");
+const mobiel = matchMedia("(max-width: 860px)").matches;
+let huidig = 0, auto = true;
+function toon(i, door) {
+  huidig = i; if (door) auto = false;
+  const d = delen[i];
+  document.querySelectorAll(".punt").forEach((p, n) => p.classList.toggle("actief", n === i));
+  document.querySelectorAll(".tabs button").forEach((b, n) => b.classList.toggle("actief", n === i));
+  document.querySelector("[data-k-nr]").textContent = `0${i + 1} / 04`;
+  document.querySelector("[data-k-titel]").textContent = d.titel;
+  document.querySelector("[data-k-tekst]").textContent = d.tekst;
+  document.querySelector("[data-k-lijst]").innerHTML = d.lijst.map(x => `<li>${x}</li>`).join("");
+  document.querySelector("[data-k-knop]").textContent = d.knop;
+  film.src = `/assets/${mobiel ? "film-mobile" : "film-desktop"}/${d.film}.mp4`;
+  film.play().catch(() => {});
+}
+film.addEventListener("timeupdate", () => { document.querySelector("[data-k-balk]").style.width = (film.currentTime / (film.duration || 1) * 100) + "%"; });
+film.addEventListener("ended", () => { if (auto) toon((huidig + 1) % 4); });
+document.querySelectorAll(".punt").forEach(p => p.addEventListener("click", () => toon(+p.dataset.deel, true)));
+document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => toon(+b.dataset.tab, true)));
+toon(0);
+
+/* het dak: 2+3+4+5+6 = 20 pannen = 20 reviews */
+const reviews = [
+  ["David Coppens", "thuisbatterij en laadpaal", "een jaar geleden", 5, "<mark>Tommy</mark> werkte met duidelijke cijfervoorbeelden om de juiste batterijcapaciteit te berekenen."],
+  ["Sabrina Cardona", "thuisbatterij", "6 maanden geleden", 5, "Een speciale vermelding gaat naar <mark>Joeri, Danny en Glen</mark>. Ze lieten de werkplaats proper achter."],
+  ["Marina Peeters", "dakrenovatie in Kortenberg", "een jaar geleden", 5, "Heel ons dak gerenoveerd. Zeer professionele verwijdering van asbest."],
+  ["Jan Meskens", "batterij en omvormer", "2 maanden geleden", 5, "Een duidelijke offerte zonder verrassingen en met een sterke prijszetting."],
+  ["Niels Lema", "thuisbatterij", "7 maanden geleden", 5, "Dankzij <mark>Joeri</mark>'s deskundige uitleg en opvolging hebben we de stap gezet."],
+  ["Herman Buekenhout", "vijf airco's", "een jaar geleden", 5, "Duidelijke communicatie en planning. En vooral: hij komt zijn afspraken na."],
+  ["Lydie Winnepenninckx", "thuisbatterij", "9 maanden geleden", 5, "Elke keer als wij contact namen, reageerde <mark>Joeri</mark> meteen."],
+  ["Danny Van Hove", "zonnepanelen", "9 maanden geleden", 5, "De uitleg van <mark>Tommy</mark> was zeer duidelijk en verhelderend. Topkerel, topfirma."],
+  ["Anny vandenbergen", "zonnepanelen en batterij", "6 maanden geleden", 5, "De dame op het bureau is zeer behulpzaam. Leuk dat het zo vlot kan."],
+  ["Willy Wijns", "zonnepanelen, batterij en airco's", "6 maanden geleden", 5, "<mark>Joeri</mark> heeft mij zeer correct en volledig geïnformeerd."],
+  ["Glenn van den Buys", "installatie", "een jaar geleden", 5, "Deftige installaties, correct advies en ongeëvenaarde technische kennis."],
+  ["Myriam Saeys", "plaatsing en nazorg", "5 maanden geleden", 5, "Heel tevreden over de uitleg, de plaatsing en de naservice."],
+  ["Dirk Simon", "thuisbatterij", "6 maanden geleden", 5, "<mark>Franky</mark> heeft ons een goede uitleg gegeven. Zeer goed uitgevoerd."],
+  ["Francis Vanroy", "slimme thuisbatterij", "een jaar geleden", 5, "Professionele aanpak en echte vakmensen voor de plaatsing."],
+  ["Rudi Bellemans", "thuisbatterij", "8 maanden geleden", 4, "Zeer goede uitleg van <mark>Tommy</mark>. Die gaf de doorslag om met deze firma in zee te gaan."],
+  ["Peter De Kerf", "service en begeleiding", "4 maanden geleden", 5, "Heel tevreden over service en begeleiding. Ook snelle levering en plaatsing."],
+  ["Herman de Preter", "zonnepanelen en batterij", "4 maanden geleden", 5, "Zeer tevreden van mijn nieuwe zonnepanelen en batterij."],
+  ["Annelies Vranckx", "zonnepanelen en warmtepompboiler", "10 maanden geleden", 5, "Goed advies, correcte prijs en de gemaakte afspraken werden gevolgd."],
+  ["Achiel Van Acker", "installatie", "een jaar geleden", 5, "Zeer tevreden van de installatie van de Nestmakers!"],
+  ["Liesbet Valkenborgs", "beoordeling zonder tekst", "7 maanden geleden", 5, "Vijf sterren, zonder woorden."]
+];
+const dak = document.querySelector("[data-dak]"); let n = 0;
+[2, 3, 4, 5, 6].forEach(aantal => { const rij = document.createElement("div"); rij.className = "rij";
+  for (let k = 0; k < aantal; k++) { const r = reviews[n], b = document.createElement("button"); b.className = "pan" + (r[3] === 4 ? " vier" : "") + (n === 0 ? " actief" : "");
+    b.setAttribute("aria-label", `Review van ${r[0]}`); const idx = n; b.addEventListener("mouseenter", () => kies(idx)); b.addEventListener("click", () => kies(idx)); rij.appendChild(b); n++; }
+  dak.appendChild(rij); });
+function kies(i) { const r = reviews[i];
+  document.querySelectorAll(".pan").forEach((p, k) => p.classList.toggle("actief", k === i));
+  document.querySelector("[data-c-ster]").textContent = "★".repeat(r[3]) + "☆".repeat(5 - r[3]);
+  document.querySelector("[data-c-tekst]").innerHTML = `“${r[4]}”`;
+  document.querySelector("[data-c-naam]").textContent = r[0];
+  document.querySelector("[data-c-wat]").textContent = r[1];
+  document.querySelector("[data-c-wanneer]").textContent = r[2]; }
+new IntersectionObserver(([e]) => document.querySelector('.kop').classList.toggle('licht', !e.isIntersecting), { rootMargin: '-80px 0px 0px 0px' }).observe(document.querySelector('.hero'));
+</script>
+</body>
+</html>

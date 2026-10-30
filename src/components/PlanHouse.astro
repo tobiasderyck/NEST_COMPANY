@@ -1,0 +1,49 @@
+---
+const tiles=Array.from({length:12},(_,index)=>index);
+---
+<svg class="plan-house" viewBox="0 0 480 310" fill="none" aria-hidden="true">
+ <defs>
+  <linearGradient id="nest-ground" x1="42" y1="211" x2="430" y2="279" gradientUnits="userSpaceOnUse"><stop stop-color="#edf0e7"/><stop offset="1" stop-color="#dce4d8"/></linearGradient>
+  <linearGradient id="nest-wall-front" x1="117" y1="126" x2="292" y2="287" gradientUnits="userSpaceOnUse"><stop stop-color="#fffaf0"/><stop offset="1" stop-color="#e6e9dd"/></linearGradient>
+  <linearGradient id="nest-wall-side" x1="260" y1="184" x2="385" y2="218" gradientUnits="userSpaceOnUse"><stop stop-color="#e0e6dc"/><stop offset="1" stop-color="#cbd8ce"/></linearGradient>
+  <linearGradient id="nest-roof" x1="121" y1="133" x2="273" y2="179" gradientUnits="userSpaceOnUse"><stop stop-color="#d4decf"/><stop offset="1" stop-color="#a9b9a7"/></linearGradient>
+  <linearGradient id="nest-skyglass" x1="187" y1="156" x2="272" y2="244" gradientUnits="userSpaceOnUse"><stop stop-color="#d7e7df"/><stop offset="1" stop-color="#a5bec1"/></linearGradient>
+  <filter id="nest-floor-shadow" x="0" y="0" width="480" height="310" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="11"/></filter>
+ </defs>
+ <ellipse cx="247" cy="255" rx="166" ry="30" fill="#819386" opacity=".18" filter="url(#nest-floor-shadow)"/>
+ <path d="M31 246 237 298 451 245 244 190 31 246Z" fill="url(#nest-ground)" stroke="#b8c6b7" stroke-width="1.2"/>
+ <path d="M49 246 237 289 431 246" stroke="#fffdf5" opacity=".75"/>
+ <path d="M93 211 240 267 387 211 387 222 240 280 93 223V211Z" fill="#b5c4b5"/>
+ <path d="M94 132 240 186V266L94 211V132Z" fill="url(#nest-wall-front)" stroke="#63756e" stroke-width="1.6"/>
+ <path d="M240 186 386 132V211L240 266V186Z" fill="url(#nest-wall-side)" stroke="#63756e" stroke-width="1.6"/>
+ <g class="house-siding" stroke="#9eaea2" opacity=".42"><path d="m98 165 138 51M98 185l138 51M244 215l138-51M244 236l138-51"/></g>
+ <path class="house-roof-left" d="M82 129 237 52 241 193 82 137Z" fill="url(#nest-roof)" stroke="#40564f" stroke-width="2"/>
+ <path class="house-roof-right" d="M237 52 399 127 241 193 237 52Z" fill="#b2c0b0" stroke="#40564f" stroke-width="2"/>
+ <path d="M82 137 241 201 399 135" stroke="#3f554e" stroke-width="4" stroke-linecap="round"/>
+ <path d="M88 143 240 203 391 145" stroke="#f9f8ef" stroke-width="1.4" opacity=".9"/>
+ <path d="M241 193 241 262" stroke="#6e8075" stroke-width="1.1"/>
+ <path d="m275 88 68 31m-51-39 68 31m-48-32 58 26" stroke="#d9e1d5" opacity=".8"/>
+ <g data-house-pv class="house-pv-array" transform="matrix(.75 -.37 .42 .38 134 123)">
+  {tiles.map(index=><g class="panel-tile" data-panel-index={index} transform={`translate(${(index%4)*23} ${Math.floor(index/4)*18})`}><rect width="20" height="15" rx="1" fill="#324f55" stroke="#d9e6e0" stroke-width="1.4"/><path d="M2 7.5H18M10 1.5V13.5" stroke="#74949a" stroke-width=".8" opacity=".9"/></g>)}
+ </g>
+ <path d="m115 163 42 15v39l-42-16v-38Z" fill="#f9f4e8" stroke="#60736d" stroke-width="1.3"/>
+ <path d="m120 168 32 12v30l-32-12v-30Z" fill="url(#nest-skyglass)"/>
+ <path d="m136 174v30m-16-21 32 12" stroke="#ecf2eb" stroke-width="2"/>
+ <path d="m121 171 15 5-15 18" fill="#fff" opacity=".28"/>
+ <path d="m179 187 38 14v56l-38-14v-56Z" fill="#d9d1ba" stroke="#52675f" stroke-width="1.5"/>
+ <path d="m184 193 28 10v46l-28-10v-46Z" fill="#adbfaf"/>
+ <circle cx="207" cy="227" r="2.3" fill="#b86b50"/>
+ <path d="m271 200 43-16v42l-43 16v-42Z" fill="#f8f5e9" stroke="#60736d" stroke-width="1.3"/>
+ <path d="m276 203 33-12v31l-33 12v-31Z" fill="url(#nest-skyglass)"/>
+ <path d="m292 197v32m-16-12 33-12" stroke="#edf2e9" stroke-width="2"/>
+ <path d="m319 182 42-16v42l-42 16v-42Z" fill="#f8f5e9" stroke="#60736d" stroke-width="1.3"/>
+ <path d="m324 185 32-12v31l-32 12v-31Z" fill="url(#nest-skyglass)"/>
+ <path d="m340 179v31m-16-10 32-12" stroke="#edf2e9" stroke-width="2"/>
+ <path d="m165 255 34 14 30-11" stroke="#faf9f1" stroke-width="2" opacity=".9"/>
+ <path d="m41 250 54 13m-26-22 26 7m309 18 26-7" stroke="#9cb6a1" opacity=".6"/>
+ <g data-house-battery hidden><path d="m396 210 21 7v33l-21-7v-33Z" fill="#c6d9cf" stroke="#5e746a" stroke-width="1.8"/><path d="m401 220 10 3m-7 6 8 2m-11 6 10 3" stroke="#a14a32" stroke-width="1.8"/></g>
+ <g data-house-boiler hidden><path d="M202 150c-6-9 7-11 2-20m11 15c-6-9 7-11 2-20" stroke="#b75b3c" stroke-width="2" stroke-linecap="round"/></g>
+ <g class="house-roof-note" data-house-roof-note hidden><path d="m272 92 71 32" stroke="#c95d3d" stroke-width="2"/><circle cx="344" cy="124" r="3" fill="#c95d3d"/></g>
+ <path d="M40 287h401" stroke="#9aaa9d" stroke-width="1" opacity=".65"/>
+ <text x="42" y="280" class="house-drawing-label">NEST / ENERGIEPLAN</text><text x="406" y="280" text-anchor="end" class="house-drawing-label" data-house-count>—</text>
+</svg>

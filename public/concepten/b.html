@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept B · De Nestmakers · NEST</title>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&display=swap">
+<link rel="stylesheet" href="/concepten/basis.css">
+<style>
+:root { --kast: "Cabinet Grotesk", "Archivo", sans-serif; }
+.kop { display: flex; align-items: center; gap: 30px; padding: 22px var(--rand); max-width: 1500px; margin: 0 auto; }
+.kop nav { display: flex; gap: 26px; font-size: 15px; font-weight: 500; margin-left: 20px; color: var(--inkt-dof); }
+.kop nav a:hover { color: var(--inkt); }
+.kop .rechts { margin-left: auto; display: flex; align-items: center; gap: 22px; }
+
+/* ── hero ── */
+.hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 64px); align-items: stretch; padding: 8px var(--rand) 0; max-width: 1500px; margin: 0 auto; min-height: calc(100svh - 92px); }
+.links { display: flex; flex-direction: column; justify-content: center; padding-bottom: 60px; }
+.links h1 { font: 800 clamp(52px, 6.2vw, 104px)/.9 var(--kast); letter-spacing: -.035em; }
+.links h1 span { display: block; color: var(--oranje); }
+.links p.lead { font-size: 19px; color: var(--inkt-dof); max-width: 27em; margin: 24px 0 30px; }
+.links p.lead b { color: var(--inkt); font-weight: 600; }
+.acties { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+.bewijs { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--lijn); display: flex; gap: 18px; align-items: flex-start; font-size: 15px; max-width: 30em; }
+.bewijs .cijfer { font: 800 44px/1 var(--kast); letter-spacing: -.03em; }
+.bewijs .cijfer small { font-size: 18px; color: var(--inkt-fluister); }
+.bewijs p { color: var(--inkt-dof); } .bewijs p b { color: var(--inkt); }
+
+.rechts-paneel { position: relative; border-radius: 18px; overflow: hidden; min-height: 560px; background: #222; }
+.rechts-paneel video, .rechts-paneel img.poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; }
+.rechts-paneel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(14,17,15,.62) 0%, rgba(14,17,15,0) 46%); pointer-events: none; }
+.wat { position: absolute; z-index: 3; top: 20px; left: 20px; display: flex; gap: 8px; }
+.wat span { padding: 8px 13px; border-radius: 99px; font-size: 13.5px; font-weight: 500; color: #fff; background: rgba(20,22,20,.38); backdrop-filter: blur(10px) saturate(160%); -webkit-backdrop-filter: blur(10px) saturate(160%); border: 1px solid rgba(255,255,255,.2); transition: background .3s, color .3s; }
+.wat span.nu { background: #fff; color: var(--inkt); }
+
+/* de ploeg staat vóór het huis: werfbadges */
+.ploeg { position: absolute; z-index: 4; left: 20px; right: 20px; bottom: 20px; display: flex; gap: 10px; align-items: flex-end; }
+.badge { flex: 1 1 0; min-width: 0; border-radius: 12px; background: var(--papier-2); padding: 10px 10px 12px; box-shadow: 0 16px 30px -18px rgba(0,0,0,.6); transition: transform .22s var(--uit); }
+.badge:nth-child(odd) { transform: translateY(-14px) rotate(-1.2deg); }
+.badge:nth-child(even) { transform: rotate(1deg); }
+.badge:hover { transform: translateY(-22px) rotate(0); }
+.badge .foto { aspect-ratio: 4/5; border-radius: 8px; display: grid; place-items: center; font: 800 30px var(--kast); color: rgba(29,36,32,.55); position: relative; overflow: hidden; }
+.badge .foto::after { content: ""; position: absolute; inset: auto 0 0; height: 44%; background: radial-gradient(60% 90% at 50% 100%, rgba(29,36,32,.16), transparent 70%); }
+.badge b { display: block; margin-top: 9px; font: 700 15px/1.1 var(--kast); }
+.badge small { font-size: 11px; overflow-wrap: anywhere; hyphens: auto; color: var(--inkt-dof); line-height: 1.25; display: block; margin-top: 2px; }
+.foto-noot { position: absolute; z-index: 4; top: 20px; right: 20px; font-size: 12.5px; color: rgba(255,255,255,.85); padding: 7px 12px; border-radius: 99px; border: 1px dashed rgba(255,255,255,.5); }
+
+/* ── sectie 2: klanten noemen ons bij naam ── */
+.bijnaam { max-width: 1500px; margin: 0 auto; padding: clamp(90px, 10vw, 150px) var(--rand) clamp(80px, 9vw, 130px); }
+.bijnaam h2 { font: 800 clamp(38px, 4.6vw, 72px)/.95 var(--kast); letter-spacing: -.035em; max-width: 13em; }
+.bijnaam .intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 46px; }
+.bijnaam .intro p { color: var(--inkt-dof); max-width: 26em; }
+.namen { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+.naam { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 8px; border-radius: 99px; border: 1px solid var(--lijn); font-weight: 600; font-size: 15px; transition: background .2s, color .2s, border-color .2s, transform .16s var(--uit); }
+.naam:active { transform: scale(.97); }
+.naam .bol { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 800 14px var(--kast); }
+.naam .tel { border: 0; padding: 0; font-size: 13px; font-weight: 600; color: var(--oranje-diep); }
+.naam[aria-pressed="true"] { background: var(--inkt); color: var(--papier-2); border-color: var(--inkt); }
+.naam[aria-pressed="true"] .tel { color: #ffb79f; }
+.stemmen { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.stem { padding: 24px 24px 20px; border-radius: 14px; background: var(--papier-2); border: 1px solid var(--lijn); display: flex; flex-direction: column; gap: 16px; animation: in .45s var(--uit) both; }
+.stem:nth-child(2) { animation-delay: .05s; } .stem:nth-child(3) { animation-delay: .1s; } .stem:nth-child(4) { animation-delay: .15s; } .stem:nth-child(5) { animation-delay: .2s; }
+.stem q { font: 500 20px/1.32 var(--kast); letter-spacing: -.01em; quotes: "“" "”"; }
+.stem q mark { background: linear-gradient(transparent 62%, rgba(224,83,45,.28) 62%); color: inherit; }
+.stem footer { margin-top: auto; display: flex; justify-content: space-between; font-size: 13.5px; color: var(--inkt-dof); }
+.stem footer b { color: var(--inkt); font-weight: 600; }
+.stem .sterren { color: var(--ster); letter-spacing: 2px; font-size: 13px; }
+@keyframes in { from { opacity: 0; transform: translateY(10px) scale(.98); } }
+.slot { margin-top: 34px; display: flex; gap: 26px; align-items: center; flex-wrap: wrap; }
+.slot a.link { font-weight: 500; border-bottom: 1px solid currentColor; }
+
+@media (max-width: 900px) {
+  .kop nav, .kop .rechts .gscore { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: 0; }
+  .links { padding-bottom: 10px; order: 1; }
+  .rechts-paneel { order: 2; min-height: 470px; }
+  .ploeg { gap: 6px; left: 10px; right: 10px; bottom: 12px; flex-wrap: nowrap; }
+  .badge { padding: 6px 6px 8px; border-radius: 9px; } .badge .foto { font-size: 18px; } .badge b { font-size: 12px; } .badge small { display: none; }
+  .badge:nth-child(n+6) { display: none; }
+  .foto-noot { display: none; }
+  .rechts-paneel { order: 0; min-height: 300px; margin-top: 4px; } .links { order: 1; padding-top: 18px; }
+  .stemmen { grid-template-columns: 1fr; }
+  .bijnaam .intro { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<header class="kop">
+  <a class="logo" href="#"><svg viewBox="0 0 100 80" fill="none" aria-hidden="true"><path d="M30 34 L54 12 L88 43 L88 78 L58 78 L58 70 L80 70 L80 46 L54 23 L36 40 Z" fill="#e8542f"/><rect x="14" y="52" width="7" height="20" rx="3.5" fill="#3fa9dc"/><rect x="24" y="27" width="7" height="45" rx="3.5" fill="#189a49"/><rect x="34" y="36" width="7" height="36" rx="3.5" fill="#e23b3b"/><rect x="44" y="43" width="7" height="29" rx="3.5" fill="#35318f"/><rect x="54" y="58" width="7" height="14" rx="3.5" fill="#8f3f87"/></svg><span>NEST<small>company</small></span></a>
+  <nav><a href="#">Dakwerken</a><a href="#">Energie</a><a href="#">Gevel</a><a href="#">Renovatie</a><a href="#">De ploeg</a></nav>
+  <div class="rechts"><span class="gscore"><span class="sterren">★★★★★</span><b>5,0</b> op Google</span><a class="tel" href="tel:+32492864202">0492 86 42 02</a></div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="links">
+    <h1>Wij zijn de <span>Nestmakers.</span></h1>
+    <p class="lead">Eén vaste <b>Vlaamse ploeg uit Machelen</b> voor je dak, zonnepanelen, batterij en gevel. Je spreekt met wie het werk doet, van de eerste uitleg tot de nazorg.</p>
+    <div class="acties"><a class="knop" href="#">Laat een Nestmaker langskomen <i>↗</i></a><a class="tel" href="tel:+32492864202">of bel 0492 86 42 02</a></div>
+    <div class="bewijs"><div class="cijfer">9<small>/20</small></div><p><b>Klanten noemen ons bij naam.</b> Negen van onze twintig Google-reviews vermelden iemand van de ploeg. Gemiddeld <b>5,0 sterren</b>.</p></div>
+  </div>
+  <div class="rechts-paneel">
+    <img class="poster" src="/assets/web/k1_oud.webp" alt="Een Vlaamse woning die stap voor stap gerenoveerd wordt">
+    <video data-film muted playsinline autoplay preload="auto" aria-hidden="true"></video>
+    <div class="wat" aria-hidden="true"><span class="nu">Dak</span><span>Zon</span><span>Gevel</span><span>Thuis</span></div>
+    <span class="foto-noot">Teamfoto na de fotoshoot</span>
+    <div class="ploeg">
+      <div class="badge"><div class="foto" style="background:linear-gradient(160deg,#f0d9c9,#e2bfa8)">T</div><b>Tommy</b><small>Dak · oprichter</small></div>
+      <div class="badge"><div class="foto" style="background:linear-gradient(160deg,#dbe5df,#c3d3ca)">J</div><b>Joeri</b><small>Energie · oprichter</small></div>
+      <div class="badge"><div class="foto" style="background:linear-gradient(160deg,#ece3cc,#dccfae)">D</div><b>Danny</b><small>Projectleiding dak</small></div>
+      <div class="badge"><div class="foto" style="background:linear-gradient(160deg,#e1dcec,#cdc5df)">G</div><b>Glenn</b><small>Elektricien</small></div>
+      <div class="badge"><div class="foto" style="background:linear-gradient(160deg,#f2dfbd,#e6c995)">T</div><b>Tessa</b><small>Backoffice</small></div>
+      <div class="badge"><div class="foto" style="background:linear-gradient(160deg,#d8e2e8,#bfced8)">J</div><b>Jeroen</b><small>Energiearchitect</small></div>
+      <div class="badge"><div class="foto" style="background:linear-gradient(160deg,#e9d6d0,#dbbcb2)">C</div><b>Christophe</b><small>Dakwerker</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="bijnaam">
+  <div class="intro"><h2>Klanten noemen ons bij naam.</h2><p>Geen callcenter, wel vaste gezichten. Kies iemand van de ploeg en lees wat klanten over hen schrijven op Google.</p></div>
+  <div class="namen" role="group" aria-label="Kies iemand van de ploeg">
+    <button class="naam" aria-pressed="true" data-wie="Joeri"><span class="bol" style="background:#dbe5df">J</span>Joeri <span class="tel">5×</span></button>
+    <button class="naam" aria-pressed="false" data-wie="Tommy"><span class="bol" style="background:#f0d9c9">T</span>Tommy <span class="tel">3×</span></button>
+    <button class="naam" aria-pressed="false" data-wie="Danny"><span class="bol" style="background:#ece3cc">D</span>Danny <span class="tel">1×</span></button>
+    <button class="naam" aria-pressed="false" data-wie="Glenn"><span class="bol" style="background:#e1dcec">G</span>Glenn <span class="tel">1×</span></button>
+    <button class="naam" aria-pressed="false" data-wie="Franky"><span class="bol" style="background:#e8e2d6">F</span>Franky <span class="tel">1×</span></button>
+    <button class="naam" aria-pressed="false" data-wie="ploeg"><span class="bol" style="background:#efe9de">★</span>De hele ploeg <span class="tel">11×</span></button>
+  </div>
+  <div class="stemmen" data-stemmen aria-live="polite"></div>
+  <div class="slot"><a class="knop" href="#">Laat een Nestmaker langskomen <i>↗</i></a><a class="link" href="#">Alle 20 reviews op Google</a></div>
+</section>
+</main>
+
+<script>
+const clips = ["v1_dak", "v2_zon", "v3_gevel", "v4_nest"], film = document.querySelector("[data-film]"), map = matchMedia("(max-width:900px)").matches ? "film-mobile" : "film-desktop";
+let c = 0; const speel = () => { film.src = `/assets/${map}/${clips[c]}.mp4`; film.play().catch(() => {}); document.querySelectorAll(".wat span").forEach((s, i) => s.classList.toggle("nu", i === c)); };
+film.addEventListener("ended", () => { c = (c + 1) % 4; speel(); }); speel();
+
+const R = {
+  Joeri: [["Niels Lema", "Dankzij <mark>Joeri</mark>'s deskundige uitleg en opvolging hebben we de stap gezet."], ["Lydie Winnepenninckx", "Elke keer als wij contact namen, reageerde <mark>Joeri</mark> meteen."], ["Willy Wijns", "<mark>Joeri</mark> heeft mij zeer correct en volledig geïnformeerd."], ["Herman Buekenhout", "<mark>Joeri</mark> kwam vijf airco's installeren. Hij komt zijn afspraken na."], ["Sabrina Cardona", "Een speciale vermelding gaat naar <mark>Joeri</mark>, Danny en Glen."]],
+  Tommy: [["David Coppens", "<mark>Tommy</mark> werkte met duidelijke cijfervoorbeelden om de juiste batterij te berekenen."], ["Danny Van Hove", "De uitleg van <mark>Tommy</mark> was zeer duidelijk en verhelderend."], ["Rudi Bellemans", "Zeer goede uitleg van <mark>Tommy</mark>. Die gaf de doorslag.", 4]],
+  Danny: [["Sabrina Cardona", "Een speciale vermelding gaat naar Joeri, <mark>Danny</mark> en Glen. Ze lieten de werkplaats proper achter."]],
+  Glenn: [["Sabrina Cardona", "Een speciale vermelding gaat naar Joeri, Danny en <mark>Glen</mark>. Duidelijke communicatie en stiptheid."]],
+  Franky: [["Dirk Simon", "<mark>Franky</mark> heeft ons een goede uitleg gegeven. Zeer goed uitgevoerd."]],
+  ploeg: [["Jan Meskens", "Een duidelijke offerte zonder verrassingen en met een sterke prijszetting."], ["Marina Peeters", "Heel ons dak gerenoveerd in Kortenberg. Zeer professionele verwijdering van asbest."], ["Achiel Van Acker", "Zeer tevreden van de installatie van de <mark>Nestmakers</mark>!"]]
+};
+function kies(wie) {
+  document.querySelectorAll(".naam").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.wie === wie)));
+  document.querySelector("[data-stemmen]").innerHTML = R[wie].map(([n, t, s = 5]) =>
+    `<article class="stem"><span class="sterren">${"★".repeat(s)}${"☆".repeat(5 - s)}</span><q>${t}</q><footer><b>${n}</b><span>Google-review</span></footer></article>`).join("");
+}
+document.querySelectorAll(".naam").forEach(b => b.addEventListener("click", () => kies(b.dataset.wie)));
+kies("Joeri");
+</script>
+</body>
+</html>

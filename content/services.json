@@ -1,0 +1,509 @@
+{
+  "items": [
+    {
+      "slug": "energieoplossingen/zonnepanelen",
+      "title": "Zonnepanelen",
+      "group": "energie",
+      "headline": "Je dak kan meer dan beschermen.",
+      "summary": "Produceer je eigen stroom met zonnepanelen die passen bij je dak, je verbruik en je plannen.",
+      "image": "leuven",
+      "imageAlt": "Woning met zonnepanelen op een vernieuwd dak",
+      "intro": "Zonnepanelen vormen vaak de basis van een energiezuinige woning. NEST Company begeleidt je van analyse en ontwerp tot installatie en opvolging. We bekijken hoeveel energie je nodig hebt en welke installatie daar logisch bij past.",
+      "benefits": [
+        "Meer van je eigen energie gebruiken",
+        "Minder afhankelijk van het elektriciteitsnet",
+        "Klaar om later uit te breiden"
+      ],
+      "sections": [
+        {
+          "title": "Eerst je woning begrijpen.",
+          "text": "Dakoriëntatie, hellingsgraad en schaduw vertellen een deel van het verhaal. Je energieverbruik en toekomstplannen vertellen de rest. We bekijken ze samen, zodat je een installatie krijgt die past bij jouw situatie.",
+          "items": [
+            "Oriëntatie, helling en beschikbare dakoppervlakte",
+            "Schaduw en de staat van het dak",
+            "Verbruik en toekomstige uitbreidingen"
+          ]
+        },
+        {
+          "title": "Een keuze die bij jou past.",
+          "text": "We werken met verschillende fabrikanten. Zo kunnen we panelen en omvormers selecteren op basis van je dak, verbruik en verwachtingen. Een batterij, laadpaal of energiesturing kan later of meteen deel uitmaken van het plan."
+        }
+      ],
+      "brands": [
+        "JA Solar",
+        "Trina Solar",
+        "DMEGC",
+        "AIKO",
+        "Jinko Solar"
+      ],
+      "related": [
+        "thuisbatterijen",
+        "ems-systemen",
+        "dakrenovatie"
+      ],
+      "question": "Wat kan jouw dak voor je doen?",
+      "cta": "We bekijken je woning en maken een voorstel op maat van je verbruik.",
+      "source": "Zonnepanelen - Nest Company.pdf"
+    },
+    {
+      "slug": "energieoplossingen/thuisbatterijen",
+      "title": "Thuisbatterijen",
+      "group": "energie",
+      "headline": "Bewaar de zon voor later.",
+      "summary": "Gebruik je zelf opgewekte energie wanneer je ze nodig hebt. Ook als de zon al onder is.",
+      "image": "k5_nest",
+      "imageAlt": "Conceptbeeld van een energiezuinig huis in de avond",
+      "intro": "Een thuisbatterij slaat energie op voor een ander moment. Zo kan je meer van je eigen zonnestroom gebruiken. Of dat voor jou interessant is, hangt af van je verbruik en je bestaande installatie. Daar beginnen we.",
+      "benefits": [
+        "Meer eigen zonne-energie gebruiken",
+        "Opslag afgestemd op jouw verbruik",
+        "Samenwerking met je andere installaties"
+      ],
+      "sections": [
+        {
+          "title": "De juiste capaciteit. Geen gokwerk.",
+          "text": "Geen twee woningen gebruiken energie op dezelfde manier. We bekijken je zonnepanelen, verbruik, pieken en plannen. Op basis daarvan stellen we een batterij voor die technisch én praktisch bij je past.",
+          "items": [
+            "Aanwezige zonnepanelen en omvormer",
+            "Dagelijks verbruik en verbruikspieken",
+            "Toekomstplannen, zoals elektrisch rijden"
+          ]
+        },
+        {
+          "title": "Sterker als alles samenwerkt.",
+          "text": "Een batterij kan zelfstandig worden ingezet of deel uitmaken van een groter energiesysteem. We zorgen voor een correcte configuratie en bekijken de afstemming met zonnepanelen, een laadpaal en energiesturing."
+        }
+      ],
+      "brands": [
+        "Dyness",
+        "Pylontech",
+        "SAJ",
+        "Fronius",
+        "BYD",
+        "Sigenergy"
+      ],
+      "related": [
+        "zonnepanelen",
+        "ems-systemen",
+        "laadpalen"
+      ],
+      "question": "Is een thuisbatterij zinvol voor jou?",
+      "cta": "Je krijgt advies over wat past bij jouw woning, verbruik en installatie.",
+      "source": "Thuisbatterijen - Nest Company.pdf"
+    },
+    {
+      "slug": "energieoplossingen/industriele-batterijen",
+      "title": "Industriële batterijen",
+      "group": "energie",
+      "headline": "Meer grip op de energie van je bedrijf.",
+      "summary": "Energieopslag op maat van KMO’s, landbouwbedrijven en grotere energieverbruikers.",
+      "image": "kempen",
+      "imageAlt": "Bestaande projectfoto met een ruime zonnepaneleninstallatie",
+      "intro": "Bij bedrijven kunnen verbruik en piekbelasting sterk verschillen doorheen de dag. Een industriële batterij kan energie opslaan en beschikbaar maken wanneer jouw processen die nodig hebben. NEST vertrekt vanuit je operationele realiteit.",
+      "benefits": [
+        "Verbruikspieken gerichter beheren",
+        "Eigen energieproductie beter benutten",
+        "Een systeem dat kan meegroeien"
+      ],
+      "sections": [
+        {
+          "title": "Je bedrijfsritme is het vertrekpunt.",
+          "text": "We analyseren totaalverbruik, pieken, aanwezige energieproductie en infrastructuur. Je bedrijfsprocessen en groeiplannen bepalen mee welke oplossing passend is.",
+          "items": [
+            "Totaalverbruik en piekbelasting",
+            "Bestaande energie-infrastructuur",
+            "Bedrijfsprocessen en toekomstige groei"
+          ]
+        },
+        {
+          "title": "Opslag als deel van het geheel.",
+          "text": "We bekijken de combinatie met zonnepanelen, EMS, laadpunten of een elektrische vloot. Waar extra zekerheid nodig is, onderzoeken we ook passende net- en back-upoplossingen."
+        }
+      ],
+      "brands": [
+        "BYD",
+        "Victron",
+        "Sigenergy",
+        "Fronius"
+      ],
+      "related": [
+        "ems-systemen",
+        "netoplossingen",
+        "zonnepanelen"
+      ],
+      "question": "Wat heeft jouw bedrijf nodig?",
+      "cta": "We bekijken je verbruik en plannen voor een energiesysteem op maat.",
+      "source": "Industriële batterijen - Nest Company.pdf"
+    },
+    {
+      "slug": "energieoplossingen/laadpalen",
+      "title": "Laadpalen",
+      "group": "energie",
+      "headline": "Thuiskomen. Aansluiten. Verder kunnen.",
+      "summary": "Een laadoplossing die past bij je wagen, je woning en de energie die je zelf opwekt.",
+      "image": "werf",
+      "imageAlt": "Woning met bijgebouw en zonnepanelen",
+      "intro": "Thuis laden maakt elektrisch rijden eenvoudiger. NEST installeert laadpalen die afgestemd zijn op jouw elektrische installatie en laadbehoefte. Heb je zonnepanelen of een batterij? Dan bekijken we hoe alles samen kan werken.",
+      "benefits": [
+        "Laden wanneer het jou uitkomt",
+        "Je eigen zonnestroom benutten",
+        "Voorbereid op je volgende wagen"
+      ],
+      "sections": [
+        {
+          "title": "Je ritme bepaalt de oplossing.",
+          "text": "We bekijken je elektrische installatie, eventuele zonnepanelen, rijgedrag en laadmomenten. Ook een tweede wagen of een toekomstige batterij nemen we mee in het advies.",
+          "items": [
+            "Elektrische installatie en beschikbare aansluiting",
+            "Rijgedrag en laadbehoefte",
+            "Bestaande en geplande energieoplossingen"
+          ]
+        },
+        {
+          "title": "Slim laden vraagt goede afstemming.",
+          "text": "Een laadpaal werkt beter als de instellingen passen bij je woning. Met passende sturing stemmen we het laden af op je energieproductie en andere verbruikers."
+        }
+      ],
+      "brands": [
+        "MUON",
+        "Victron",
+        "Teltonika",
+        "Sigenergy"
+      ],
+      "related": [
+        "zonnepanelen",
+        "thuisbatterijen",
+        "ems-systemen"
+      ],
+      "question": "Klaar om thuis te laden?",
+      "cta": "We helpen je kiezen welke laadoplossing bij jouw situatie past.",
+      "source": "Laadpalen - Nest Company.pdf"
+    },
+    {
+      "slug": "energieoplossingen/airco-en-warmtepompboilers",
+      "title": "Airco & warmtepompboilers",
+      "group": "energie",
+      "headline": "Comfort, in elk seizoen.",
+      "summary": "Efficiënt verwarmen, koelen en warm water maken met een oplossing op maat.",
+      "image": "k4_gevel",
+      "imageAlt": "Conceptbeeld van een gerenoveerde woning met een buitenunit",
+      "intro": "NEST biedt lucht-luchtwarmtepompen en warmtepompboilers. Ze hebben verschillende toepassingen: de ene verwarmt en koelt ruimtes, de andere maakt sanitair warm water. We helpen je bepalen wat past bij jouw woning.",
+      "benefits": [
+        "Comfort afgestemd op je woning",
+        "Een gerichte keuze voor jouw toepassing",
+        "Te combineren met eigen zonnestroom"
+      ],
+      "sections": [
+        {
+          "title": "Verwarmen en koelen, of warm water?",
+          "text": "Een lucht-luchtwarmtepomp, vaak airco genoemd, verwarmt en koelt ruimtes. Een warmtepompboiler is specifiek bedoeld voor sanitair warm water. We leggen het verschil uit vanuit jouw noden.",
+          "items": [
+            "Lucht-luchtwarmtepomp: verwarming en koeling van ruimtes",
+            "Warmtepompboiler: sanitair warm water",
+            "Advies voor renovatie, aanvulling of een nieuwe installatie"
+          ]
+        },
+        {
+          "title": "Comfort begint bij de juiste analyse.",
+          "text": "We bekijken isolatie, je huidige systeem, verbruik en beschikbare installatieruimte. Daarna zorgen we voor een passende installatie en correcte afstelling, eventueel in combinatie met zonnepanelen en energiesturing."
+        }
+      ],
+      "brands": [
+        "Ariston",
+        "Daikin",
+        "GREE"
+      ],
+      "related": [
+        "dakisolatie",
+        "zonnepanelen",
+        "ems-systemen"
+      ],
+      "question": "Waar kan jouw comfort beter?",
+      "cta": "Vertel ons hoe je vandaag woont. We bekijken de mogelijkheden.",
+      "source": "Airco en warmtepompboilers - Nest Company.pdf"
+    },
+    {
+      "slug": "energieoplossingen/ems-systemen",
+      "title": "Slim energiebeheer",
+      "group": "energie",
+      "headline": "Losse installaties. Eén slim geheel.",
+      "summary": "Een EMS laat zonnepanelen, batterij, laadpaal en andere installaties beter samenwerken.",
+      "image": "k3_zon",
+      "imageAlt": "Conceptbeeld van een woning met zonnepanelen",
+      "intro": "Een Energy Management System stuurt wanneer en waar energie wordt gebruikt. Zo gaat het niet alleen over hoeveel stroom je opwekt, maar ook over wat je ermee doet. NEST stemt die sturing af op je installatie en gewoontes.",
+      "benefits": [
+        "Meer afstemming tussen je installaties",
+        "Verbruik sturen op passende momenten",
+        "Instellingen op maat van je leefritme"
+      ],
+      "sections": [
+        {
+          "title": "Je huis denkt mee.",
+          "text": "We analyseren je energieproductie, verbruikspatronen, aanwezige systemen en doelen. Waar het systeem en je contract het toelaten, kan sturing ook rekening houden met dynamische tarieven.",
+          "items": [
+            "Productie en verbruikspatronen",
+            "Aanwezige en geplande installaties",
+            "Comfort en gewenst energiegebruik"
+          ]
+        },
+        {
+          "title": "De verbinding maakt het verschil.",
+          "text": "Niet elk toestel communiceert op dezelfde manier. Daarom kiezen we systemen die bij je volledige installatie passen en configureren we de samenwerking zorgvuldig."
+        }
+      ],
+      "brands": [
+        "Victron",
+        "Solis",
+        "Jullix",
+        "Fronius",
+        "Sigenergy"
+      ],
+      "related": [
+        "thuisbatterijen",
+        "laadpalen",
+        "zonnepanelen"
+      ],
+      "question": "Kunnen jouw installaties slimmer samenwerken?",
+      "cta": "We bekijken de samenhang en de mogelijkheden van je energiesysteem.",
+      "source": "EMS-systemen - Nest Company.pdf"
+    },
+    {
+      "slug": "energieoplossingen/netoplossingen",
+      "title": "On-grid, hybride & off-grid",
+      "group": "energie",
+      "headline": "Energiezekerheid, op jouw maat.",
+      "summary": "Van verbonden blijven met het net tot extra autonomie of een passende back-up.",
+      "image": "kempen",
+      "imageAlt": "Woning met een uitgebreide zonnepaneleninstallatie",
+      "intro": "Niet elke woning of elk bedrijf heeft dezelfde behoefte aan netafhankelijkheid. NEST bekijkt je situatie en ontwerpt een energiesysteem dat past bij je verbruik, gewenste autonomie en toekomstplannen.",
+      "benefits": [
+        "Een oplossing voor jouw autonomiebehoefte",
+        "Opslag en productie op elkaar afstemmen",
+        "Back-upmogelijkheden gericht onderzoeken"
+      ],
+      "sections": [
+        {
+          "title": "Verbonden, hybride of zelfstandig.",
+          "text": "Bij on-grid blijf je verbonden met het elektriciteitsnet. Hybride en off-gridoplossingen bieden andere mogelijkheden voor autonomie. Wat haalbaar en zinvol is, hangt af van de volledige installatie.",
+          "items": [
+            "Energieverbruik en verbruikspieken",
+            "Nood aan autonomie of back-up",
+            "Bestaande installaties en latere uitbreiding"
+          ]
+        },
+        {
+          "title": "Van onderdelen naar zekerheid.",
+          "text": "We bepalen samen welke combinatie van omvormers, batterijen en sturing nodig is. Zonnepanelen, laadpalen en EMS kunnen daar deel van uitmaken. Back-up bij stroomuitval vraagt een systeem dat daarvoor geschikt en ingericht is."
+        }
+      ],
+      "brands": [
+        "Victron",
+        "Sigenergy",
+        "Fronius"
+      ],
+      "related": [
+        "thuisbatterijen",
+        "industriele-batterijen",
+        "ems-systemen"
+      ],
+      "question": "Hoe onafhankelijk wil je worden?",
+      "cta": "We bekijken welke energiezekerheid bij jouw woning of bedrijf past.",
+      "source": "Off-grid oplossingen - Nest Company.pdf"
+    },
+    {
+      "slug": "dakwerken/dakrenovatie",
+      "title": "Dakrenovatie",
+      "group": "dak",
+      "headline": "Een nieuw hoofdstuk begint bovenaan.",
+      "summary": "Een duurzaam vernieuwd dak, afgestemd op je woning en plannen voor de toekomst.",
+      "image": "dak-lucht",
+      "imageAlt": "Vernieuwde daken gezien vanuit de lucht",
+      "intro": "Je dak beschermt alles wat eronder leeft. Bij slijtage, schade of een renovatie bekijken we welke werken nodig zijn om die bescherming te behouden. NEST begeleidt je van analyse en advies tot uitvoering en opvolging.",
+      "benefits": [
+        "De bescherming van je woning verbeteren",
+        "Isolatie en dakwerken samen bekijken",
+        "Vooruitdenken over zonnepanelen"
+      ],
+      "sections": [
+        {
+          "title": "Eerst weten wat je dak nodig heeft.",
+          "text": "We onderzoeken de structuur, staat en bedekking van je dak. Vochtproblemen, warmteverlies en je plannen voor de woning nemen we mee. Zo krijg je een gerichte renovatie, geen standaardvoorstel.",
+          "items": [
+            "Dakstructuur en bestaande bedekking",
+            "Isolatie en energieprestaties",
+            "Je wensen en toekomstplannen"
+          ]
+        },
+        {
+          "title": "Het juiste moment om verder te kijken.",
+          "text": "Als het dak wordt vernieuwd, loont het om ook isolatie en zonnepanelen te bespreken. NEST brengt dakwerk en energiekennis samen, zodat de keuzes bij elkaar passen."
+        }
+      ],
+      "brands": [],
+      "related": [
+        "dakisolatie",
+        "asbest-verwijderen",
+        "zonnepanelen"
+      ],
+      "question": "Wat heeft jouw dak nodig?",
+      "cta": "We bekijken de huidige situatie en leggen de mogelijkheden helder uit.",
+      "source": "Dakrenovatie - Nest Company.pdf"
+    },
+    {
+      "slug": "dakwerken/dakisolatie",
+      "title": "Dakisolatie",
+      "group": "dak",
+      "headline": "Hou de warmte waar ze hoort.",
+      "summary": "Meer wooncomfort begint met een goed geïsoleerd dak.",
+      "image": "zolder",
+      "imageAlt": "Geïsoleerde dakstructuur aan de binnenzijde van een zolder",
+      "intro": "Een goed geïsoleerd dak helpt warmteverlies beperken en maakt je woning comfortabeler. NEST bekijkt welke aanpak past bij de opbouw van je dak en je plannen met de ruimte eronder.",
+      "benefits": [
+        "Warmteverlies helpen beperken",
+        "Meer comfort in winter en zomer",
+        "Je woning voorbereiden op volgende stappen"
+      ],
+      "sections": [
+        {
+          "title": "Wat zit er onder jouw pannen?",
+          "text": "We bekijken de bestaande dakopbouw, aanwezige isolatie en beschikbare ruimte. De oplossing moet technisch kloppen én aansluiten bij hoe je de woning gebruikt.",
+          "items": [
+            "Staat en opbouw van het dak",
+            "Bestaande isolatie",
+            "Beschikbare ruimte en comfortwensen"
+          ]
+        },
+        {
+          "title": "Een sterke basis voor energiezuinig wonen.",
+          "text": "Dakisolatie kan een eerste stap zijn in een groter plan. We bekijken de combinatie met dakrenovatie, zonnepanelen en andere energieoplossingen, op het tempo dat bij jou past."
+        }
+      ],
+      "brands": [],
+      "related": [
+        "dakrenovatie",
+        "zonnepanelen",
+        "airco-en-warmtepompboilers"
+      ],
+      "question": "Kan jouw woning comfortabeler?",
+      "cta": "We bekijken welke dakisolatie past bij jouw dak en wensen.",
+      "source": "Dakisolatie - Nest Company.pdf"
+    },
+    {
+      "slug": "dakwerken/asbest-verwijderen",
+      "title": "Asbest verwijderen",
+      "group": "dak",
+      "headline": "Ruimte maken voor een veilige toekomst.",
+      "summary": "Een professionele aanpak van analyse tot verwijdering, afvoer en opvolging.",
+      "image": "dak-lucht",
+      "imageAlt": "Overzicht van daken in een woonwijk",
+      "intro": "Oude dakmaterialen kunnen asbest bevatten. NEST helpt je de situatie te laten beoordelen en begeleidt het traject naar een correcte verwijdering. We bespreken ook de volgende stap voor je dak.",
+      "benefits": [
+        "Duidelijkheid over de aanpak",
+        "Professionele uitvoering en opvolging",
+        "Aansluiting op je verdere dakrenovatie"
+      ],
+      "sections": [
+        {
+          "title": "Elke situatie begint met een beoordeling.",
+          "text": "We bekijken welke materialen aanwezig zijn en welke stappen voor jouw project nodig zijn. Analyse, verwijdering, afvoer en opvolging worden als één traject bekeken.",
+          "items": [
+            "Beoordeling van de huidige situatie",
+            "Professionele verwijdering en correcte afvoer",
+            "Opvolging en afstemming met verdere werken"
+          ]
+        },
+        {
+          "title": "En daarna: een dak klaar voor de toekomst.",
+          "text": "Na de verwijdering bekijken we hoe dakrenovatie, isolatie en eventueel zonnepanelen kunnen aansluiten bij jouw plannen. Je behoudt een aanspreekpunt doorheen het traject."
+        }
+      ],
+      "brands": [],
+      "related": [
+        "dakrenovatie",
+        "dakisolatie",
+        "zonnepanelen"
+      ],
+      "question": "Vragen over je bestaande dak?",
+      "cta": "Neem contact op voor een beoordeling en uitleg over de vervolgstappen.",
+      "source": "Asbest verwijderen - Nest Company.pdf"
+    },
+    {
+      "slug": "gevelrenovatie",
+      "title": "Gevelrenovatie",
+      "group": "gevel",
+      "headline": "Een vertrouwd huis. Een nieuw gezicht.",
+      "summary": "Geef je woning een tweede leven met een gevelrenovatie die bij het geheel past.",
+      "image": "k4_gevel",
+      "imageAlt": "Conceptbeeld van een vernieuwde gevel",
+      "intro": "Je gevel bepaalt hoe je woning aanvoelt, van de straat tot aan de voordeur. NEST bekijkt samen met jou hoe een renovatie aansluit bij de bestaande woning en het resultaat dat je voor ogen hebt.",
+      "benefits": [
+        "Een uitstraling die bij je woning past",
+        "Afstemming met dak en andere werken",
+        "Persoonlijke begeleiding van je project"
+      ],
+      "sections": [
+        {
+          "title": "Beginnen bij wat er staat.",
+          "text": "Een goed plan vertrekt van de huidige toestand en jouw wensen. We bespreken de mogelijkheden, de gewenste afwerking en de samenhang met eventuele andere renovatiewerken.",
+          "items": [
+            "De bestaande toestand van de gevel",
+            "Je wensen voor uitstraling en afwerking",
+            "Samenhang met andere renovatieplannen"
+          ]
+        },
+        {
+          "title": "Het hele huis in beeld.",
+          "text": "Een gevel staat niet los van het dak of de rest van je woning. NEST denkt mee over het geheel, zodat verschillende werken op elkaar aansluiten."
+        }
+      ],
+      "brands": [],
+      "related": [
+        "dakrenovatie",
+        "totaalrenovatie",
+        "dakisolatie"
+      ],
+      "question": "Welk gezicht geef jij je huis?",
+      "cta": "Vertel ons wat je wil veranderen. We bekijken samen de mogelijkheden.",
+      "source": "Dienst bevestigd door Tobias; aanvullende concepttekst"
+    },
+    {
+      "slug": "totaalrenovatie",
+      "title": "Totaalrenovatie",
+      "group": "totaal",
+      "headline": "Veel plannen. Eén geheel.",
+      "summary": "Een samenhangend renovatieplan, van de eerste ideeën tot de opvolging van de werken.",
+      "image": "werf",
+      "imageAlt": "Bestaand renovatieproject met woning en bijgebouw",
+      "intro": "Wanneer meerdere delen van je woning aandacht vragen, helpt het om het geheel te bekijken. NEST brengt je plannen samen en denkt mee over een logische aanpak en de afstemming tussen de werken.",
+      "benefits": [
+        "Overzicht over je renovatieplannen",
+        "Werken die logisch op elkaar aansluiten",
+        "Eén aanspreekpunt tijdens het traject"
+      ],
+      "sections": [
+        {
+          "title": "Jouw plannen eerst op tafel.",
+          "text": "Wat wil je veranderen? Wat is er vandaag nodig, en wat kan later? We bekijken de woning en bespreken samen de scope van het project. Daarna werken we toe naar een helder voorstel.",
+          "items": [
+            "Huidige woning en gewenste resultaat",
+            "Samenhang tussen renovatie en energie",
+            "Prioriteiten en mogelijke fasering"
+          ]
+        },
+        {
+          "title": "Van losse beslissingen naar een plan.",
+          "text": "Dak, gevel en energie beïnvloeden elkaar. Door ze samen te bekijken, kunnen keuzes beter op elkaar aansluiten. Welke werken in jouw project worden opgenomen, leggen we vast in het voorstel."
+        }
+      ],
+      "brands": [],
+      "related": [
+        "dakrenovatie",
+        "gevelrenovatie",
+        "zonnepanelen"
+      ],
+      "question": "Waar begint jouw nieuwe nest?",
+      "cta": "Leg je plannen aan ons voor. We helpen je de volgende stap bepalen.",
+      "source": "Dienst bevestigd door Tobias; aanvullende concepttekst"
+    }
+  ]
+}

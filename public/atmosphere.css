@@ -1,0 +1,422 @@
+/* Architectural light: a sequence of rooms, kept within the existing NEST palette. */
+:root {
+  --light-clay: #eee8dd;
+  --light-sage: #e7ebdf;
+  --photo-shadow: 0 32px 56px -42px rgba(35, 47, 38, .5), 0 10px 24px -18px rgba(35, 47, 38, .28);
+}
+
+/* The renovation film is the first room of the site, with the invitation in-frame. */
+.home-hero.wrap {
+  width: 100%;
+  max-width: none;
+  padding-top: 0;
+}
+
+.home-hero .hero-film {
+  width: 100%;
+  height: calc(100vh - 100px);
+  height: calc(100svh - 100px);
+  min-height: 560px;
+  aspect-ratio: auto;
+  margin: 0;
+  border-radius: 0;
+  background: #34433b;
+}
+
+.home-hero .hero-film::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  z-index: 0;
+  background: url('/assets/web/k1_oud.webp') center / cover no-repeat;
+  filter: blur(35px) brightness(.55) saturate(.75);
+  transform: scale(1.05);
+}
+
+.home-hero .film-poster,
+.home-hero .film-video { z-index: 1; }
+
+.hero-wash {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(20, 32, 26, .73), rgba(20, 32, 26, .37) 42%, transparent 78%),
+    linear-gradient(0deg, rgba(15, 25, 20, .73), transparent 55%);
+}
+
+.home-hero .hero-film::after { display: none; }
+.home-hero .film-shutter { z-index: 3; }
+
+.home-hero .hero-intro {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0;
+  padding: 80px var(--gutter) clamp(110px, 12vh, 155px);
+  pointer-events: none;
+}
+
+.home-hero .hero-intro h1 {
+  color: #fffaf5;
+  font-size: clamp(76px, 8vw, 138px);
+  line-height: .92;
+  max-width: 11ch;
+  text-shadow: 0 8px 35px rgba(12, 24, 18, .23);
+}
+
+.home-hero .hero-intro h1 em { color: #efad90; }
+.home-hero .nest-underline { stroke: #efad90; }
+
+.home-hero .hero-description {
+  align-self: flex-start;
+  justify-self: auto;
+  width: auto;
+  padding: 24px 0 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  color: #fffaf5;
+}
+
+.home-hero .hero-description p {
+  flex-basis: 100%;
+  margin: 0;
+  color: #fffaf5;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.45;
+  text-shadow: 0 2px 10px rgba(12, 24, 18, .5);
+}
+
+.home-hero .hero-description>.text-link {
+  color: #fffaf5;
+  margin: 0;
+  min-height: 44px;
+  align-items: center;
+}
+
+.home-hero .hero-description a { pointer-events: auto; }
+.home-hero .film-caption { left: var(--gutter); bottom: 27px; }
+.home-hero .film-timeline { right: var(--gutter); bottom: 27px; }
+.home-hero .film-control { right: var(--gutter); top: 27px; }
+.home-hero .hero-footnote {
+  width: calc(100% - var(--gutter) * 2);
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+@media (max-width: 860px) {
+  .home-hero .hero-film { height: calc(100svh - 78px); min-height: 0; }
+  .home-hero .hero-intro h1 { font-size: clamp(62px, 9vw, 94px); }
+  body:has(.home-hero) .mobile-contact { transition: transform .35s var(--ease), opacity .2s ease; }
+  body.hero-visible .mobile-contact {
+    transform: translateY(110%);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-hero .hero-film { height: calc(100svh - 73px); }
+  .home-hero .film-poster,
+  .home-hero .film-video {
+    object-fit: contain;
+    object-position: 50% 32%;
+    background: transparent;
+  }
+  .hero-wash {
+    background: linear-gradient(180deg, rgba(19, 30, 24, .2), rgba(19, 30, 24, .05) 32%, rgba(16, 27, 21, .78) 69%, rgba(16, 27, 21, .94));
+  }
+  .home-hero .hero-intro {
+    padding: 55px var(--gutter) 150px;
+  }
+  .home-hero .hero-intro h1 {
+    font-size: clamp(56px, 14vw, 74px);
+    line-height: .94;
+    max-width: 8ch;
+  }
+  .home-hero .hero-intro h1 br { display: initial; }
+  .home-hero .hero-description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 12px;
+    padding-top: 18px;
+  }
+  .home-hero .hero-description p { flex-basis: auto; font-size: 15px; }
+  .home-hero .hero-description .button { min-height: 49px; }
+  .home-hero .hero-description>.text-link { font-size: 12px; min-height: 28px; }
+  .home-hero .film-caption { left: var(--gutter); bottom: 92px; font-size: 10px; }
+  .home-hero .film-timeline { display: none; }
+  .home-hero .film-control { right: var(--gutter); top: 17px; }
+  .home-hero .hero-footnote { padding-top: 12px; }
+}
+
+@media (max-width: 600px) and (max-height: 700px) {
+  .home-hero .hero-intro { padding-bottom: 115px; }
+  .home-hero .hero-intro h1 { font-size: clamp(50px, 12vw, 62px); }
+  .home-hero .hero-description p { font-size: 13px; }
+  .home-hero .film-caption { bottom: 80px; }
+}
+
+/* Every wash feathers back into the paper at both ends; no section cuts. */
+main[data-surface="home"] .intro-statement,
+main[data-surface="home"] .projects-section,
+main[data-surface="home"] .guidance-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.intro-statement::before {
+  content: "";
+  position: absolute;
+  inset: 7% calc(-1 * var(--gutter));
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 41% 72% at 80% 54%, rgba(199, 210, 194, .34), transparent 78%);
+}
+
+.services-section {
+  background:
+    radial-gradient(ellipse 36% 36% at 23% 49%, rgba(205, 219, 199, .48), transparent 86%),
+    linear-gradient(180deg, transparent 0%, rgba(235, 236, 225, .72) 22%, #ebece1 48%, rgba(235, 236, 225, .72) 78%, transparent 100%);
+}
+
+.service-picture {
+  filter: drop-shadow(0 26px 21px rgba(51, 62, 48, .13));
+}
+
+.energy-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.energy-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 38% 48% at 83% 43%, rgba(221, 188, 145, .29), transparent 88%),
+    radial-gradient(ellipse 51% 47% at 12% 67%, rgba(200, 214, 197, .32), transparent 85%),
+    linear-gradient(180deg, transparent, rgba(239, 234, 221, .43) 52%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+}
+
+.energy-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: calc(var(--ambient-evening, 0) * .62);
+  background: radial-gradient(ellipse 72% 55% at 72% 54%, rgba(112, 132, 124, .24), transparent 86%);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 20%, #000 80%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 20%, #000 80%, transparent);
+}
+
+.energy-scene {
+  box-shadow: var(--photo-shadow);
+}
+
+.projects-section::before {
+  content: "";
+  position: absolute;
+  inset: 8% calc(-1 * var(--gutter)) 3%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 57% 55% at 27% 57%, rgba(223, 216, 200, .42), transparent 82%),
+    radial-gradient(ellipse 40% 44% at 79% 49%, rgba(217, 226, 210, .35), transparent 84%);
+}
+
+.project-photo {
+  box-shadow: var(--photo-shadow);
+  transition: box-shadow .5s var(--ease), transform .5s var(--ease);
+}
+
+.project-spread a:hover .project-photo {
+  box-shadow: 0 39px 58px -42px rgba(35, 47, 38, .58), 0 13px 26px -18px rgba(35, 47, 38, .33);
+  transform: translateY(-3px);
+}
+
+.people-section {
+  background:
+    radial-gradient(ellipse 35% 60% at 77% 48%, rgba(198, 209, 190, .53), transparent 88%),
+    linear-gradient(180deg, transparent, rgba(235, 229, 215, .78) 19%, var(--light-clay) 48%, rgba(235, 229, 215, .78) 81%, transparent);
+}
+
+.people-folder {
+  filter: drop-shadow(0 23px 23px rgba(51, 53, 37, .11));
+}
+
+.guidance-section::before {
+  content: "";
+  position: absolute;
+  inset: 4% calc(-1 * var(--gutter));
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 70% 52% at 72% 55%, rgba(218, 225, 212, .42), transparent 84%);
+}
+
+.guidance-section::after {
+  content: "";
+  position: absolute;
+  right: 29%;
+  top: -3%;
+  width: min(24vw, 300px);
+  aspect-ratio: 1.4;
+  z-index: -1;
+  pointer-events: none;
+  background: url('/assets/nest-elevation.svg') center / contain no-repeat;
+  opacity: .22;
+}
+
+.guidance-lines>a {
+  transition: padding-left .35s var(--ease), background-color .35s var(--ease);
+}
+
+.guidance-lines>a:hover {
+  padding-left: 14px;
+  background: rgba(251, 250, 246, .34);
+}
+
+.closing::before {
+  background:
+    radial-gradient(ellipse 40% 68% at 21% 50%, rgba(216, 226, 207, .52), transparent 88%),
+    radial-gradient(ellipse 48% 74% at 62% 50%, rgba(234, 224, 199, .53), transparent 86%);
+}
+
+/* Inner pages take their light from the subject: roof, energy, renovation or people. */
+main[data-surface]:not([data-surface="home"]) {
+  --ambient: 210, 218, 202;
+  --ambient-warm: 230, 220, 198;
+  background:
+    radial-gradient(ellipse 53% 450px at 86% 230px, rgba(var(--ambient), .38), transparent 88%),
+    radial-gradient(ellipse 56% 380px at 9% 760px, rgba(var(--ambient-warm), .25), transparent 86%);
+  background-repeat: no-repeat;
+}
+
+main[data-surface="energie"],
+main[data-surface="calculator"] {
+  --ambient: 219, 207, 176;
+  --ambient-warm: 205, 219, 197;
+}
+
+main[data-surface="gevel"],
+main[data-surface="totaal"],
+main[data-surface="projects"],
+main[data-surface="case"] {
+  --ambient: 221, 207, 187;
+  --ambient-warm: 206, 216, 203;
+}
+
+main[data-surface="team"],
+main[data-surface="story"],
+main[data-surface="guidance"],
+main[data-surface="guidanceIndex"] {
+  --ambient: 206, 218, 200;
+  --ambient-warm: 224, 217, 197;
+}
+
+main[data-surface="contact"] {
+  --ambient: 211, 219, 202;
+  --ambient-warm: 234, 218, 193;
+}
+
+.page-hero-image {
+  filter: drop-shadow(0 28px 24px rgba(35, 47, 38, .13));
+}
+
+.detail-content,
+.editorial-body,
+.related-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.detail-content::before,
+.editorial-body::before,
+.related-section::before {
+  content: "";
+  position: absolute;
+  inset: 10% calc(-1 * var(--gutter));
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 66% 33% at 70% 43%, rgba(217, 224, 208, .28), transparent 90%);
+}
+
+.detail-section:nth-child(even) {
+  background: radial-gradient(ellipse 65% 78% at 68% 50%, rgba(235, 231, 218, .26), transparent 88%);
+}
+
+.service-advice {
+  background: linear-gradient(120deg, rgba(230, 232, 219, .9), rgba(237, 232, 216, .82));
+  box-shadow: 0 16px 34px -29px rgba(40, 51, 46, .32);
+}
+
+.page-question {
+  position: relative;
+  isolation: isolate;
+}
+
+.page-question::before {
+  content: "";
+  position: absolute;
+  inset: -10% calc(-1 * var(--gutter));
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 65% 65% at 50% 54%, rgba(223, 226, 207, .42), transparent 84%);
+}
+
+.contact-page {
+  position: relative;
+  isolation: isolate;
+}
+
+.contact-page::before {
+  content: "";
+  position: absolute;
+  inset: -2% calc(-1 * var(--gutter)) 3%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 50% 54% at 78% 48%, rgba(219, 227, 209, .53), transparent 85%);
+}
+
+.plan-paper {
+  box-shadow: 0 33px 60px -43px rgba(35, 47, 38, .48), 0 12px 24px -20px rgba(35, 47, 38, .27);
+}
+
+@media (max-width: 860px) {
+  .guidance-section::after { display: none; }
+  .project-photo { box-shadow: 0 20px 38px -30px rgba(35, 47, 38, .43); }
+}
+
+@media (max-width: 600px) {
+  .energy-section::before { background: radial-gradient(ellipse 80% 51% at 83% 42%, rgba(221, 188, 145, .24), transparent 90%); }
+  .projects-section::before { inset: 6% calc(-1 * var(--gutter)) 0; }
+  .guidance-section::after { display: none; }
+  .people-folder { filter: none; }
+  .project-spread a:hover .project-photo { transform: none; }
+  .guidance-lines>a:hover { padding-left: 0; background: transparent; }
+  main[data-surface]:not([data-surface="home"]) {
+    background-image: radial-gradient(ellipse 95% 320px at 86% 250px, rgba(var(--ambient), .32), transparent 90%);
+  }
+  .page-hero-image { filter: drop-shadow(0 16px 17px rgba(35, 47, 38, .12)); }
+  .plan-paper { box-shadow: 0 24px 40px -33px rgba(35, 47, 38, .42); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-photo,
+  .guidance-lines>a,
+  body:has(.home-hero) .mobile-contact { transition: none; }
+}

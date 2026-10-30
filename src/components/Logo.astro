@@ -1,0 +1,7 @@
+---
+const { footer=false } = Astro.props;
+---
+<a class:list={['brand',{'brand-footer':footer}]} href="/" aria-label="NEST Company — naar de homepage">
+ <svg class="brand-mark" viewBox="0 0 100 90" aria-hidden="true"><path d="M30 34 54 12 88 43v35H58v-8h22V46L54 23 36 40Z" fill="#d35333"/><rect x="14" y="52" width="7" height="20" rx="3.5" fill="#3fa9dc"/><rect x="24" y="27" width="7" height="45" rx="3.5" fill="#189a49"/><rect x="34" y="36" width="7" height="36" rx="3.5" fill="#e23b3b"/><rect x="44" y="43" width="7" height="29" rx="3.5" fill="#35318f"/><rect x="54" y="58" width="7" height="14" rx="3.5" fill="#8f3f87"/></svg>
+ <span class="brand-name">NEST<span>company</span></span>
+</a>

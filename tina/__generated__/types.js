@@ -5,166 +5,75 @@ export function gql(strings, ...args) {
   });
   return str;
 }
-export const SitePartsFragmentDoc = gql`
-    fragment SiteParts on Site {
+export const ServicesPartsFragmentDoc = gql`
+    fragment ServicesParts on Services {
   __typename
-  merk {
+  items {
     __typename
-    naam
-    naamVervolg
-    telefoon
-    telefoonLink
-    email
-    paginaTitel
-    paginaOmschrijving
-    deelTitel
-    deelOmschrijving
-    deelBeeld
-  }
-  menu {
-    __typename
-    label
-    anker
-  }
-  knopBoven
-  laadscherm {
-    __typename
-    naam
-    stap1
-    stap2
-    stap3
-    klaar
-  }
-  film {
-    __typename
-    rail {
+    slug
+    title
+    headline
+    summary
+    image
+    sections {
       __typename
-      label
+      title
+      text
+      items
     }
-    hero {
-      __typename
-      kicker
-      titelRegel1
-      titelRegel2
-      ondertitel
-      ondertitelAccent
-      voetLinks
-      voetMidden
-      voetRechts
-    }
-    aktes {
-      __typename
-      kicker
-      titel
-      titelAccent
-      tekst
-      start
-      einde
-    }
-    slot {
-      __typename
-      kicker
-      titel
-      titelAccent
-      knop
-      start
-      einde
-    }
-  }
-  statement {
-    __typename
-    regel1
-    regel2
-    regel2Accent
-    onderschrift
-  }
-  diensten {
-    __typename
-    kicker
-    titel
-    titelAccent
-    items {
-      __typename
-      nummer
-      titel
-      subtitel
-      beeld
-    }
-  }
-  voorna {
-    __typename
-    kicker
-    titel
-    titelAccent
-    beeldVoor
-    beeldVoorAlt
-    beeldNa
-    beeldNaAlt
-    labelVoor
-    labelNa
-    hint
-  }
-  realisaties {
-    __typename
-    kicker
-    titel
-    titelAccent
-    items {
-      __typename
-      beeld
-      tag
-      titel
-      alt
-    }
-    hint
-    hintLinkTekst
-    hintLink
-  }
-  aanpak {
-    __typename
-    kicker
-    titel
-    titelAccent
-    stappen {
-      __typename
-      nummer
-      titel
-      tekst
-    }
-    cijfers {
-      __typename
-      waarde
-      label
-      telOp
-    }
-  }
-  calculator {
-    __typename
-    kicker
-    titel
-    titelAccent
-    knop
-    link
-  }
-  contact {
-    __typename
-    kicker
-    titel
-    titelAccent
-    tekst
-    adres
-  }
-  voet {
-    __typename
-    links
-    midden
-    rechts
+    question
+    cta
+    group
+    imageAlt
+    intro
+    benefits
+    brands
+    related
+    source
   }
 }
     `;
-export const SiteDocument = gql`
-    query site($relativePath: String!) {
-  site(relativePath: $relativePath) {
+export const EditorialPartsFragmentDoc = gql`
+    fragment EditorialParts on Editorial {
+  __typename
+  items {
+    __typename
+    slug
+    title
+    headline
+    summary
+    image
+    sections {
+      __typename
+      title
+      text
+      items
+    }
+    question
+    cta
+    kind
+  }
+}
+    `;
+export const HomepagePartsFragmentDoc = gql`
+    fragment HomepageParts on Homepage {
+  __typename
+  titleStart
+  titleEnd
+  titleAccent
+  promise
+  description
+  adviceButton
+  servicesLink
+  intro
+  servicesTitle
+  servicesAccent
+  servicesDescription
+}
+    `;
+export const ServicesDocument = gql`
+    query services($relativePath: String!) {
+  services(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -177,13 +86,13 @@ export const SiteDocument = gql`
       }
       id
     }
-    ...SiteParts
+    ...ServicesParts
   }
 }
-    ${SitePartsFragmentDoc}`;
-export const SiteConnectionDocument = gql`
-    query siteConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SiteFilter) {
-  siteConnection(
+    ${ServicesPartsFragmentDoc}`;
+export const ServicesConnectionDocument = gql`
+    query servicesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ServicesFilter) {
+  servicesConnection(
     before: $before
     after: $after
     first: $first
@@ -213,19 +122,145 @@ export const SiteConnectionDocument = gql`
           }
           id
         }
-        ...SiteParts
+        ...ServicesParts
       }
     }
   }
 }
-    ${SitePartsFragmentDoc}`;
+    ${ServicesPartsFragmentDoc}`;
+export const EditorialDocument = gql`
+    query editorial($relativePath: String!) {
+  editorial(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...EditorialParts
+  }
+}
+    ${EditorialPartsFragmentDoc}`;
+export const EditorialConnectionDocument = gql`
+    query editorialConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: EditorialFilter) {
+  editorialConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...EditorialParts
+      }
+    }
+  }
+}
+    ${EditorialPartsFragmentDoc}`;
+export const HomepageDocument = gql`
+    query homepage($relativePath: String!) {
+  homepage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...HomepageParts
+  }
+}
+    ${HomepagePartsFragmentDoc}`;
+export const HomepageConnectionDocument = gql`
+    query homepageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: HomepageFilter) {
+  homepageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...HomepageParts
+      }
+    }
+  }
+}
+    ${HomepagePartsFragmentDoc}`;
 export function getSdk(requester) {
   return {
-    site(variables, options) {
-      return requester(SiteDocument, variables, options);
+    services(variables, options) {
+      return requester(ServicesDocument, variables, options);
     },
-    siteConnection(variables, options) {
-      return requester(SiteConnectionDocument, variables, options);
+    servicesConnection(variables, options) {
+      return requester(ServicesConnectionDocument, variables, options);
+    },
+    editorial(variables, options) {
+      return requester(EditorialDocument, variables, options);
+    },
+    editorialConnection(variables, options) {
+      return requester(EditorialConnectionDocument, variables, options);
+    },
+    homepage(variables, options) {
+      return requester(HomepageDocument, variables, options);
+    },
+    homepageConnection(variables, options) {
+      return requester(HomepageConnectionDocument, variables, options);
     }
   };
 }
@@ -249,7 +284,7 @@ const generateRequester = (client) => {
 export const ExperimentalGetTinaClient = () => getSdk(
   generateRequester(
     createClient({
-      url: "http://localhost:4001/graphql",
+      url: "https://content.tinajs.io/2.4/content/54807f5a-fea9-45fd-a3b9-64d42cc12578/github/main",
       queries
     })
   )

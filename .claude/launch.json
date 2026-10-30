@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "nestcompany",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "ASTRO_DEV_BACKGROUND=1 npx astro dev --port 4327 --host 127.0.0.1"],
+      "port": 4327
+    }
+  ]
+}

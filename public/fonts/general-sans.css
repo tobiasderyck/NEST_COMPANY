@@ -1,0 +1,4 @@
+/* Locally available General Sans; no third-party font request. */
+@font-face{font-family:'General Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/general-sans-400.woff2') format('woff2')}
+@font-face{font-family:'General Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/general-sans-500.woff2') format('woff2')}
+@font-face{font-family:'General Sans';font-style:normal;font-weight:600 800;font-display:swap;src:url('/fonts/general-sans-600.woff2') format('woff2')}

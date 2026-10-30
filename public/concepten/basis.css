@@ -1,0 +1,51 @@
+/* Gedeelde basis voor de drie conceptmockups. Niet gebruikt door de echte site. */
+@font-face { font-family: "Archivo"; src: url("/fonts/archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+@font-face { font-family: "General Sans"; src: url("/fonts/general-sans-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "General Sans"; src: url("/fonts/general-sans-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "General Sans"; src: url("/fonts/general-sans-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+:root {
+  --papier: #f4f1ea;
+  --papier-2: #fbf9f4;
+  --inkt: #1d2420;
+  --inkt-dof: rgba(29, 36, 32, .62);
+  --inkt-fluister: rgba(29, 36, 32, .34);
+  --lijn: rgba(29, 36, 32, .14);
+  --oranje: #e0532d;          /* uit het logo */
+  --oranje-diep: #b8401f;
+  --ster: #e9a23b;
+  --uit: cubic-bezier(.23, 1, .32, 1);
+  --beweeg: cubic-bezier(.77, 0, .175, 1);
+  --rand: clamp(20px, 4vw, 64px);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--papier); color: var(--inkt); font: 400 17px/1.55 "General Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--oranje); outline-offset: 3px; border-radius: 3px; }
+
+/* logo */
+.logo { display: inline-flex; align-items: center; gap: 10px; font: 700 19px/1 "Archivo", sans-serif; font-stretch: 125%; letter-spacing: .06em; }
+.logo svg { width: 34px; height: auto; }
+.logo small { display: block; font: 500 9px/1 "General Sans"; letter-spacing: .32em; color: var(--inkt-dof); margin-top: 3px; text-transform: lowercase; }
+
+/* knoppen: inkt op licht, accent zit in het pijltje */
+.knop { display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 22px; border-radius: 6px; background: var(--inkt); color: var(--papier-2); font-weight: 500; font-size: 15px; transition: transform .16s var(--uit), background .2s; }
+.knop:hover { transform: translateY(-2px); background: #000; }
+.knop:active { transform: scale(.97); }
+.knop i { width: 26px; height: 26px; border-radius: 50%; background: var(--oranje); display: grid; place-items: center; font-style: normal; transition: transform .25s var(--uit); }
+.knop:hover i { transform: rotate(-45deg); }
+.knop--licht { background: var(--papier-2); color: var(--inkt); }
+.knop--licht:hover { background: #fff; }
+.tel { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; font-size: 15px; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+/* google-score */
+.gscore { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; }
+.gscore .sterren { color: var(--ster); letter-spacing: 1px; font-size: 13px; }
+.gscore b { font-weight: 600; }
+.g-logo { width: 16px; height: 16px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

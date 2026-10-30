@@ -1,0 +1,6 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const {title='Van huis. Naar nest.',description='Dakwerken, gevel- en totaalrenovatie en slimme energieoplossingen. NEST Company denkt mee van persoonlijk advies tot uitvoering en opvolging.',hideCta=false,surface='home'}=Astro.props;
+---
+<!doctype html><html lang="nl"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#f4f2eb"/><title>{title} — NEST Company</title><meta name="description" content={description}/><meta property="og:title" content={`${title} — NEST Company`}/><meta property="og:description" content={description}/><meta property="og:image" content="https://nest-company.vercel.app/assets/keyframes2/k5_nest.jpg"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="stylesheet" href="/fonts/archivo.css"/><link rel="stylesheet" href="/fonts/general-sans.css"/><link rel="stylesheet" href="/nest.css"/><link rel="stylesheet" href="/atmosphere.css"/></head><body><Header/><main id="main" data-surface={surface}><slot/></main><Footer hideCta={hideCta}/><script is:inline src="/nest.js" defer></script></body></html>

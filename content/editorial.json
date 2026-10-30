@@ -1,0 +1,204 @@
+{
+  "items": [
+    {
+      "slug": "waarom-nest-company/persoonlijk-advies",
+      "kind": "guidance",
+      "title": "Persoonlijk advies",
+      "headline": "Eerst luisteren. Dan adviseren.",
+      "summary": "Elke woning is anders. Daarom begint een goed plan met jouw situatie.",
+      "image": "leuven",
+      "sections": [
+        {
+          "title": "Geen standaardwoning. Geen standaardantwoord.",
+          "text": "We bekijken je woning, bestaande installaties, energieverbruik en toekomstplannen. Of je nu één oplossing zoekt of meerdere werken wil combineren: we helpen je bepalen welke stap logisch is.",
+          "items": [
+            "Je woning en bestaande installaties",
+            "Je energieverbruik en gewoontes",
+            "Je plannen en mogelijke combinaties"
+          ]
+        },
+        {
+          "title": "Vrij kiezen wat bij jou past.",
+          "text": "NEST werkt merkonafhankelijk. We vertrekken vanuit wat technisch en praktisch aansluit bij jouw situatie. Zo krijg je duidelijke uitleg over de mogelijkheden, zonder een vaste oplossing op te dringen."
+        }
+      ],
+      "question": "Leg je plannen op tafel.",
+      "cta": "We luisteren, bekijken je situatie en denken met je mee."
+    },
+    {
+      "slug": "waarom-nest-company/configuratie-optimalisatie",
+      "kind": "guidance",
+      "title": "Configuratie & optimalisatie",
+      "headline": "Goed geplaatst. Slim ingesteld.",
+      "summary": "De juiste onderdelen zijn het begin. De afstemming maakt het geheel.",
+      "image": "k3_zon",
+      "sections": [
+        {
+          "title": "Instellingen voor jouw leefritme.",
+          "text": "We stemmen systemen af op je verbruik, gewoontes en wensen. Daarbij bekijken we de instellingen, verbruikspatronen, samenwerking tussen onderdelen en mogelijkheden voor verbetering.",
+          "items": [
+            "Correcte instellingen per installatie",
+            "Samenwerking tussen je systemen",
+            "Afstemming op je verbruik"
+          ]
+        },
+        {
+          "title": "Ook morgen moet het kloppen.",
+          "text": "Een elektrische wagen, extra zonnepanelen of andere gewoontes veranderen je verbruik. Daarom denken we ook mee over latere uitbreiding. Configuratie is waardevol voor zowel één losse installatie als een volledig energiesysteem."
+        }
+      ],
+      "question": "Haal je genoeg uit je installatie?",
+      "cta": "We bekijken waar een betere afstemming mogelijk is."
+    },
+    {
+      "slug": "waarom-nest-company/premies-en-aanvragen",
+      "kind": "guidance",
+      "title": "Premies & aanvragen",
+      "headline": "Ook het papierwerk krijgt aandacht.",
+      "summary": "Begeleiding bij de documenten, aanvragen en registraties rond je project.",
+      "image": "zolder",
+      "sections": [
+        {
+          "title": "Overzicht, vanaf het begin.",
+          "text": "Energieoplossingen en dakwerken brengen soms administratie mee. NEST helpt je het overzicht te bewaren en bekijkt welke stappen voor jouw project relevant zijn.",
+          "items": [
+            "Begeleiding bij mogelijke premieaanvragen",
+            "Nodige documenten verzamelen",
+            "Registraties en meldingen opvolgen"
+          ]
+        },
+        {
+          "title": "Een traject dat blijft doorlopen.",
+          "text": "We stemmen de administratie af op de werken en blijven aanspreekbaar. Welke ondersteuning en aanvragen bij jouw situatie horen, bespreken we in het adviesgesprek. Eventuele premies hangen af van de geldende voorwaarden en je persoonlijke situatie."
+        }
+      ],
+      "question": "Vragen over de administratie?",
+      "cta": "We helpen je uitzoeken welke stappen bij jouw project horen."
+    },
+    {
+      "slug": "waarom-nest-company/administratieve-opvolging",
+      "kind": "guidance",
+      "title": "Opvolging & service",
+      "headline": "Geplaatst is niet uitgepraat.",
+      "summary": "Een aanspreekpunt, ook nadat de werken klaar zijn.",
+      "image": "werf",
+      "sections": [
+        {
+          "title": "Je dossier op orde.",
+          "text": "Na de installatie helpen we je het overzicht over je project te bewaren. Je weet welke informatie er is en waar je terechtkan met vragen.",
+          "items": [
+            "Keuringsdocumenten en attesten",
+            "Technische documentatie en garantiegegevens",
+            "Opvolging van de installatie en service"
+          ]
+        },
+        {
+          "title": "Je woning verandert. Wij denken mee.",
+          "text": "Wil je later uitbreiden of verandert je energieverbruik? NEST blijft beschikbaar voor advies en ondersteuning. Zo bouwen we verder op wat er al staat."
+        }
+      ],
+      "question": "We blijven bereikbaar.",
+      "cta": "Ook voor een vraag over je bestaande NEST-installatie."
+    },
+    {
+      "slug": "over-ons/over-nest-company",
+      "kind": "story",
+      "title": "Over NEST",
+      "headline": "Gebouwd rond jouw woning. En rond jou.",
+      "summary": "Nieuwe energie. Efficiënte systemen. Slimme oplossingen. Toekomstgericht wonen.",
+      "image": "werf",
+      "sections": [
+        {
+          "title": "Een andere manier van beginnen.",
+          "text": "Tommy en Joeri zagen in de sector vaak dezelfde oplossing terugkomen, terwijl elke woning, elk bedrijf en elk verbruik anders is. Daarom richtten ze NEST op: met de klant en de juiste oplossing als vertrekpunt."
+        },
+        {
+          "title": "Dak en energie aan dezelfde tafel.",
+          "text": "NEST brengt kennis van dakwerken en hernieuwbare energie samen. Van zonnepanelen en batterijen tot dakrenovatie, airco, warmtepompboilers en laadpalen: we kijken naar wat technisch en praktisch bij je situatie past."
+        },
+        {
+          "title": "Onafhankelijk kiezen. Betrokken blijven.",
+          "text": "We zijn niet gebonden aan één leverancier. We analyseren, adviseren en voeren uit, met aandacht voor de opvolging nadien. Je krijgt heldere uitleg en een aanspreekpunt dat het geheel kent."
+        }
+      ],
+      "question": "Een goed project begint met een gesprek.",
+      "cta": "Vertel ons over jouw woning of bedrijf."
+    },
+    {
+      "slug": "over-ons/ons-team",
+      "kind": "team",
+      "title": "Ons team",
+      "headline": "Je spreekt met mensen. Geen doorgeefluik.",
+      "summary": "Korte lijnen, aanvullende expertise en een team dat betrokken blijft.",
+      "image": "dak-lucht",
+      "sections": [
+        {
+          "title": "Tommy Van der Haegen",
+          "text": "Tommy groeide op in een dakwerkersfamilie en kent een dak van binnen én van buiten. Zijn ervaring vormt een sterke basis voor projecten waarin dak en energie-installatie goed op elkaar aansluiten."
+        },
+        {
+          "title": "Joeri Vranckx",
+          "text": "Joeri specialiseerde zich in zonnepanelen, batterijsystemen en intelligent energiebeheer. Hij bekijkt hoe oplossingen technisch kloppen en efficiënt samenwerken, afgestemd op elke klant."
+        }
+      ],
+      "question": "Wie denkt er met jou mee?",
+      "cta": "Maak kennis met NEST en bespreek je plannen."
+    },
+    {
+      "slug": "realisaties/realisatie-zonnepanelen-op-maat",
+      "kind": "case",
+      "title": "Zonnepanelen op maat",
+      "headline": "De juiste installatie begint met de juiste vraag.",
+      "summary": "Een klant wilde zonnepanelen, maar zocht vooral duidelijkheid in een groot aanbod.",
+      "image": "k3_zon",
+      "sections": [
+        {
+          "title": "De vraag",
+          "text": "Welke zonnepanelen passen écht bij onze woning? Dat wilde de klant weten voordat er een keuze werd gemaakt."
+        },
+        {
+          "title": "Onze analyse",
+          "text": "We bekeken dakoriëntatie, energieverbruik, beschikbare dakoppervlakte en toekomstplannen. Zo konden we een installatie voorstellen die aansloot bij de woning, zonder meer te installeren dan nodig."
+        },
+        {
+          "title": "De oplossing",
+          "text": "Zonnepanelen op maat, correct gedimensioneerd en professioneel geplaatst en geconfigureerd. Persoonlijk en merkonafhankelijk advies vormde de basis."
+        },
+        {
+          "title": "Wat dit project laat zien",
+          "text": "Een goede energieoplossing begint bij je situatie. De juiste dimensionering en een duidelijk plan geven houvast voor de investering en voor latere uitbreiding."
+        }
+      ],
+      "question": "Ook duidelijkheid over jouw dak?",
+      "cta": "We onderzoeken welke zonnepanelen bij jouw woning passen."
+    },
+    {
+      "slug": "realisaties/realisatie-zonnepanelen-en-thuisbatterij",
+      "kind": "case",
+      "title": "Zonnepanelen & thuisbatterij",
+      "headline": "De zon van overdag. De energie voor later.",
+      "summary": "Een combinatie afgestemd op de wens om meer eigen energie te gebruiken.",
+      "image": "k5_nest",
+      "sections": [
+        {
+          "title": "De vraag",
+          "text": "Deze klant wilde minder afhankelijk worden van het elektriciteitsnet en zoveel mogelijk zelf opgewekte energie gebruiken."
+        },
+        {
+          "title": "Onze analyse",
+          "text": "Na analyse van verbruik, dakoriëntatie en toekomstplannen bleek een combinatie van zonnepanelen en een thuisbatterij passend bij de situatie."
+        },
+        {
+          "title": "De oplossing",
+          "text": "Een installatie met zonnepanelen, thuisbatterij en slimme configuratie. Alle onderdelen werden afgestemd op het energieverbruik van de woning."
+        },
+        {
+          "title": "Wat dit project laat zien",
+          "text": "Door productie, opslag en gebruik samen te bekijken, kan een woning meer met haar eigen energie doen. De combinatie volgt uit de analyse; ze is geen standaardpakket voor elke klant."
+        }
+      ],
+      "question": "Wat past bij jouw energieverbruik?",
+      "cta": "We bekijken of zonnepanelen en een batterij voor jou een logische combinatie zijn."
+    }
+  ]
+}
