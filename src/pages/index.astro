@@ -8,12 +8,20 @@ import home from '../../content/homepage.json';
 import reviews from '../../content/reviews.json';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Icon from '../components/Icon.astro';
+import OffGrid from '../components/OffGrid.astro';
 import { contact } from '../data/nest';
 
 const { hero, delen, ploeg, meter } = home;
 /* plaats van elk huisdeel in het filmbeeld (procent van het 16:9-beeld) */
 const punten = [{ x: 21, y: 25 }, { x: 44, y: 22 }, { x: 63, y: 50 }, { x: 60, y: 75 }];
 const [voor, na] = hero.regel2.split(hero.nadruk);
+const vakken = [
+ { naam: 'Dakwerken', wat: 'Pannen, isolatie, zinkwerk en herstellingen', link: '/dakwerken/', foto: 'gerenoveerd-dak' },
+ { naam: 'Zonnepanelen', wat: 'Installatie, omvormers en thuisbatterijen', link: '/energieoplossingen/zonnepanelen/', foto: 'pannendak-zonnepanelen' },
+ { naam: 'Gevelrenovatie', wat: 'Crepi, gevelbekleding en buitenschrijnwerk', link: '/gevelrenovatie/', foto: 'werf' },
+ { naam: 'Warmtepompen en airco', wat: 'Verwarmen én koelen, fluisterstil', link: '/energieoplossingen/airco-en-warmtepompboilers/', foto: 'airco-zolder' },
+ { naam: 'Totale renovatie', wat: 'Van het eerste plan tot de sleutel op de deur', link: '/totaalrenovatie/', foto: 'dakrenovatie-werf' }
+];
 const d0 = delen[0];
 
 /* wie wordt hoe vaak bij naam genoemd */
@@ -28,6 +36,7 @@ const opties = {
 ---
 <SiteLayout hideCta surface="home" title="Dak, zonnepanelen, batterij en gevel in Vlaams-Brabant" description="Eén Vlaamse ploeg uit Machelen voor je dak, zonnepanelen, thuisbatterij en gevel. Gratis adviesbezoek met uitleg en cijfers. 5,0 op Google uit 20 reviews.">
  <link slot="head" rel="stylesheet" href="/home.css"/>
+ <script slot="head" is:inline>matchMedia("(min-width: 861px)").matches && document.documentElement.classList.add("kop-over");</script>
  <link slot="head" rel="preload" as="image" href="/assets/web/k1_oud-800.webp" imagesrcset="/assets/web/k1_oud-800.webp 800w, /assets/web/k1_oud-1280.webp 1280w, /assets/web/k1_oud.webp 1700w" imagesizes="(max-width: 860px) 100vw, 1440px" fetchpriority="high"/>
 
  <!-- A · HET HUIS IS HET MENU -->
@@ -54,9 +63,13 @@ const opties = {
      <a class="button" href="/contact/">{hero.knop} <Icon name="diagonal" size={18}/></a>
      <a class="nh-tel" href={'tel:' + contact.tel}>{contact.phone}</a>
     </div>
-    <a class="nh-bewijs" href="#ploeg"><span class="nh-sterren" aria-hidden="true">★★★★★</span>{hero.bewijs}</a>
    </div>
 
+   <nav class="nh-rail" aria-label="Bekijk een onderdeel van het huis">
+    {delen.map((d, i) => <button type="button" data-deel={i} aria-controls="nh-paneel" class:list={[{ 'is-actief': i === 0 }]}><i aria-hidden="true"></i><span>{d.naam}</span></button>)}
+    <button type="button" class="nh-rail-alle" data-alle-diensten><i aria-hidden="true"></i><span>Alle diensten</span><Icon name="plus" size={14}/></button>
+   </nav>
+   <p class="nh-tabs-hint">Tik op een onderdeel van het huis</p>
    <div class="nh-tabs-gsm" aria-hidden="true">{delen.map((d, i) => <button tabindex="-1" data-deel={i} class:list={[{ 'is-actief': i === 0 }]}>{d.naam}</button>)}</div>
    <aside class="nh-paneel" id="nh-paneel" role="tabpanel" aria-labelledby="nh-tab-0" aria-live="polite">
     <div class="nh-paneel-kop"><span data-p-nr>01</span><span>van 04</span></div>
@@ -77,6 +90,26 @@ const opties = {
    <button class="nh-pauze" data-pauze aria-label="Film pauzeren" hidden><span></span><span></span></button>
   </div>
  </section>
+
+
+ <!-- VIJF VAKGEBIEDEN. EÉN DAK. -->
+ <section class="nh-diensten" aria-labelledby="vak-titel">
+  <h2 id="vak-titel">Vijf vakgebieden. <em>Eén dak.</em></h2>
+  <ul class="nh-diensten-lijst">
+   {vakken.map(v => (
+    <li><a href={v.link}>
+     <span class="nh-diensten-naam">{v.naam}</span>
+     <span class="nh-diensten-wat">{v.wat}</span>
+     <span class="nh-diensten-pijl" aria-hidden="true"><Icon name="arrow" size={22}/></span>
+     <img class="nh-diensten-foto" src={`/assets/web/${v.foto}-800.webp`} alt="" width="800" height="560" loading="lazy" decoding="async"/>
+    </a></li>
+   ))}
+  </ul>
+  <p class="nh-diensten-ook">Ook voor bedrijfspanden en kmo's: <a href="/energieoplossingen/industriele-batterijen/">industriële oplossingen</a>.</p>
+ </section>
+
+ <!-- OFF-GRID -->
+ <OffGrid thuis/>
 
  <!-- B · KLANTEN NOEMEN ONS BIJ NAAM -->
  <section class="nh-ploeg" id="ploeg" aria-labelledby="ploeg-titel">
@@ -119,51 +152,59 @@ const opties = {
   </div>
  </section>
 
- <!-- C · DE PLOOIMETER -->
- <section class="nh-meter" id="opmeten" aria-labelledby="meter-titel">
-  <div class="nh-meter-kop">
-   <h2 id="meter-titel">{meter.titel}</h2>
+ <!-- C · ZET DE KOFFIE MAAR KLAAR: stel je woning samen -->
+ <section class="nk" id="opmeten" aria-labelledby="nk-titel">
+  <div class="nk-kop">
+   <h2 id="nk-titel">Zet de koffie maar <em>klaar.</em></h2>
    <p>{meter.tekst}</p>
   </div>
+  <div class="nk-raster">
+   <form class="nk-vragen" data-nk-vorm action="/contact/" method="get">
+    <fieldset>
+     <legend>Wat wil je aanpakken?</legend>
+     <div class="nk-opties">
+      {['Dak', 'Zonnepanelen', 'Gevel', 'Warmtepomp of airco', 'Laadpaal'].map(o => <label class="nk-optie"><input type="checkbox" name="wat" value={o}/><span>{o}</span></label>)}
+     </div>
+     <div class="nk-opties nk-opties--klein">
+      <span>Ook:</span>
+      {['Thuisbatterij'].map(o => <label class="nk-optie"><input type="checkbox" name="wat" value={o}/><span>{o.toLowerCase()}</span></label>)}
+     </div>
+    </fieldset>
+    <fieldset>
+     <legend>Wat voor woning is het?</legend>
+     <div class="nk-opties">
+      {[['open', 'Open bebouwing'], ['halfopen', 'Halfopen'], ['rij', 'Rijwoning'], ['appartement', 'Appartement']].map(([v, t], i) => <label class="nk-optie"><input type="radio" name="woning" value={v} data-tekst={t} checked={i === 0}/><span>{t}</span></label>)}
+     </div>
+    </fieldset>
+    <fieldset>
+     <legend>Wanneer wil je starten?</legend>
+     <div class="nk-opties">
+      {['Zo snel mogelijk', 'Binnen het halfjaar', 'Ik kijk nog rond'].map(o => <label class="nk-optie"><input type="radio" name="wanneer" value={o}/><span>{o}</span></label>)}
+     </div>
+    </fieldset>
+   </form>
 
-  <div class="nh-duimstok" data-duimstok aria-hidden="true">
-   <div class="ds-lid" data-lid="0"><span class="ds-cijfers"><i>2</i><i>4</i><i>6</i><i>8</i><i>10</i><i>12</i><i>14</i><i>16</i><i>18</i></span>
-    <div class="ds-lid" data-lid="1"><span class="ds-cijfers"><i>22</i><i>24</i><i>26</i><i>28</i><i>30</i><i>32</i><i>34</i><i>36</i><i>38</i></span>
-     <div class="ds-lid" data-lid="2"><span class="ds-cijfers"><i>42</i><i>44</i><i>46</i><i>48</i><i>50</i><i>52</i><i>54</i><i>56</i><i>58</i></span>
-      <div class="ds-lid" data-lid="3"><span class="ds-cijfers"><i>62</i><i>64</i><i>66</i><i>68</i><i>70</i><i>72</i><i>74</i><i>76</i><i>78</i></span>
-       <div class="ds-lid" data-lid="4"><span class="ds-cijfers"><i>82</i><i>84</i><i>86</i><i>88</i><i>90</i><i>92</i><i>94</i><i>96</i><i>98</i></span></div>
-      </div>
+   <div class="nk-toon">
+    <figure class="nk-kader" data-nk>
+     <div class="nk-kantel" data-nk-kantel>
+     <img class="nk-beeld" data-nk-a src="/assets/huis/open-000.webp" alt="" width="1280" height="880" loading="lazy" decoding="async"/>
+     <img class="nk-beeld nk-b" data-nk-b alt="" width="1280" height="880" aria-hidden="true"/>
+     <img class="nk-beeld nk-laag nk-wp" data-nk-wp alt="" width="1280" height="880" aria-hidden="true"/>
+     <img class="nk-beeld nk-laag nk-steiger" data-nk-steiger alt="" width="1280" height="880" aria-hidden="true"/>
+     <img class="nk-beeld nk-laag" data-nk-laadpaal alt="" width="1280" height="880" aria-hidden="true"/>
+     <img class="nk-beeld nk-laag nk-rijst" data-nk-bord alt="" width="1280" height="880" aria-hidden="true"/>
+     </div>
+     <figcaption data-nk-bijschrift>Open bebouwing, zoals ze er nu staat</figcaption>
+    </figure>
+    <div class="nk-slot">
+     <p class="nk-zin" data-nk-zin aria-live="polite">Kies wat je wil aanpakken. Het huis doet mee.</p>
+     <div class="nk-acties">
+      <a class="button" href="/contact/#jouw-plan" data-nk-knop>{meter.knop} <Icon name="diagonal" size={18}/></a>
+      <a class="nh-tel nh-tel--donker" href={'tel:' + contact.tel}>of bel {contact.phone}</a>
      </div>
     </div>
    </div>
   </div>
-
-  <form class="nh-vragen" data-vragen action="/contact/" method="get">
-   <p class="nh-stapteller" data-stapteller aria-live="polite">Vraag 1 van 3</p>
-   <fieldset class="nh-vraag" data-stap="0">
-    <legend>Wat wil je aanpakken? <small>Meerdere mag.</small></legend>
-    <div class="nh-opties">{opties.wat.map(o => <label class="nh-optie"><input type="checkbox" name="wat" value={o}/><span>{o}</span></label>)}</div>
-    <button type="button" class="button" data-volgende disabled>Volgende <Icon name="arrow" size={18}/></button>
-   </fieldset>
-   <fieldset class="nh-vraag" data-stap="1">
-    <legend>Wat voor woning is het?</legend>
-    <div class="nh-opties">{opties.woning.map(o => <label class="nh-optie"><input type="radio" name="woning" value={o}/><span>{o}</span></label>)}</div>
-   </fieldset>
-   <fieldset class="nh-vraag" data-stap="2">
-    <legend>Wanneer wil je starten?</legend>
-    <div class="nh-opties">{opties.wanneer.map(o => <label class="nh-optie"><input type="radio" name="wanneer" value={o}/><span>{o}</span></label>)}</div>
-   </fieldset>
-   <div class="nh-slot" data-stap="3">
-    <h3>{meter.slotTitel}</h3>
-    <p class="nh-samenvatting" data-samenvatting></p>
-    <p>{meter.slotTekst}</p>
-    <div class="nh-acties">
-     <a class="button" href="/contact/#jouw-plan" data-meter-knop>{meter.knop} <Icon name="diagonal" size={18}/></a>
-     <a class="nh-tel nh-tel--donker" href={'tel:' + contact.tel}>of bel {contact.phone}</a>
-    </div>
-   </div>
-   <button type="button" class="nh-terug" data-terug hidden>Vorige vraag</button>
-  </form>
  </section>
 
  <script is:inline type="application/json" id="nh-data" set:html={JSON.stringify({ delen, reviews: reviews.items })}></script>

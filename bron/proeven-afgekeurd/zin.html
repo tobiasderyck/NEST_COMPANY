@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<title>Voorstel 1 · de zin</title>
+<link rel="stylesheet" href="/fonts/archivo.css"/>
+<link rel="stylesheet" href="/fonts/general-sans.css"/>
+<style>
+  :root { --ink: #1d2320; --paper: #f8f7f4; --orange: #f08a5d; --ease: cubic-bezier(.2,.7,.2,1); }
+  * { box-sizing: border-box; margin: 0; }
+  body { font: 16px/1.5 "General Sans", sans-serif; background: #efeeea; color: var(--ink); }
+  .zin { position: relative; min-height: 100svh; display: grid; align-content: end; padding: clamp(22px, 4.5vw, 80px); overflow: hidden; isolation: isolate; color: #fff; }
+  .zin-beeld { position: absolute; inset: 0; z-index: -2; background: #2a2e2b; }
+  .zin-beeld img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .9s linear, transform 6s linear; transform: scale(1.04); }
+  .zin-beeld img.is-aan { opacity: 1; transform: scale(1); }
+  .zin::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(17,20,18,.82) 0%, rgba(17,20,18,.5) 45%, rgba(17,20,18,.12) 100%); }
+  .zin-kop { font-size: 15px; font-weight: 500; opacity: .85; margin-bottom: clamp(14px, 2vw, 26px); }
+  h2 { font: 600 clamp(38px, 6.4vw, 112px)/1.02 Archivo, sans-serif; letter-spacing: -.045em; max-width: 17ch; text-wrap: balance; text-shadow: 0 2px 30px rgba(0,0,0,.35); }
+  .woord { position: relative; display: inline-block; }
+  .samen { white-space: nowrap; }
+  @media (max-width: 700px) { .samen { white-space: normal; } }
+  .woord > button { font: inherit; font-stretch: 122%; font-weight: 700; letter-spacing: -.05em; color: var(--orange); background: none; border: 0; padding: 0; cursor: pointer; text-align: left; text-decoration: underline; text-decoration-thickness: .045em; text-underline-offset: .14em; text-decoration-color: rgba(240,138,93,.55); transition: text-decoration-color .2s; }
+  .woord > button:hover, .woord > button[aria-expanded=true] { text-decoration-color: var(--orange); }
+  .woord > button:focus-visible { outline: 2px solid #fff; outline-offset: 6px; border-radius: 2px; }
+  .woord > button span { display: inline-block; }
+  .woord > button.is-nieuw span { animation: woord-in .45s var(--ease); }
+  @keyframes woord-in { from { opacity: 0; transform: translateY(.25em); } }
+  .keuzes { position: absolute; z-index: 5; left: 0; bottom: calc(100% + 10px); min-width: 280px; list-style: none; padding: 8px; background: var(--paper); color: var(--ink); border-radius: 4px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); font: 500 17px/1.2 "General Sans", sans-serif; letter-spacing: 0; text-shadow: none; }
+  .keuzes[hidden] { display: none; }
+  .keuzes button { display: flex; justify-content: space-between; align-items: center; gap: 20px; width: 100%; padding: 12px 14px; font: inherit; color: inherit; background: none; border: 0; border-radius: 2px; cursor: pointer; text-align: left; }
+  .keuzes button:hover, .keuzes button:focus-visible { background: #e9e7e0; outline: none; }
+  .keuzes button[aria-checked=true]::after { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #d14d29; }
+  .onder { display: flex; align-items: center; gap: 18px 30px; flex-wrap: wrap; margin-top: clamp(26px, 3.4vw, 50px); }
+  .knop { display: inline-flex; align-items: center; gap: 26px; min-height: 58px; padding: 16px 24px; background: var(--paper); color: var(--ink); border-radius: 3px; font-weight: 600; font-size: 16px; text-decoration: none; }
+  .knop:hover { background: #fff; }
+  .onder p { font-size: 15px; opacity: .85; max-width: 38ch; }
+  .foto-noot { position: absolute; right: clamp(22px, 4.5vw, 80px); top: clamp(22px, 4vw, 60px); font-size: 13px; opacity: .8; text-align: right; }
+  @media (max-width: 700px) { .keuzes { position: fixed; left: 14px; right: 14px; bottom: 14px; min-width: 0; } .foto-noot { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .zin-beeld img { transition: none; transform: none; } .woord > button.is-nieuw span { animation: none; } }
+</style>
+</head>
+<body>
+<section class="zin" aria-labelledby="zin-titel">
+ <div class="zin-beeld" aria-hidden="true"></div>
+ <p class="foto-noot" data-noot></p>
+ <p class="zin-kop">Zet de koffie maar klaar. Vertel het ons in één zin.</p>
+ <h2 id="zin-titel">Ik denk aan <span class="woord" data-vraag="wat"></span> voor mijn <span class="samen"><span class="woord" data-vraag="woning"></span>,</span> <span class="samen"><span class="woord" data-vraag="wanneer"></span>.</span></h2>
+ <div class="onder">
+  <a class="knop" href="/contact/#jouw-plan" data-knop>Plan het gratis bezoek <span aria-hidden="true">→</span></a>
+  <p>We komen langs, meten op en leggen alles uit aan je keukentafel. Je zin staat al in je aanvraag.</p>
+ </div>
+</section>
+
+<script>
+const vragen = {
+  wat: { label: 'Waar denk je aan?', opties: [
+    ['een nieuw dak', 'dakwerkers-drone', 'Dakwerkers van NEST aan het werk'],
+    ['zonnepanelen', 'pannendak-zonnepanelen', 'Zonnepanelen geplaatst door NEST'],
+    ['een thuisbatterij', 'thuisbatterij', 'Thuisbatterijen geplaatst door NEST'],
+    ['een nieuwe gevel', 'werf', 'Renovatie door NEST'],
+    ['airco of een warmtepomp', 'airco-zolder', 'Airco geplaatst door NEST'],
+    ['een laadpaal', 'laadpaal', 'Laadpaal geplaatst door NEST'],
+    ['een totaalrenovatie', 'dakrenovatie-werf', 'Een werf van NEST'] ] },
+  woning: { label: 'Wat voor woning?', opties: [['rijwoning'], ['halfopen woning'], ['vrijstaande woning'], ['appartement'], ['bedrijfspand']] },
+  wanneer: { label: 'Wanneer?', opties: [['zo snel mogelijk'], ['binnen het halfjaar'], ['volgend jaar'], ['later, ik kijk nog rond']] }
+};
+const beeld = document.querySelector('.zin-beeld'), noot = document.querySelector('[data-noot]');
+const fotos = {};
+vragen.wat.opties.forEach(([, f]) => { const i = new Image(); i.src = `/assets/web/${f}.webp`; i.alt = ''; beeld.append(i); fotos[f] = i; });
+const keuze = { wat: 0, woning: 0, wanneer: 0 };
+let open = null;
+
+function zetFoto() {
+  const [, f, tekst] = vragen.wat.opties[keuze.wat];
+  Object.entries(fotos).forEach(([k, i]) => i.classList.toggle('is-aan', k === f));
+  noot.textContent = tekst;
+}
+function sluit() { if (!open) return; open.lijst.hidden = true; open.knop.setAttribute('aria-expanded', 'false'); open = null; }
+
+document.querySelectorAll('.woord').forEach(w => {
+  const naam = w.dataset.vraag, v = vragen[naam];
+  const knop = document.createElement('button'); knop.type = 'button'; knop.setAttribute('aria-haspopup', 'listbox'); knop.setAttribute('aria-expanded', 'false');
+  const tekst = document.createElement('span'); knop.append(tekst);
+  const lijst = document.createElement('ul'); lijst.className = 'keuzes'; lijst.hidden = true; lijst.setAttribute('role', 'listbox'); lijst.setAttribute('aria-label', v.label);
+  const toon = nieuw => {
+    tekst.textContent = v.opties[keuze[naam]][0];
+    lijst.querySelectorAll('button').forEach((b, i) => b.setAttribute('aria-checked', String(i === keuze[naam])));
+    if (nieuw) { knop.classList.remove('is-nieuw'); void knop.offsetWidth; knop.classList.add('is-nieuw'); }
+  };
+  v.opties.forEach(([t], i) => {
+    const li = document.createElement('li'), b = document.createElement('button');
+    b.type = 'button'; b.setAttribute('role', 'option'); b.textContent = t.charAt(0).toUpperCase() + t.slice(1);
+    b.addEventListener('click', () => { keuze[naam] = i; toon(true); sluit(); if (naam === 'wat') zetFoto(); knop.focus(); });
+    li.append(b); lijst.append(li);
+  });
+  knop.addEventListener('click', e => {
+    e.stopPropagation(); const was = open && open.knop === knop; sluit(); if (was) return;
+    lijst.hidden = false; knop.setAttribute('aria-expanded', 'true'); open = { knop, lijst };
+    lijst.querySelector('[aria-checked=true]')?.focus();
+  });
+  w.append(knop, lijst); toon(false);
+});
+document.addEventListener('click', e => { if (open && !open.lijst.contains(e.target)) sluit(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && open) { const k = open.knop; sluit(); k.focus(); } });
+zetFoto();
+</script>
+</body>
+</html>

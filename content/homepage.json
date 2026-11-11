@@ -1,9 +1,9 @@
 {
   "hero": {
-    "regel1": "Je hele huis.",
-    "regel2": "Eén Vlaamse ploeg.",
-    "nadruk": "Vlaamse",
-    "tekst": "Dak, zonnepanelen, batterij en gevel uit één hand. We leggen alles uit aan je keukentafel, met cijfers erbij, en doen het werk met onze eigen ploeg uit Machelen.",
+    "regel1": "Dak, zonnepanelen, batterij en gevel.",
+    "regel2": "Door één Vlaamse ploeg.",
+    "nadruk": "één",
+    "tekst": "Van het advies aan je keukentafel tot de laatste dakpan: we leggen alles uit met cijfers erbij, en doen het werk met onze eigen ploeg uit Machelen.",
     "knop": "Plan een gratis adviesbezoek",
     "bewijs": "5,0 op Google, uit 20 reviews"
   },
@@ -20,8 +20,8 @@
       "link": "/dakwerken/",
       "knop": "Advies voor je dak",
       "film": "v1_dak",
-      "foto": "/assets/web/dak-lucht.webp",
-      "fotoTekst": "Nieuwe pannen tot in de nok"
+      "foto": "/assets/web/dakwerkers-drone.webp",
+      "fotoTekst": "Nieuwe pannen op nieuw onderdak"
     },
     {
       "naam": "Zonnepanelen",
@@ -35,8 +35,8 @@
       "link": "/energieoplossingen/zonnepanelen/",
       "knop": "Advies voor zonnepanelen",
       "film": "v2_zon",
-      "foto": "/assets/web/leuven.webp",
-      "fotoTekst": "Dakwerk en zonnepanelen in Leuven"
+      "foto": "/assets/web/pannendak-zonnepanelen.webp",
+      "fotoTekst": "Zonnepanelen op een pannendak"
     },
     {
       "naam": "Gevel",
@@ -54,7 +54,7 @@
       "fotoTekst": "Renovatie met bijgebouw"
     },
     {
-      "naam": "Batterij",
+      "naam": "Batterij & warmte",
       "titel": "Batterij & warmte",
       "tekst": "Bewaar je eigen stroom en laat alles slim samenwerken. Een warmtepompboiler of airco erbij als dat klopt voor je huis.",
       "punten": [
@@ -65,8 +65,8 @@
       "link": "/energieoplossingen/thuisbatterijen/",
       "knop": "Advies voor je energie",
       "film": "v4_nest",
-      "foto": "/assets/web/kempen.webp",
-      "fotoTekst": "Slim gestuurd systeem in de Kempen"
+      "foto": "/assets/web/thuisbatterij.webp",
+      "fotoTekst": "Twee thuisbatterijen met omvormer"
     }
   ],
   "ploeg": {

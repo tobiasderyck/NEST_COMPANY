@@ -6,7 +6,7 @@ const chapters:TinaField = {type:'object',name:'sections',label:'Inhoudelijke ho
 const common:TinaField[] = [
  {...text('slug','Pagina-adres'),required:true,description:'Behoud dit adres bij tekstwijzigingen. Andere pagina’s verwijzen hiernaar.'},
  {...text('title','Naam'),required:true},text('headline','Grote titel'),text('summary','Korte beschrijving',true),
- {...text('image','Beeld'),options:['leuven','dak-lucht','werf','kempen','zolder','k1_oud','k2_dak','k3_zon','k4_gevel','k5_nest']},
+ {...text('image','Beeld'),options:['pannendak-zonnepanelen','nieuwbouw-zonnepanelen','villa-zonnepanelen','plat-dak-zonnepanelen','zonnepanelen-blauwe-lucht','gerenoveerd-dak','dakrenovatie-werf','dakwerkers-drone','dakwerkers-onderdak','thuisbatterij','laadpaal','airco-zolder','airco-buitenunit','nest-bestelwagen','leuven','dak-lucht','werf','kempen','zolder','k1_oud','k2_dak','k3_zon','k4_gevel','k5_nest']},
  chapters,text('question','Afsluitende vraag'),text('cta','Tekst bij de adviesknop',true)
 ];
 const collection = (name:string,label:string,fields:TinaField[]) => ({
@@ -52,6 +52,12 @@ export default defineConfig({
     text('titel','Titel'),text('tekst','Uitleg',true),text('slotTitel','Titel na de laatste vraag'),text('slotTekst','Tekst na de laatste vraag',true),text('knop','Tekst op de knop')
    ]}
   ]},
+  {name:'verkenner',label:'NEST-verkenner',path:'content',format:'json',match:{include:'verkenner'},ui:{allowedActions:{create:false,delete:false}},fields:[
+   text('titel','Titel'),text('intro','Korte intro onder de titel'),
+   {type:'object',name:'formulier',label:'Aanvraagformulier',fields:[
+    {...text('sleutel','Web3Forms access key'),description:'Maak gratis een sleutel aan op web3forms.com met het e-mailadres dat de aanvragen moet ontvangen. Leeg = de bezoeker krijgt een ingevulde e-mail om zelf te versturen.'},
+    {...text('ontvanger','E-mailadres voor de terugvaloptie'),description:'Gebruikt zolang er geen sleutel is.'},
+    text('onderwerp','Onderwerp van de e-mail')]}]},
   {name:'reviews',label:'Google-reviews',path:'content',format:'json',match:{include:'reviews'},ui:{allowedActions:{create:false,delete:false}},fields:[
    {...text('gemiddelde','Gemiddelde score'),description:'Zoals op Google, bijvoorbeeld 5,0.'},{type:'number',name:'aantal',label:'Aantal reviews op Google'},
    {type:'object',name:'items',label:'Reviews',list:true,ui:{itemProps:(i:any)=>({label:i?.klant||'Review'})},fields:[

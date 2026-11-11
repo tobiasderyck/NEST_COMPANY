@@ -1,83 +1,143 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Icon from '../components/Icon.astro';
-import Field from '../components/CalcField.astro';
+import tekst from '../../content/verkenner.json';
+import { contact } from '../data/nest';
 import PlanHouse from '../components/PlanHouse.astro';
-const consumptionSource='https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/energieprijzen-en-facturen/energieverbruik';
-const sources=[
- ['Zonnepanelen & eigen verbruik','Vlaanderen','https://www.vlaanderen.be/bouwen-wonen-en-energie/groene-energie/zonnepanelen'],
- ['Productie op jouw dak','Zonnekaart Vlaanderen','https://www.vlaanderen.be/bouwen-wonen-en-energie/groene-energie/zonnekaart-is-uw-dak-geschikt-voor-zonneboiler-of-zonnepanelen'],
- ['Opslag & dimensionering','Vlaanderen','https://www.vlaanderen.be/bouwen-wonen-en-energie/groene-energie/zonnepanelen/thuisbatterij'],
- ['Warmtepompboiler: werking & prijs','Vlaanderen','https://www.vlaanderen.be/bouwen-wonen-en-energie/groene-energie/warmtepompboiler'],
- ['Elektrische boiler vervangen','Vlaanderen','https://www.vlaanderen.be/bouwen-wonen-en-energie/energieverbruik-en-kosten-verminderen/besparen-op-uw-energieverbruik'],
- ['Dak en warmteverlies','Fluvius','https://www.fluvius.be/nl/dakinzicht'],
- ['Waarom EPC geen meterverbruik is','VEKA','https://www.vlaanderen.be/bouwen-wonen-en-energie/energieprestatiecertificaat-epc-bij-overdracht-of-verhuur-van-een-wooneenheid/test-uw-epc-simuleer-of-vergelijk-het-epc-label-van-een-woning'],
- ['Off-grid vraagt een tijdsprofiel','Europese Commissie · JRC','https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/using-pvgis-5/pvgis-5-tools/grid-pv-systems_en']
- ,['PV-opbrengst en oriëntatie','Europese Commissie · PVGIS','https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/using-pvgis-5/pvgis-5-tools/grid-connected-pv_en']
- ,['Herkomst grove 900 kWh/kWp','Vlaamse overheid · historische rekenbasis','https://codex.vlaanderen.be/PrintDocument.ashx?id=1031860']
+import OffGrid from '../components/OffGrid.astro';
+const bronnen = [
+  ['Verbruikscategorieën 1.200 / 3.500 / 7.500 kWh', 'Vlaamse Nutsregulator', 'https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/energieprijzen-en-facturen/energieverbruik'],
+  ['Opbrengst van zonnepanelen in Machelen', 'Europese Commissie, PVGIS 5.3', 'https://re.jrc.ec.europa.eu/pvg_tools/nl/'],
+  ['Stroomprijs per kWh, Vlaanderen 2026', 'CREG', 'https://www.creg.be/nl/consumenten/prijzen-en-tarieven/tarief-voor-terugbetaling-thuisladen-bedrijfswagens'],
+  ['Netkosten Fluvius Halle-Vilvoorde 2026', 'Vlaamse Nutsregulator', 'https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/hoeveel-bedragen-de-distributienettarieven'],
+  ['Vergoeding voor teruggeleverde stroom', 'Test-Aankoop, mei 2026', 'https://www.test-aankoop.be/woning-energie/hernieuwbare-energie/nieuws/kosten-geinjecteerde-zonnestroom'],
+  ['Eigen verbruik met en zonder batterij', 'HTW Berlin', 'https://solar.htw-berlin.de/rechner/unabhaengigkeitsrechner/'],
+  ['Praktijktest van 518 thuisbatterijen', 'Energent, 2024', 'https://energent.be/wp-content/uploads/2024/06/20240612-Rapport-praktijktest-thuisbatterijen-Final-1.pdf'],
+  ['Capaciteitstarief', 'Vlaamse Nutsregulator', 'https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/capaciteitstarief'],
+  ['Warmtepompboiler: 3 tot 4 keer zuiniger', 'Vlaanderen.be', 'https://www.vlaanderen.be/bouwen-wonen-en-energie/groene-energie/warmtepompboiler']
 ];
 ---
-<SiteLayout title="NEST-verkenner — vergelijk jouw energieplan" description="Ontdek hoe zonnepanelen, opslag, warm water en dakisolatie samenwerken. Een transparante scenarioberekening met eigen gegevens, zichtbare aannames en bronnen." hideCta surface="calculator">
-<link rel="stylesheet" href="/calculator/verkenner.css"/>
-<div class="wrap verkenner-page">
+<SiteLayout title="Wat kan jouw huis besparen?" description="Bereken in drie vragen wat zonnepanelen, een thuisbatterij of een warmtepompboiler jouw gezin per jaar kunnen besparen. Met cijfers uit openbare bronnen van 2026." hideCta surface="calculator">
+<link slot="head" rel="stylesheet" href="/verkenner/verkenner.css"/>
+<div class="wrap vk">
  <nav class="breadcrumbs" aria-label="Kruimelpad"><a href="/">Home</a><Icon name="chevron" size={12}/><span aria-current="page">NEST-verkenner</span></nav>
- <section class="verkenner-intro"><h1>Wat kan jouw<br/>huis besparen?</h1><div><p>Kies een vertrekpunt en combineer je plannen. Je hoeft je energiefactuur niet bij de hand te hebben.</p></div></section>
- <div class="calculator-scope"><Icon name="house" size={21}/><p>Voor een woning in Vlaanderen <strong>zonder bestaande zonnepanelen of batterij</strong>. Een eerste verkenning met jaargegevens. Al een installatie? <a href="/contact/?onderwerp=Mijn%20bestaande%20energie-installatie">Laat je uitbreiding apart bekijken.</a></p></div>
- <section class="calculator-workspace" id="verkenner" aria-label="Bereken je energiescenario">
- <form class="calc-form" id="energy-form" novalidate>
-  <div class="calc-section"><div class="calc-section-title"><h2>Je verbruik niet bij de hand?</h2></div><p class="calc-description">Begin met een richtwaarde. Alles blijft aanpasbaar.</p>
-   <div class="consumption-presets" role="group" aria-label="Kies een verbruiksrichtwaarde">
-    <button type="button" data-profile="1200" aria-pressed="false"><strong>Laag</strong><span>1.200 kWh / jaar</span></button>
-    <button type="button" data-profile="3500" aria-pressed="false"><strong>Doorsnee</strong><span>3.500 kWh / jaar</span></button>
-    <button type="button" data-profile="7500" aria-pressed="false"><strong>Hoog</strong><span>7.500 kWh / jaar</span></button>
+
+ <header class="vk-kop">
+  <h1>Wat kan jouw huis <em>besparen?</em></h1>
+  <p>{tekst.intro}</p>
+ </header>
+
+ <div class="vk-werk">
+  <form class="vk-vragen" id="vk-vragen" novalidate>
+   <fieldset class="vk-vraag">
+    <legend><span class="vk-nr">1</span>Hoeveel stroom verbruikt je gezin?</legend>
+    <div class="vk-keuzes vk-keuzes--3">
+     <label><input type="radio" name="verbruik" value="laag"/><span><strong>Laag</strong><small>±1.200 kWh per jaar</small><small class="vk-wie">Alleen of met twee, appartement</small></span></label>
+     <label><input type="radio" name="verbruik" value="doorsnee" checked/><span><strong>Doorsnee</strong><small>±3.500 kWh per jaar</small><small class="vk-wie">Gezin in een gewone woning</small></span></label>
+     <label><input type="radio" name="verbruik" value="hoog"/><span><strong>Hoog</strong><small>±7.500 kWh per jaar</small><small class="vk-wie">Groot gezin, veel toestellen of elektrische boiler</small></span></label>
+    </div>
+    <p class="vk-noot">Dit zijn de verbruiksklassen van de Vlaamse Nutsregulator. 3.500 kWh is de maat die de regulator en de CREG gebruiken voor een doorsnee gezin.</p>
+   </fieldset>
+
+   <fieldset class="vk-vraag">
+    <legend><span class="vk-nr">2</span>Wat wil je combineren?</legend>
+    <div class="vk-keuzes vk-keuzes--rij">
+     <label><input type="checkbox" name="zon" checked/><span><Icon name="sun" size={22}/><strong>Zonnepanelen</strong></span></label>
+     <label><input type="checkbox" name="batterij"/><span><Icon name="battery" size={22}/><strong>Thuisbatterij</strong></span></label>
+     <label><input type="checkbox" name="boiler"/><span><Icon name="house" size={22}/><strong>Warmtepompboiler</strong><small>in plaats van een elektrische boiler</small></span></label>
+    </div>
+    <p class="vk-ook"><span>Ook mee in je plan:</span>
+     <label><input type="checkbox" name="ook" value="Dakwerken"/><span>dakwerken</span></label>
+     <label><input type="checkbox" name="ook" value="Dakisolatie"/><span>dakisolatie</span></label>
+     <label><input type="checkbox" name="ook" value="Laadpaal"/><span>laadpaal</span></label>
+     <label><input type="checkbox" name="ook" value="Airco"/><span>airco</span></label>
+     <label><input type="checkbox" name="ook" value="Slimme sturing (EMS)"/><span>slimme sturing</span></label>
+     <label><input type="checkbox" name="ook" value="Gevelrenovatie"/><span>gevel</span></label>
+     <label><input type="checkbox" name="ook" value="Off-grid"/><span>off-grid</span></label>
+    </p>
+   </fieldset>
+
+   <fieldset class="vk-vraag" data-zonvraag>
+    <legend><span class="vk-nr">3</span>Hoeveel zonnepanelen?</legend>
+    <div class="vk-teller">
+     <button type="button" data-min aria-label="Eén paneel minder">−</button>
+     <output name="panelen" aria-live="polite"><span data-panelen>8</span> panelen</output>
+     <button type="button" data-plus aria-label="Eén paneel meer">+</button>
+     <p class="vk-advies" data-advies></p>
+    </div>
+    <p class="vk-sub">Waar ligt je dak?</p>
+    <div class="vk-keuzes vk-keuzes--4 vk-klein">
+     <label><input type="radio" name="dak" value="zuid"/><span><strong>Zuid</strong></span></label>
+     <label><input type="radio" name="dak" value="oostwest"/><span><strong>Oost of west</strong></span></label>
+     <label><input type="radio" name="dak" value="plat"/><span><strong>Plat dak</strong></span></label>
+     <label><input type="radio" name="dak" value="onbekend" checked/><span><strong>Weet ik niet</strong></span></label>
+    </div>
+   </fieldset>
+  </form>
+
+  <aside class="vk-uitkomst" id="jouw-plan" aria-labelledby="vk-uitkomst-titel">
+   <div class="vk-bon">
+    <span class="vk-tab" aria-hidden="true">Jouw energieplan</span>
+    <PlanHouse/>
+    <p class="vk-bon-kop" id="vk-uitkomst-titel">Mogelijke besparing voor jouw huis</p>
+    <p class="vk-bedrag" aria-live="polite"><span class="vk-tot">tot</span> <strong data-hoog>€ 620</strong> <span class="vk-perjaar">per jaar</span></p>
+    <p class="vk-bereik" data-bereik>Meest waarschijnlijk ± € 430. Bij een ongunstig contract en een minder goed dak € 270.</p>
+    <div class="vk-meter" aria-hidden="true"><span data-meter-laag></span><span data-meter-midden></span><span data-meter-hoog></span></div>
+    <dl class="vk-regels" data-regels></dl>
+    <p class="vk-aandeel" data-aandeel></p>
+    <p class="vk-melding" data-melding hidden></p>
+    <div class="vk-erbij" data-erbij hidden><p>Haal er meer uit</p><div data-erbij-knoppen></div></div>
+    <p class="vk-ookplan" data-ookplan hidden></p>
+    <button class="button vk-knop" type="button" data-bespreek>Bespreek dit plan met NEST <Icon name="arrow" size={19}/></button>
+    <p class="vk-prijs">Wat het kost, hangt af van je dak en de materialen die we kiezen. Dat rekenen we gratis voor je uit, met een echte offerte.</p>
    </div>
-   <p class="preset-source">Verbruikscategorieën van de <a href={consumptionSource} target="_blank" rel="noopener">Vlaamse Nutsregulator</a>, geen persoonlijke gemiddelden. Warmtepomp, elektrisch verwarmen of laden? Je verbruik kan sterk afwijken.</p>
-   <details class="preset-state compact-details" data-preset-box hidden><summary><span data-preset-title>Richtwaarden actief · bekijk aannames</span><Icon name="plus" size={16}/></summary><p data-preset-state></p></details>
-   <details class="own-inputs compact-details"><summary><span>Ik ken mijn verbruik / pas cijfers aan</span><Icon name="plus" size={17}/></summary><div class="calc-fields"><Field name="load" label="Stroomverbruik per jaar" unit="kWh" hint="Het volledige verbruik in huis, inclusief je huidige elektrische boiler. Geen EPC-score."/><Field name="importRate" label="Vermijdbare stroomprijs" unit="€/kWh" max="2" hint="Variabele prijs incl. btw; zonder vaste kosten of capaciteitstarief. Gebruik je contract."/></div><button type="button" class="text-link small-link" data-start-values>Vul ontbrekende cijfers met voorbeeldwaarden</button></details>
+
+   <form class="vk-aanvraag" id="vk-aanvraag" hidden novalidate data-sleutel={tekst.formulier.sleutel} data-ontvanger={tekst.formulier.ontvanger} data-onderwerp={tekst.formulier.onderwerp}>
+    <h2>We bellen je terug.</h2>
+    <p>Je plan gaat mee met je aanvraag. Zo weet de ploeg al wat je bekeken hebt.</p>
+    <label for="vk-naam">Naam</label><input id="vk-naam" name="naam" autocomplete="name" required/>
+    <label for="vk-tel">Telefoon</label><input id="vk-tel" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" required/>
+    <label for="vk-gemeente">Gemeente</label><input id="vk-gemeente" name="gemeente" autocomplete="address-level2" required/>
+    <label for="vk-mail">E-mail <span>(niet verplicht)</span></label><input id="vk-mail" name="email" type="email" autocomplete="email"/>
+    <fieldset class="vk-moment"><legend>Wanneer bellen we het best?</legend>
+     <label><input type="radio" name="moment" value="Voormiddag"/><span>Voormiddag</span></label>
+     <label><input type="radio" name="moment" value="Namiddag"/><span>Namiddag</span></label>
+     <label><input type="radio" name="moment" value="Maakt niet uit" checked/><span>Maakt niet uit</span></label>
+    </fieldset>
+    <input type="checkbox" name="botcheck" class="vk-val" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+    <p class="vk-privacy">We gebruiken je gegevens alleen om je terug te bellen over dit plan. Meer in onze <a href="/privacy/">privacyverklaring</a>.</p>
+    <button class="button" type="submit">Verstuur mijn plan <Icon name="arrow" size={19}/></button>
+    <p class="vk-status" role="status" aria-live="polite" data-status></p>
+   </form>
+
+   <div class="vk-bedankt" data-bedankt hidden tabindex="-1">
+    <h2>Bedankt, <span data-bedankt-naam></span>.</h2>
+    <p>Je plan is bij NEST. We bellen je terug op <strong data-bedankt-tel></strong> om het samen te overlopen.</p>
+    <p class="vk-noot">Liever meteen praten? Bel <a href={'tel:' + contact.tel}>{contact.phone}</a>.</p>
+   </div>
+  </aside>
+ </div>
+
+ <OffGrid/>
+
+ <section class="vk-uitleg" aria-labelledby="vk-uitleg-titel">
+  <h2 id="vk-uitleg-titel">Zo rekenen <em>we.</em></h2>
+  <div class="vk-uitleg-kol">
+   <p>We rekenen drie keer: met ongunstige, gemiddelde en gunstige waarden. Het hoge bedrag hoort bij een duur stroomcontract, een goede injectievergoeding en een zuiddak waar overdag iemand thuis is. Het lage bedrag hoort bij het omgekeerde.</p>
+   <ul>
+    <li><strong>Stroomprijs</strong> € 0,27 tot € 0,38 per kWh, midden € 0,32. Alleen het deel van je factuur dat daalt als je minder van het net haalt.</li>
+    <li><strong>Teruglevering</strong> € 0,01 tot € 0,07 per kWh, midden € 0,04.</li>
+    <li><strong>Opbrengst</strong> 849 tot 1.051 kWh per kWp per jaar, naargelang je dak. Panelen van 440 Wp.</li>
+    <li><strong>Batterij</strong> 5 kWh, of 10 kWh vanaf 5.000 kWh verbruik. Inclusief een kleine winst op het capaciteitstarief.</li>
+    <li><strong>Warmtepompboiler</strong> 2,5 tot 3,5 keer zuiniger dan je elektrische boiler. We nemen aan dat die boiler een derde van je stroom verbruikt.</li>
+   </ul>
+   <p>Geen rekening gehouden met schaduw op je dak, met toekomstige prijzen of met premies. Er is in 2026 geen premie voor zonnepanelen of een thuisbatterij. Voor een warmtepompboiler wel: tot € 450, en meer bij een lager inkomen.</p>
   </div>
-  <fieldset class="calc-section choices"><legend>Wat wil je combineren?</legend><p class="calc-description">Elke keuze verandert hetzelfde energieplan.</p>
-   <label class="measure-choice"><input type="checkbox" name="pv" checked/><span class="choice-symbol"><Icon name="sun"/></span><span><strong>Zonnepanelen</strong><small>Je dak wekt elektriciteit op.</small></span><span class="choice-check"><Icon name="check" size={15}/></span></label>
-   <label class="measure-choice"><input type="checkbox" name="battery"/><span class="choice-symbol"><Icon name="battery"/></span><span><strong>Thuisbatterij</strong><small>Een deel van je zonnestroom bewaren.</small></span><span class="choice-check"><Icon name="check" size={15}/></span></label>
-   <p class="field-error" data-error="battery"></p>
-   <label class="measure-choice"><input type="checkbox" name="boiler"/><span class="choice-symbol"><Icon name="house"/></span><span><strong>Warmtepompboiler</strong><small>Je elektrische weerstandboiler vervangen.</small></span><span class="choice-check"><Icon name="check" size={15}/></span></label>
-   <label class="measure-choice"><input type="checkbox" name="roof"/><span class="choice-symbol"><Icon name="roof"/></span><span><strong>Dakisolatie</strong><small>Met een besparingsinschatting uit je energieadvies.</small></span><span class="choice-check"><Icon name="check" size={15}/></span></label>
-  </fieldset>
-  <div class="calc-section quick-pv" data-quick-pv><Field name="panelCount" label="Hoeveel zonnepanelen?" unit="panelen" max="100" step="1" hint="Aantal en paneelvermogen bepalen samen het piekvermogen. Controleer of het dak ze kan dragen en plaatsen."/><p class="panel-capacity" data-panel-capacity aria-live="polite">Vermogen nog onbekend</p></div>
-  <details class="technical-details compact-details"><summary><span>Opbrengst & technische instellingen</span><Icon name="plus" size={17}/></summary><p class="calc-note">De snelstart gebruikt voorbeeldwaarden voor opbrengst en tarieven, geen actuele marktgemiddelden of analyse van jouw dak. Pas ze hier aan zodra je eigen gegevens hebt.</p>
-  <div class="calc-section measure-input" data-inputs="pv"><h3>De zon op jouw dak.</h3><div class="calc-fields"><Field name="panelPower" label="Vermogen per paneel" unit="Wp" min="100" max="1000" hint="Neem de Wp-waarde uit de offerte. 430 Wp in de snelstart is alleen een voorbeeld."/><Field name="specificYield" label="Jaaropbrengst per kWp" unit="kWh" min="100" max="1600" hint="900 komt uit een oudere Vlaamse rekenbasis voor een gunstige opstelling. Dakrichting, helling, schaduw en locatie tellen mee."/><Field name="production" label="Opbrengst uit Zonnekaart of PVGIS" unit="kWh" optional hint="Vul dit in voor jouw dak. Deze waarde vervangt de grove berekening uit aantal × Wp × jaaropbrengst."/><Field name="directShare" label="Direct gebruikte zonnestroom" unit="%" max="100" value="28" hint="Startaanname 28% uit Vlaanderen. Pas aan aan je verbruiksprofiel ná de werken."/><Field name="exportRate" label="Terugleververgoeding" unit="€/kWh" min="-1" max="2" hint="Uit je contract. Een negatieve vergoeding kan ook."/></div><a class="text-link small-link" href={sources[1][2]} target="_blank" rel="noopener">Vind productie en kost voor jouw dak op de Zonnekaart <Icon name="diagonal" size={15}/></a></div>
-  <div class="calc-section measure-input" data-inputs="battery" hidden><h3>Een stukje zon bewaren.</h3><p class="calc-description">De jaarenergie door je batterij is iets anders dan de opslagcapaciteit in kWh. Neem deze waarde uit een simulatie met jouw verbruiksprofiel.</p><div class="calc-fields"><Field name="charge" label="Jaarlijks naar de batterij" unit="kWh" hint="Lading vanuit de zonnepanelen, vóór opslagverlies."/><Field name="efficiency" label="Retourrendement batterij" unit="%" min="1" max="100" value="90" hint="90% is een instelbare scenarioaanname. Gebruik de waarde van jouw systeem."/></div></div>
-  <div class="calc-section measure-input" data-inputs="boiler" hidden><h3>Warm water. Minder stroom.</h3><p class="calc-description">Alleen voor vervanging van een elektrische weerstandboiler. Verwarmingswarmtepompen en gasboilers vragen een andere vergelijking.</p><p class="calc-note boiler-source-note">Haalt de boiler warmte uit een verwarmde binnenruimte? Eventuele extra ruimteverwarming is hier niet meegerekend en kan de besparing verminderen. Laat de opstelling en luchttoevoer mee beoordelen.</p><div class="calc-fields"><Field name="boilerUse" label="Huidig boilerverbruik per jaar" unit="kWh" hint="Dit moet al in je totale stroomverbruik hierboven zitten."/><Field name="boilerFactor" label="Jaarfactor warmtepompboiler" unit="×" min="1" max="6" value="3" hint="Vlaanderen noemt 3–4 keer zuiniger. Opstelling, luchttoevoer en gebruik blijven bepalend."/></div><button type="button" class="text-link small-link" data-boiler-example>Probeer 2.000 kWh / jaar als voorbeeld</button><p class="field-hint">Fictieve boilerinvoer, geen gemiddelde. Mag niet hoger zijn dan je totale stroomverbruik.</p></div>
-  <div class="calc-section measure-input" data-inputs="roof" hidden><h3>Eerst een goede basis.</h3><p class="calc-description">Een beter dak gaat ook over comfort en bescherming. Daar plakken we geen fictieve euro’s op. Heb je energieadvies? Vul dan de verwachte <strong>vermindering van gas- of stookolieverbruik</strong> in.</p><div class="calc-fields"><Field name="heatSaving" label="Minder gekochte brandstof per jaar" unit="kWh" optional hint="Uit je energieadvies. Geen percentage van je totale factuur en geen primaire EPC-energie."/><Field name="heatRate" label="Variabele brandstofprijs" unit="€/kWh" max="2" optional hint="Gas of stookolie; geen elektrische verwarming in deze vergelijking."/></div><p class="calc-note">Nog geen onderbouwde waarde? Laat dit leeg. We nemen je dak mee in het gesprek, zonder een besparing te verzinnen.</p></div>
+  <details class="vk-bronnen"><summary>Bronnen, gecontroleerd in oktober 2026 <Icon name="plus" size={16}/></summary>
+   <ul>{bronnen.map(([wat, wie, link]) => <li><a href={link} target="_blank" rel="noopener">{wat}</a><span>{wie}</span></li>)}</ul>
   </details>
-  <div class="calc-section quick-budget" id="budget"><Field name="totalCost" label="Wat kost jouw totale plan ongeveer?" unit="€" max="1000000" optional hint="Een eigen budget of totaal uit je offerte, inclusief btw. Zonder bedrag kunnen we geen terugverdientijd berekenen."/><a class="text-link small-link" href={sources[1][2]} target="_blank" rel="noopener">Nog geen prijs? Bekijk de Zonnekaart voor PV <Icon name="diagonal" size={14}/></a></div>
-  <details class="calc-section cost-details"><summary>Kosten per onderdeel invullen <Icon name="plus" size={19}/></summary><p class="calc-description">Een alternatief voor het totale bedrag hierboven. Vul per gekozen ingreep het bedrag uit je offerte in, inclusief btw. Vermijd dubbele posten. Leeg betekent onbekend.</p><div class="calc-fields">
-   <div data-cost="pv"><Field name="pvCost" label="Zonnepanelen" unit="€" max="1000000" optional/></div>
-   <div data-cost="battery" hidden><Field name="batteryCost" label="Batterij, inclusief nodige sturing" unit="€" max="1000000" optional/></div>
-   <div data-cost="boiler" hidden><Field name="boilerCost" label="Warmtepompboiler" unit="€" max="1000000" optional/><button class="text-link small-link" type="button" data-boiler-reference>Gebruik openbare referentie: € 3.500</button><p class="field-hint">Vlaanderen, inclusief btw en plaatsing. Geen NEST-offerte; controleer jouw uitvoering.</p></div>
-   <div data-cost="roof" hidden><Field name="roofCost" label="Gekozen dakwerken / isolatie" unit="€" max="1000000" optional/></div>
-  </div></details>
-  <div class="calc-actions"><button class="button" type="submit">Bekijk mijn vergelijking <Icon name="arrow" size={19}/></button><button type="reset" class="text-link">Opnieuw beginnen</button></div><p class="calc-note">Je invoer blijft in deze browser. Pas met ‘Bespreek dit plan’ neem je een samenvatting mee naar het contactformulier.</p><noscript><p>Deze interactieve vergelijking heeft JavaScript nodig. <a href="/contact/">NEST kan je gegevens ook persoonlijk bekijken.</a></p></noscript>
- </form>
- <aside class="calc-result" id="jouw-vergelijking" tabindex="-1" aria-label="Jouw vergelijking">
-  <div class="result-tab">Jouw energieplan</div><div class="result-heading"><span>NEST-verkenner</span><span data-result-state>Nog in te vullen</span></div>
-  <PlanHouse/>
-  <div class="result-empty" data-result-empty><h2>Van losse ideeën<br/>naar één <em>plan.</em></h2><p>Kies een verbruiksrichtwaarde of vul je eigen cijfers in. Je vergelijking verschijnt hier.</p><span>Geen account. Geen verplichte aanvraag.</span></div>
-  <div data-result-filled hidden>
-   <p class="result-caption" data-saving-label>Verschil in variabele energiekosten</p><div class="saving-value"><strong data-saving>—</strong><span>/ jaar</span></div><p class="result-context" data-result-context></p><p class="grid-caution" data-grid-caution hidden></p>
-   <div class="energy-strip" aria-hidden="true"><span data-bar="direct"></span><span data-bar="battery"></span><span data-bar="grid"></span></div>
-   <div class="balance-legend"><span><i class="key-direct"></i>Directe zon</span><span><i class="key-battery"></i>Uit opslag</span><span><i class="key-grid"></i>Van het net</span></div>
-   <dl class="balance-rows"><div><dt>Stroom nodig in huis</dt><dd data-result="demand"></dd></div><div><dt>Direct van je dak</dt><dd data-result="direct"></dd></div><div><dt>Via je batterij</dt><dd data-result="discharge"></dd></div><div class="balance-emphasis"><dt>Van het net · jaarmodel</dt><dd data-result="grid"></dd></div><div><dt>Terug naar het net</dt><dd data-result="injection"></dd></div><div><dt>Opslagverlies</dt><dd data-result="loss"></dd></div></dl>
-   <div class="roof-result" data-roof-result hidden></div><div class="calc-note" data-charge-note hidden>De gevraagde batterijlading is begrensd door het zonnestroomoverschot en de resterende jaarvraag. Een tijdsprofiel kan die mogelijkheid verder beperken.</div>
-   <dl class="financial-rows"><div><dt>Jouw opgegeven investering</dt><dd data-investment>Geen bedrag ingevoerd</dd></div><div><dt>Eenvoudige terugverdientijd</dt><dd data-payback>—</dd></div></dl><p class="result-limit" data-payback-note></p><a class="text-link small-link budget-shortcut" href="#budget" data-budget-link hidden>Voeg je budget toe <Icon name="arrow" size={15}/></a>
-   <div class="result-buttons"><button class="button" type="button" data-discuss>Bespreek dit plan <Icon name="diagonal" size={17}/></button><button class="text-link small-link" type="button" data-print>Bewaar als pdf <Icon name="arrow" size={16}/></button></div>
-   <details class="result-method"><summary>Zo ontstaat dit resultaat <Icon name="plus" size={16}/></summary><p data-prod-method></p><p>We verminderen eerst de vraag bij vervanging van je boiler. Daarna verdelen we zonnestroom over direct verbruik, batterijlading en injectie. Wat ontbreekt, komt van het net. Opslagverlies telt apart.</p><p data-result-equation></p><p>Vaste kosten, capaciteitstarief, premies, onderhoud, vervanging, financiering en toekomstige prijswijzigingen zijn niet meegerekend. Dit is een jaarmodel; geen simulatie van kwartierpieken, batterijcapaciteit of leveringszekerheid. Extra ruimteverwarming doordat een boiler warmte uit verwarmde binnenlucht haalt, is niet meegerekend.</p></details>
-   <div class="print-inputs" data-print-inputs></div>
-  </div>
-  <p class="result-status" role="status" aria-live="polite" data-calc-status></p><a class="sources-shortcut" href="#rekenbronnen">Bronnen & grenzen van de berekening <Icon name="arrow" size={15}/></a>
- </aside>
  </section>
- <section class="autonomy-note"><div><Icon name="house" size={30}/><h2>Meer eigen energie.<br/>Maar ook in <em>januari?</em></h2></div><div><p>Een jaarbalans vertelt niet of je huis op een donkere winterdag genoeg stroom heeft. Wil je noodstroom of volledig off-grid? Dan kijken we naar je verbruik doorheen de dag, winterproductie, bruikbare opslag en back-up.</p><a class="text-link" href="/contact/?onderwerp=Haalbaarheid%20noodstroom%20of%20off-grid">Laat je autonomie onderzoeken <Icon name="diagonal" size={18}/></a></div></section>
- <details class="source-disclosure compact-details" id="rekenbronnen"><summary><span>Bronnen & grenzen — je mag ons narekenen</span><Icon name="plus" size={18}/></summary><div class="calculation-sources"><div><p>Openbare bronnen gecontroleerd op 23 september 2026. Jouw gegevens en zichtbare aannames bepalen de uitkomst.</p><p>Deze verkenner vervangt geen offerte, energieadvies of EPC. Comfort en bescherming zijn waardevol, ook wanneer we ze niet in euro’s uitdrukken.</p></div><div class="source-list"><a href={consumptionSource} target="_blank" rel="noopener"><span>Verbruiksrichtwaarden<small>Vlaamse Nutsregulator · Europese categorieën</small></span><Icon name="diagonal" size={17}/></a>{sources.map(([label,org,href])=><a href={href} target="_blank" rel="noopener"><span>{label}<small>{org}</small></span><Icon name="diagonal" size={17}/></a>)}</div></div></details>
 </div>
-<script is:inline type="module" src="/calculator/interface.mjs"></script>
+<div class="vk-balk" data-balk aria-hidden="true"><span>tot <strong data-balk-bedrag>€ 620</strong> per jaar</span><a class="button" href="#jouw-plan" tabindex="-1">Bespreek dit plan</a></div>
+<script type="module" src="/verkenner/verkenner.js"></script>
 </SiteLayout>

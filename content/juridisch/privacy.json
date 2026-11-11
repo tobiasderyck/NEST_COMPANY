@@ -9,7 +9,7 @@
     },
     {
       "titel": "Welke gegevens verwerken we via de website?",
-      "tekst": "- Als je een adviesaanvraag doet: je naam, je e-mailadres, je bericht, en de onderwerpen die je zelf aanduidt (bijvoorbeeld dak of thuisbatterij, het soort woning en wanneer je wil starten).\n- Als je ons belt of mailt: de gegevens die je ons zelf geeft.\n- De NEST-verkenner rekent enkel in je eigen browser. Er gaat niets naar ons, tenzij je zelf kiest om je berekening mee te sturen met een aanvraag.\n- Onze hostingpartner bewaart technische serverlogs (zoals IP-adres en tijdstip) om de website veilig en bereikbaar te houden.\n\nWe gebruiken geen statistiekcookies, geen advertentiecookies en geen trackingpixels van sociale media."
+      "tekst": "- Als je een adviesaanvraag doet: je naam, je e-mailadres, je bericht, en de onderwerpen die je zelf aanduidt (bijvoorbeeld dak of thuisbatterij, het soort woning en wanneer je wil starten).\n- Als je ons belt of mailt: de gegevens die je ons zelf geeft.\n- De NEST-verkenner rekent enkel in je eigen browser. Er gaat niets naar ons, tenzij je op ‘Bespreek dit plan met NEST’ klikt en het formulier verstuurt. Dan ontvangen we je naam, telefoonnummer, gemeente, eventueel je e-mailadres en het moment waarop we je best bellen, samen met de keuzes die je in de verkenner maakte.\n- Onze hostingpartner bewaart technische serverlogs (zoals IP-adres en tijdstip) om de website veilig en bereikbaar te houden.\n\nWe gebruiken geen statistiekcookies, geen advertentiecookies en geen trackingpixels van sociale media."
     },
     {
       "titel": "Waarom en op welke grond?",
@@ -21,7 +21,7 @@
     },
     {
       "titel": "Met wie delen we je gegevens?",
-      "tekst": "We verkopen je gegevens nooit. We delen ze alleen als dat nodig is:\n\n- met onze hosting- en e-mailpartners, die de website en onze mailbox draaiende houden;\n- met onze boekhouder;\n- met een keuringsorganisme of netbeheerder, als dat nodig is voor de keuring of de aanmelding van je installatie;\n- met de overheid, als je ons vraagt een premie voor je aan te vragen, of als de wet het verplicht.\n\nMet elke partner die je gegevens voor ons verwerkt, maken we afspraken over beveiliging en vertrouwelijkheid."
+      "tekst": "We verkopen je gegevens nooit. We delen ze alleen als dat nodig is:\n\n- met onze hosting- en e-mailpartners, die de website en onze mailbox draaiende houden;\n- met de formulierdienst die een aanvraag uit de NEST-verkenner naar onze mailbox doorstuurt;\n- met onze boekhouder;\n- met een keuringsorganisme of netbeheerder, als dat nodig is voor de keuring of de aanmelding van je installatie;\n- met de overheid, als je ons vraagt een premie voor je aan te vragen, of als de wet het verplicht.\n\nMet elke partner die je gegevens voor ons verwerkt, maken we afspraken over beveiliging en vertrouwelijkheid."
     },
     {
       "titel": "Gegevens buiten de Europese Unie",

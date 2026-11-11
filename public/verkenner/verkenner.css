@@ -1,0 +1,176 @@
+/* NEST-verkenner. Huisregels: papier, inkt, oranje enkel als markering, nadruk = uitgerekte letters. */
+.vk { padding-bottom: 90px; }
+.vk-kop { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; padding: 4px 0 34px; border-bottom: 1px solid var(--line); }
+.vk-kop h1 { font: 600 clamp(40px, 4.6vw, 70px)/.98 var(--serif); letter-spacing: -.045em; max-width: 17ch; }
+.vk-kop h1 em { font-style: normal; font-stretch: 125%; font-weight: 700; letter-spacing: -.05em; }
+.vk-kop p { font-size: 17px; color: var(--muted); max-width: 30ch; padding-bottom: 6px; }
+
+.vk-werk { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: clamp(32px, 5vw, 80px); align-items: start; padding-top: 34px; }
+
+/* ── vragen ── */
+.vk-vragen { display: flex; flex-direction: column; }
+.vk-vraag { border: 0; padding: 0 0 30px; margin: 0 0 30px; border-bottom: 1px solid var(--line); min-width: 0; }
+.vk-vraag:last-child { border-bottom: 0; margin-bottom: 0; }
+.vk-vraag legend { display: flex; align-items: baseline; gap: 14px; font: 600 clamp(22px, 2vw, 28px)/1.15 var(--serif); letter-spacing: -.03em; margin-bottom: 18px; padding: 0; }
+.vk-nr { font: 500 13px/1 var(--body); color: var(--orange); font-variant-numeric: tabular-nums; translate: 0 -3px; }
+.vk-noot { font-size: 13px; color: var(--muted); margin-top: 12px; max-width: 62ch; }
+.vk-sub { font-size: 15px; font-weight: 500; margin: 26px 0 10px; }
+
+.vk-keuzes { display: grid; gap: 10px; }
+.vk-keuzes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.vk-keuzes--rij { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.vk-keuzes--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.vk-keuzes label { position: relative; cursor: pointer; }
+.vk-keuzes input, .vk-ook input, .vk-moment input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.vk-keuzes label > span { display: flex; flex-direction: column; gap: 4px; height: 100%; min-height: 56px; padding: 15px 16px 14px; border: 1px solid rgba(29,35,32,.22); border-radius: 3px; background: var(--paper-light); transition: border-color .15s, background-color .15s, box-shadow .15s; }
+.vk-keuzes strong { font-size: 16px; font-weight: 600; line-height: 1.2; }
+.vk-keuzes small { font-size: 13px; color: var(--muted); line-height: 1.35; }
+.vk-keuzes .vk-wie { font-size: 12px; margin-top: 4px; }
+.vk-keuzes svg { color: var(--muted); margin-bottom: 6px; }
+.vk-keuzes label:hover > span { border-color: var(--ink); }
+.vk-keuzes input:checked + span { border-color: var(--ink); background: #fff; box-shadow: inset 0 0 0 1px var(--ink); }
+.vk-keuzes input:checked + span svg { color: var(--orange); }
+.vk-keuzes input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 3px; }
+.vk-keuzes--rij input[type=checkbox] + span::after { content: ""; position: absolute; top: 14px; right: 14px; width: 18px; height: 18px; border: 1px solid rgba(29,35,32,.35); border-radius: 2px; background: var(--paper-light) center/12px no-repeat; }
+.vk-keuzes--rij input[type=checkbox]:checked + span::after { border-color: var(--ink); background-color: var(--ink); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3'%3E%3Cpath d='m5 12 4 4L19 6'/%3E%3C/svg%3E"); }
+.vk-klein label > span { min-height: 46px; padding: 12px 14px; justify-content: center; }
+.vk-klein strong { font-size: 14px; font-weight: 500; }
+
+.vk-ook > span:first-child { margin-right: 4px; }
+.vk-ook { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 6px; margin-top: 16px; font-size: 14px; color: var(--muted); }
+.vk-ook label { position: relative; cursor: pointer; }
+.vk-ook label span { display: inline-flex; align-items: center; min-height: 34px; padding: 4px 12px; border: 1px solid rgba(29,35,32,.2); border-radius: 40px; color: var(--ink); transition: background-color .15s, border-color .15s; }
+.vk-ook label:hover span { border-color: var(--ink); }
+.vk-ook input:checked + span { background: var(--ink); border-color: var(--ink); color: var(--paper-light); }
+.vk-ook input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.vk-teller { display: grid; grid-template-columns: 52px auto 52px 1fr; align-items: center; gap: 0 14px; }
+.vk-teller button { width: 52px; height: 52px; border: 1px solid rgba(29,35,32,.25); border-radius: 50%; font-size: 24px; line-height: 1; background: var(--paper-light); transition: border-color .15s, background-color .15s; }
+.vk-teller button:hover:not(:disabled) { border-color: var(--ink); background: #fff; }
+.vk-teller button:disabled { opacity: .35; cursor: default; }
+.vk-teller output { font: 600 30px/1 var(--serif); letter-spacing: -.03em; min-width: 5.6ch; text-align: center; font-variant-numeric: tabular-nums; }
+.vk-teller output span { font-stretch: 120%; }
+.vk-advies { font-size: 13px; color: var(--muted); padding-left: 10px; max-width: 30ch; }
+
+/* ── uitkomst: de werkbon ── */
+.vk-uitkomst { position: sticky; top: 100px; }
+.vk-uitkomst { padding-top: 26px; }
+.vk-bon { position: relative; background: var(--paper-light); border: 1px solid #d8ddce; padding: 22px clamp(24px, 2.4vw, 34px) clamp(26px, 2.6vw, 34px); box-shadow: 12px 16px 0 -5px #e6e8dc, 0 12px 25px -24px #28332e55; }
+.vk-tab { position: absolute; top: -26px; left: 22px; padding: 5px 22px; background: #dce2cf; font-size: 11px; border-radius: 3px 12px 0 0; }
+.plan-house { display: block; width: 100%; max-width: 400px; height: 190px; margin: 0 auto 8px; filter: drop-shadow(0 9px 15px #52685b18); }
+.plan-house .panel-tile { transition: opacity .25s; }
+.plan-house .panel-tile[hidden] { display: none; }
+.plan-house [data-house-battery], .plan-house [data-house-boiler] { stroke: var(--orange); }
+.plan-house.has-roof .house-roof-left { fill: #dcc5b2; }
+.plan-house.has-roof .house-roof-right { fill: #c7ad9e; }
+.house-drawing-label { font: 500 9px var(--body); letter-spacing: .16em; fill: #67796e; }
+.vk-erbij { margin-top: 18px; }
+.vk-erbij > p { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.vk-erbij [data-erbij-knoppen] { display: flex; flex-direction: column; gap: 6px; }
+.vk-erbij button { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; width: 100%; min-height: 46px; padding: 10px 14px; border: 1px dashed rgba(29,35,32,.35); border-radius: 3px; background: transparent; font-size: 15px; text-align: left; transition: border-color .15s, background-color .15s; }
+.vk-erbij button:hover { border-style: solid; border-color: var(--ink); background: #fff; }
+.vk-erbij button strong { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vk-erbij button small { font-weight: 400; color: var(--muted); font-size: 12px; }
+.vk-ookplan { font-size: 13.5px; color: var(--ink); margin-top: 14px; padding: 10px 12px; background: #eceee6; }
+.vk-bon-kop { font-size: 13px; letter-spacing: .02em; color: var(--muted); }
+.vk-bedrag { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin: 10px 0 8px; }
+.vk-tot { font-size: 17px; color: var(--muted); }
+.vk-bedrag strong { font: 700 clamp(46px, 4.6vw, 68px)/1 var(--serif); font-stretch: 122%; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.vk-perjaar { font-size: 17px; color: var(--muted); }
+.vk-bereik { font-size: 15px; color: var(--ink); line-height: 1.5; max-width: 40ch; }
+.vk-meter { display: flex; height: 8px; margin: 18px 0 20px; background: #ecebe6; border-radius: 1px; overflow: hidden; }
+.vk-meter span { height: 100%; transition: width .45s var(--ease); }
+.vk-meter [data-meter-laag] { background: var(--ink); }
+.vk-meter [data-meter-midden] { background: #6f7a72; }
+.vk-meter [data-meter-hoog] { background: repeating-linear-gradient(135deg, #b9bfb7 0 3px, #dfe1dc 3px 6px); }
+.vk-regels { border-top: 1px solid var(--line); }
+.vk-regels > div { display: flex; justify-content: space-between; align-items: baseline; gap: 18px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.vk-regels dt { font-size: 15px; font-weight: 500; }
+.vk-regels dt small { display: block; font-size: 12.5px; font-weight: 400; color: var(--muted); margin-top: 3px; }
+.vk-regels dd { font-size: 15px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vk-aandeel { font-size: 14px; color: var(--muted); margin-top: 14px; }
+.vk-melding { font-size: 14px; background: #f3efe6; border-left: 2px solid var(--orange); padding: 10px 12px; margin-top: 14px; }
+.vk-knop { width: 100%; justify-content: space-between; margin-top: 24px; }
+.vk-prijs { font-size: 13px; color: var(--muted); margin-top: 14px; line-height: 1.5; }
+
+/* ── aanvraag ── */
+.vk-aanvraag, .vk-bedankt { margin-top: 18px; background: var(--paper-light); border: 1px solid rgba(29,35,32,.14); border-radius: 4px; padding: clamp(24px, 2.4vw, 34px); scroll-margin-top: 110px; }
+.vk-aanvraag h2, .vk-bedankt h2 { font: 600 28px/1.1 var(--serif); letter-spacing: -.035em; }
+.vk-aanvraag > p { font-size: 14px; color: var(--muted); margin: 8px 0 6px; }
+.vk-aanvraag label { display: block; font-size: 13px; font-weight: 500; margin: 16px 0 6px; }
+.vk-aanvraag label span { color: var(--muted); font-weight: 400; }
+.vk-aanvraag input:not([type=radio]):not([type=checkbox]) { width: 100%; font-size: 16px; padding: 12px 0; border: 0; border-bottom: 1px solid #a9b0a6; background: transparent; color: var(--ink); border-radius: 0; }
+.vk-aanvraag input:not([type=radio]):focus-visible { outline: none; border-bottom-color: var(--ink); box-shadow: 0 1px 0 var(--ink); }
+.vk-aanvraag input[aria-invalid=true] { border-bottom-color: var(--orange); }
+.vk-moment { border: 0; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.vk-moment legend { font-size: 13px; font-weight: 500; margin-bottom: 8px; padding: 0; }
+.vk-moment label { position: relative; margin: 0; }
+.vk-moment span { display: inline-flex; align-items: center; min-height: 36px; padding: 4px 13px; border: 1px solid rgba(29,35,32,.22); border-radius: 40px; font-size: 13px; cursor: pointer; }
+.vk-moment input:checked + span { background: var(--ink); color: var(--paper-light); border-color: var(--ink); }
+.vk-moment input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
+.vk-val { position: absolute; left: -9999px; }
+.vk-privacy { font-size: 12px; color: var(--muted); margin: 20px 0 16px; }
+.vk-privacy a { text-decoration: underline; text-underline-offset: 3px; }
+.vk-status { font-size: 13px; margin-top: 12px; }
+.vk-status a { text-decoration: underline; }
+.vk-bedankt p { font-size: 16px; margin-top: 10px; }
+.vk-bedankt:focus { outline: none; }
+
+/* ── uitleg ── */
+.vk-uitleg { margin-top: 90px; padding-top: 40px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 20px clamp(30px, 6vw, 100px); }
+.vk-uitleg h2 { font: 600 clamp(32px, 3.4vw, 48px)/1 var(--serif); letter-spacing: -.04em; }
+.vk-uitleg h2 em { font-style: normal; font-stretch: 125%; font-weight: 700; }
+.vk-uitleg-kol p { font-size: 16px; color: var(--muted); line-height: 1.65; max-width: 62ch; }
+.vk-uitleg-kol ul { margin: 18px 0; padding-left: 18px; display: flex; flex-direction: column; gap: 9px; font-size: 15px; color: var(--muted); line-height: 1.55; }
+.vk-uitleg-kol li::marker { color: var(--orange); }
+.vk-uitleg-kol strong { color: var(--ink); font-weight: 500; }
+.vk-bronnen { grid-column: 2; border-top: 1px solid var(--line); }
+.vk-bronnen summary { display: flex; justify-content: space-between; align-items: center; min-height: 54px; cursor: pointer; font-size: 15px; font-weight: 500; list-style: none; }
+.vk-bronnen summary::-webkit-details-marker { display: none; }
+.vk-bronnen[open] summary svg { transform: rotate(45deg); }
+.vk-bronnen ul { list-style: none; padding: 0 0 10px; margin: 0; }
+.vk-bronnen li { display: flex; justify-content: space-between; gap: 20px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.vk-bronnen li a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(29,35,32,.3); }
+.vk-bronnen li a:hover { text-decoration-color: var(--ink); }
+.vk-bronnen li span { color: var(--muted); text-align: right; }
+
+/* ── mobiele balk ── */
+.vk-balk { display: none; }
+
+@media (max-width: 960px) {
+  .vk-werk { grid-template-columns: 1fr; }
+  .vk-uitkomst { position: static; }
+  .vk-uitleg { grid-template-columns: 1fr; }
+  .vk-bronnen { grid-column: 1; }
+  .vk-balk { display: flex; position: fixed; z-index: 60; left: 0; right: 0; bottom: 0; align-items: center; justify-content: space-between; gap: 12px; padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom)); background: var(--ink); color: var(--paper-light); font-size: 14px; transition: translate .3s var(--ease); }
+  .vk-balk strong { font: 700 22px/1 var(--serif); font-stretch: 120%; letter-spacing: -.03em; }
+  .vk-balk .button { background: var(--paper-light); color: var(--ink); min-height: 42px; padding: 8px 16px; font-size: 13px; }
+  .vk-balk.is-weg { translate: 0 110%; }
+  [data-surface=calculator] ~ .footer .mobile-contact, .mobile-contact { display: none !important; }
+}
+@media (max-width: 600px) {
+  .plan-house { height: 150px; }
+  .vk-kop { display: block; padding-bottom: 22px; }
+  .vk-kop h1 { font-size: 40px; }
+  .vk-kop p { font-size: 15px; margin-top: 12px; }
+  .vk-werk { padding-top: 24px; gap: 30px; }
+  .vk-vraag { padding-bottom: 24px; margin-bottom: 24px; }
+  .vk-vraag legend { font-size: 21px; gap: 10px; margin-bottom: 14px; }
+  .vk-keuzes--3, .vk-keuzes--rij { grid-template-columns: 1fr; gap: 8px; }
+  .vk-keuzes--3 label > span { flex-direction: row; flex-wrap: wrap; align-items: baseline; column-gap: 10px; min-height: 0; padding: 13px 14px; }
+  .vk-keuzes--3 .vk-wie { flex-basis: 100%; margin-top: 0; }
+  .vk-keuzes--rij label > span { flex-direction: row; align-items: center; gap: 12px; min-height: 54px; padding: 12px 48px 12px 14px; flex-wrap: wrap; }
+  .vk-keuzes--rij svg { margin: 0; }
+  .vk-keuzes--rij small { flex-basis: 100%; padding-left: 34px; margin-top: -4px; }
+  .vk-keuzes--rij input[type=checkbox] + span::after { top: 50%; translate: 0 -50%; }
+  .vk-keuzes--4 { grid-template-columns: 1fr 1fr; }
+  .vk-teller { grid-template-columns: 48px auto 48px; row-gap: 10px; }
+  .vk-teller button { width: 48px; height: 48px; }
+  .vk-advies { grid-column: 1 / -1; padding: 0; max-width: none; }
+  .vk-uitleg { margin-top: 60px; }
+  .vk-bronnen li { flex-direction: column; gap: 2px; }
+  .vk-bronnen li span { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) { .vk-meter span, .vk-balk { transition: none; } }
+@media print { .vk-balk, .vk-aanvraag, .vk-knop, .header, .footer { display: none !important; } }
+

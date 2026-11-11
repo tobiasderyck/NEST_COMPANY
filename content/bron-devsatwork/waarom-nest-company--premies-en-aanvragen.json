@@ -1,0 +1,27 @@
+{
+"pad": "/waarom-nest-company/premies-en-aanvragen/",
+"titel": "Premies & aanvragen - Nest Company",
+"metaBeschrijving": "",
+"blokken": [
+{"t":"p","x":"Premies & aanvragen"},
+{"t":"h1","x":"Begeleiding bij premies en administratieve aanvragen"},
+{"t":"p","x":"Energiezuinige investeringen brengen vaak ook administratie met zich mee. Premies, aanvragen en registraties kunnen soms complex zijn."},
+{"t":"p","x":"NEST Company helpt je om het overzicht te bewaren en begeleidt je bij de nodige stappen."},
+{"t":"p","x":"**Minder zorgen. Meer duidelijkheid.**"},
+{"t":"knop","x":"Plan je gratis adviesgesprek","href":"https://nest.devsatwork.eu/contact/"},
+{"t":"h1","x":"Alles correct geregeld"},
+{"t":"p","x":"Voor en tijdens de installatie zijn er vaak verschillende administratieve stappen nodig."},
+{"t":"p","x":"Wij begeleiden je bij:"},
+{"t":"lijst","items":["Premieaanvragen","Nodige documenten","Registraties en meldingen","Administratieve verplichtingen"]},
+{"t":"p","x":"Zo zorgen we ervoor dat jouw dossier correct wordt voorbereid en ingediend."},
+{"t":"h1","x":"Een zorgeloos traject"},
+{"t":"p","x":"Door de administratie tijdig en correct op te volgen, zorgen we ervoor dat je project vlot verloopt."},
+{"t":"p","x":"Van het eerste advies tot de oplevering van je project: NEST Company blijft jouw aanspreekpunt."},
+{"t":"h1","x":"Waarom NEST Company?"},
+{"t":"lijst","items":["Begeleiding tijdens je volledige traject","Ondersteuning bij aanvragen en verplichtingen","Duidelijke communicatie","Eén aanspreekpunt voor je project","Ervaring met energieprojecten en dakwerken"]},
+{"t":"h1","x":"Hulp nodig bij je aanvraag?"},
+{"t":"p","x":"Heb je vragen over premies of administratie rond jouw project? We helpen je graag verder."},
+{"t":"knop","x":"Plan je gratis adviesgesprek","href":"https://nest.devsatwork.eu/contact/"},
+{"t":"knop","x":"Contacteer ons","href":"https://nest.devsatwork.eu/contact/"}
+]
+}

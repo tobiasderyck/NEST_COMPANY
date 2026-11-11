@@ -1,0 +1,315 @@
+[
+ {
+  "slug": "nieuwbouw-zonnepanelen",
+  "soort": "zon",
+  "alt": "Nieuwbouwwoning met zonnepanelen in het dakvlak en een houten aanbouw, van bovenaf gefotografeerd",
+  "focus": "52% 45%",
+  "bron": "dji_fly_20250623_113350_0_1750671230515_photo_low_quality.jpg",
+  "b": 1280,
+  "h": 720,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1280
+  ],
+  "luma": 116,
+  "belichting": 1.05,
+  "winst": [
+   1.073,
+   0.972,
+   1.101
+  ]
+ },
+ {
+  "slug": "pannendak-zonnepanelen",
+  "soort": "zon",
+  "alt": "Oranje pannendak met zwarte zonnepanelen en een dakraam, met weilanden op de achtergrond",
+  "focus": "40% 50%",
+  "bron": "dji_fly_20241128_113914_0_1732790354316_photo_low_quality.jpg",
+  "b": 1280,
+  "h": 720,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1280
+  ],
+  "luma": 138,
+  "belichting": 0.9,
+  "winst": [
+   0.907,
+   0.88,
+   0.895
+  ]
+ },
+ {
+  "slug": "dakrenovatie-werf",
+  "soort": "dak",
+  "alt": "Dakrenovatie in uitvoering: stelling met een spandoek van NEST Company tegen een bakstenen woning",
+  "focus": "40% 45%",
+  "bron": "20260325_115812.jpg",
+  "b": 7904,
+  "h": 4440,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1600,
+   2400
+  ],
+  "luma": 142,
+  "belichting": 0.9,
+  "winst": [
+   0.908,
+   0.91,
+   0.863
+  ]
+ },
+ {
+  "slug": "gerenoveerd-dak",
+  "soort": "dak",
+  "alt": "Nieuw antraciet pannendak op een woning met veranda, van bovenaf gefotografeerd",
+  "focus": "50% 55%",
+  "bron": "DJI_20260611123130_0018_D.JPG",
+  "b": 4096,
+  "h": 3072,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1600,
+   2400
+  ],
+  "luma": 111,
+  "belichting": 1.1,
+  "winst": [
+   1.085,
+   1.035,
+   1.155
+  ]
+ },
+ {
+  "slug": "dakwerkers-drone",
+  "soort": "dak",
+  "alt": "Twee dakwerkers leggen nieuwe pannen op een dak met nieuw onderdak en panlatten",
+  "focus": "55% 50%",
+  "bron": "dji_fly_20251021_131036_0_1761045036673_photo_low_quality.jpg",
+  "b": 1280,
+  "h": 720,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1280
+  ],
+  "luma": 87,
+  "belichting": 1.16,
+  "winst": [
+   1.253,
+   1.125,
+   1.067
+  ]
+ },
+ {
+  "slug": "dakwerkers-onderdak",
+  "soort": "dak",
+  "alt": "Dakwerkers op een dak met nieuw onderdak en panlatten, tegen een wolkenlucht",
+  "focus": "60% 40%",
+  "bron": "20251020_110021.jpg",
+  "b": 4000,
+  "h": 2252,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1600,
+   2400
+  ],
+  "luma": 143,
+  "belichting": 0.9,
+  "winst": [
+   0.97,
+   0.906,
+   0.828
+  ]
+ },
+ {
+  "slug": "villa-zonnepanelen",
+  "soort": "zon",
+  "alt": "Woning met zonnepanelen op het pannendak, tussen de tuinen van een woonwijk",
+  "focus": "50% 50%",
+  "bron": "dji_fly_20250410_141014_0_1744287014545_photo_low_quality.jpg",
+  "b": 1280,
+  "h": 720,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1280
+  ],
+  "luma": 139,
+  "belichting": 0.9,
+  "winst": [
+   0.866,
+   0.874,
+   0.95
+  ]
+ },
+ {
+  "slug": "plat-dak-zonnepanelen",
+  "soort": "zon",
+  "alt": "Plat dak met rijen zonnepanelen en lichtkoepels, recht van boven gefotografeerd",
+  "focus": "50% 50%",
+  "bron": "dji_fly_20250414_203630_0_1744655790158_photo_low_quality.jpg",
+  "b": 1000,
+  "h": 562,
+  "formaten": [
+   240,
+   640
+  ],
+  "luma": 101,
+  "belichting": 1.16,
+  "winst": [
+   1.253,
+   1.175,
+   1.067
+  ]
+ },
+ {
+  "slug": "thuisbatterij",
+  "soort": "batterij",
+  "alt": "Twee Dyness-thuisbatterijen met een Solis-omvormer, netjes geplaatst in een berging",
+  "focus": "50% 65%",
+  "bron": "20260508_152800.jpg",
+  "b": 9180,
+  "h": 16320,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1600,
+   2400
+  ],
+  "luma": 140,
+  "belichting": 0.9,
+  "winst": [
+   0.893,
+   0.918,
+   0.871
+  ]
+ },
+ {
+  "slug": "laadpaal",
+  "soort": "laadpaal",
+  "alt": "Laadpaal met opgerolde laadkabel aan een bakstenen gevel",
+  "focus": "45% 50%",
+  "bron": "20251222_122150.jpg",
+  "b": 9180,
+  "h": 16320,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1600,
+   2400
+  ],
+  "luma": 134,
+  "belichting": 0.91,
+  "winst": [
+   0.848,
+   0.914,
+   0.966
+  ]
+ },
+ {
+  "slug": "airco-zolder",
+  "soort": "airco",
+  "alt": "Airco-binnenunit in een zolderkamer met houten kasten en zonlicht door het dakraam",
+  "focus": "65% 40%",
+  "bron": "20260319_180339.jpg",
+  "b": 16320,
+  "h": 9180,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1600,
+   2400
+  ],
+  "luma": 116,
+  "belichting": 1.05,
+  "winst": [
+   0.987,
+   1.052,
+   1.107
+  ]
+ },
+ {
+  "slug": "airco-buitenunit",
+  "soort": "airco",
+  "alt": "Buitenunit van een Gree-airco op een plat dak",
+  "focus": "50% 40%",
+  "bron": "Gree 8.jpeg",
+  "b": 1200,
+  "h": 1600,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1200
+  ],
+  "luma": 140,
+  "belichting": 0.9,
+  "winst": [
+   0.949,
+   0.891,
+   0.844
+  ]
+ },
+ {
+  "slug": "nest-bestelwagen",
+  "soort": "ploeg",
+  "alt": "Bestelwagen van NEST Company geparkeerd in een woonstraat",
+  "focus": "45% 55%",
+  "bron": "20260511_142824.jpg",
+  "b": 16320,
+  "h": 9180,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1600,
+   2400
+  ],
+  "luma": 118,
+  "belichting": 1.04,
+  "winst": [
+   1.051,
+   1.032,
+   1.007
+  ]
+ },
+ {
+  "slug": "zonnepanelen-blauwe-lucht",
+  "soort": "zon",
+  "alt": "Zonnepanelen op een bakstenen woning onder een blauwe lucht met wolken",
+  "focus": "50% 60%",
+  "bron": "solar 2.jpeg",
+  "b": 1152,
+  "h": 2048,
+  "formaten": [
+   240,
+   640,
+   1080,
+   1152
+  ],
+  "luma": 112,
+  "belichting": 1.09,
+  "winst": [
+   1.176,
+   1.103,
+   1.002
+  ]
+ }
+]

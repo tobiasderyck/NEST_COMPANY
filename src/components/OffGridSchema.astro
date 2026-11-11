@@ -1,0 +1,54 @@
+---
+// Het schema zelf: het huis met zon, batterij en net, en de schakelaar Hybride / Off-grid.
+// De ankerpunten komen uit Blender (bron/3d/render_offgrid.py → renders/offgrid/ankers.json), in % van het beeld.
+import ankers from '../../bron/3d/renders/offgrid/ankers.json';
+const { vlug = false } = Astro.props;   // vlug = bovenaan de pagina: beeld meteen laden
+const B = 1600, Hh = 1100;
+const p = ([x, y]: number[]) => `${(x * B / 100).toFixed(1)} ${(y * Hh / 100).toFixed(1)}`;
+const kabel = 'M' + ankers.kabel.map(p).join(' L');
+// zon → batterij: van het dak langs de dakrand naar de batterij; batterij → huis: korte boog naar binnen
+const zonBat = `M${p(ankers.zon)} C${p([ankers.zon[0] + 16, ankers.zon[1] + 4])} ${p([ankers.batterij[0] + 4, ankers.batterij[1] - 24])} ${p(ankers.batterij)}`;
+const batHuis = `M${p(ankers.batterij)} C${p([ankers.batterij[0] - 4, ankers.batterij[1] - 9])} ${p([ankers.huis[0] + 5, ankers.huis[1] - 5])} ${p(ankers.huis)}`;
+const stijl = (a: number[], dx = 0, dy = 0) => `left:${a[0] + dx}%;top:${a[1] + dy}%`;
+const laden = vlug ? 'eager' : 'lazy';
+---
+  <div class="og-schema" data-og data-stand="hybride">
+   <div class="og-keuze" role="group" aria-label="Kies een opstelling">
+    <button type="button" data-og-stand="hybride" aria-pressed="true">Hybride</button>
+    <button type="button" data-og-stand="offgrid" aria-pressed="false">Off-grid</button>
+   </div>
+   <figure class="og-beeld">
+    <img class="og-huis og-huis--net" src="/assets/offgrid/huis-900.webp" srcset="/assets/offgrid/huis-900.webp 900w, /assets/offgrid/huis.webp 1600w" sizes="(max-width: 960px) 100vw, 56vw" alt="Een woning met zonnepanelen op het dak, een batterij tegen de gevel en een kabel naar de elektriciteitspaal" width={B} height={Hh} loading={laden} decoding="async"/>
+    <img class="og-huis og-huis--los" src="/assets/offgrid/huis-los-900.webp" srcset="/assets/offgrid/huis-los-900.webp 900w, /assets/offgrid/huis-los.webp 1600w" sizes="(max-width: 960px) 100vw, 56vw" alt="Dezelfde woning zonder kabel naar het elektriciteitsnet" width={B} height={Hh} loading={laden} decoding="async"/>
+    <svg class="og-lijnen" viewBox={`0 0 ${B} ${Hh}`} aria-hidden="true">
+     <path class="og-lijn og-lijn--net" d={kabel}/>
+     <path class="og-lijn og-lijn--zon" d={zonBat}/>
+     <path class="og-lijn og-lijn--bat" d={batHuis}/>
+    </svg>
+    <span class="og-label og-label--zon" style={stijl(ankers.zon, -3, -19)}>Zon<small>wekt op</small></span>
+    <span class="og-label og-label--bat" style={stijl(ankers.batterij, 1, -15)}>Batterij<small>bewaart</small></span>
+    <span class="og-label og-label--net" style={stijl(ankers.paal, -2, -15)}>Net<small data-og-net>als back-up</small></span>
+   </figure>
+   <p class="og-uitleg" data-og-uitleg aria-live="polite">Hybride: je draait op eigen zon en opslag. Het net blijft aangesloten als back-up.</p>
+  </div>
+<link rel="stylesheet" href="/offgrid.css"/>
+<script is:inline>
+(() => {
+  const tekst = {
+    hybride: ['als back-up', 'Hybride: je draait op eigen zon en opslag. Het net blijft aangesloten als back-up.'],
+    offgrid: ['losgekoppeld', 'Off-grid: het net is niet nodig. Zon en batterij leveren alles, ook bij een stroompanne.']
+  };
+  document.querySelectorAll('[data-og]').forEach(og => {
+    const knoppen = og.querySelectorAll('[data-og-stand]');
+    const zet = stand => {
+      og.dataset.stand = stand; knoppen.forEach(k => k.setAttribute('aria-pressed', String(k.dataset.ogStand === stand)));
+      og.querySelector('[data-og-net]').textContent = tekst[stand][0]; og.querySelector('[data-og-uitleg]').textContent = tekst[stand][1];
+    };
+    knoppen.forEach(k => k.addEventListener('click', () => { og.dataset.gekozen = '1'; zet(k.dataset.ogStand); }));
+    // eerst hybride tonen, dan één keer vanzelf naar off-grid zodra het schema in beeld is
+    if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      new IntersectionObserver(([e], io) => { if (e.intersectionRatio < .6) return; io.disconnect(); setTimeout(() => { if (!og.dataset.gekozen) zet('offgrid'); }, 2600); }, { threshold: [.6] }).observe(og);
+    }
+  });
+})();
+</script>

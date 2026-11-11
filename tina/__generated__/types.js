@@ -101,6 +101,19 @@ export const HomepagePartsFragmentDoc = gql`
   }
 }
     `;
+export const VerkennerPartsFragmentDoc = gql`
+    fragment VerkennerParts on Verkenner {
+  __typename
+  titel
+  intro
+  formulier {
+    __typename
+    sleutel
+    ontvanger
+    onderwerp
+  }
+}
+    `;
 export const ReviewsPartsFragmentDoc = gql`
     fragment ReviewsParts on Reviews {
   __typename
@@ -329,6 +342,63 @@ export const HomepageConnectionDocument = gql`
   }
 }
     ${HomepagePartsFragmentDoc}`;
+export const VerkennerDocument = gql`
+    query verkenner($relativePath: String!) {
+  verkenner(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...VerkennerParts
+  }
+}
+    ${VerkennerPartsFragmentDoc}`;
+export const VerkennerConnectionDocument = gql`
+    query verkennerConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: VerkennerFilter) {
+  verkennerConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...VerkennerParts
+      }
+    }
+  }
+}
+    ${VerkennerPartsFragmentDoc}`;
 export const ReviewsDocument = gql`
     query reviews($relativePath: String!) {
   reviews(relativePath: $relativePath) {
@@ -576,6 +646,12 @@ export function getSdk(requester) {
     },
     homepageConnection(variables, options) {
       return requester(HomepageConnectionDocument, variables, options);
+    },
+    verkenner(variables, options) {
+      return requester(VerkennerDocument, variables, options);
+    },
+    verkennerConnection(variables, options) {
+      return requester(VerkennerConnectionDocument, variables, options);
     },
     reviews(variables, options) {
       return requester(ReviewsDocument, variables, options);

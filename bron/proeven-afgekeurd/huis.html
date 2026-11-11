@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<title>Voorstel 2 · het huis wordt een nest</title>
+<link rel="stylesheet" href="/fonts/archivo.css"/>
+<link rel="stylesheet" href="/fonts/general-sans.css"/>
+<style>
+  :root { --ink: #1d2320; --paper: #f8f7f4; --orange: #d14d29; --muted: #555e58; --ease: cubic-bezier(.65,0,.35,1); }
+  * { box-sizing: border-box; margin: 0; }
+  body { font: 16px/1.5 "General Sans", sans-serif; background: #efeeea; color: var(--ink); }
+  .nest { position: relative; height: max(640px, 100svh); overflow: hidden; background: #2a2e2b; container-type: size; }
+  .podium { position: absolute; left: 50%; top: 50%; width: max(100cqw, 100cqh * 16 / 9); aspect-ratio: 16 / 9; translate: -50% -50%; }
+  .podium img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .laag { clip-path: polygon(var(--van)); transition: clip-path 1.3s var(--ease); }
+  .laag.is-aan { clip-path: polygon(var(--naar)); }
+  /* het dak rolt af van de nok naar de goot */
+  .laag-dak { --van: 12.2% 5.2%, 60.8% 21.3%, 62% 22%, 64% 24%, 64% 24%, 62% 22%, 60.8% 21.3%, 12.2% 5.2%;
+              --naar: 12.2% 5.2%, 60.8% 21.3%, 62% 22%, 64% 24%, 65.8% 26.5%, 78% 49.8%, 20.3% 42.8%, 11.6% 7%; }
+  /* de panelen schuiven van links naar rechts aan */
+  .laag-zon { --van: 18.3% 10.3%, 18.3% 10.3%, 23.5% 33.2%, 23.5% 33.2%; --naar: 18.3% 10.3%, 60.6% 21.8%, 70.9% 42.9%, 23.5% 33.2%; }
+  /* de gevel trekt van links naar rechts over het huis */
+  .laag-gevel { --van: 11.6% 7%, 11.6% 7%, 6.8% 48%, 6.8% 48%, 5% 76.5%, 5% 76.5%, 5% 76.5%, 6.8% 48%;
+                --naar: 11.6% 7%, 20.3% 42.8%, 78% 49.8%, 77.2% 50.2%, 76.4% 72.5%, 21% 82.5%, 5% 76.5%, 6.8% 48%; filter: saturate(.78) brightness(.97); }
+  .laag-warmte { --van: 57.4% 82.5%, 63.2% 82.5%, 63.2% 82.5%, 57.4% 82.5%; --naar: 57.4% 68.6%, 63.2% 68.6%, 63.2% 82.5%, 57.4% 82.5%; filter: saturate(.78) brightness(.97); }
+  .avond { opacity: 0; transition: opacity 2.2s linear; }
+  .avond.is-aan { opacity: 1; }
+  .nest::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 66% 70% at 0% 100%, rgba(17,20,18,.7), rgba(17,20,18,.34) 50%, rgba(17,20,18,0) 100%); }
+  .kaart { position: absolute; z-index: 2; left: clamp(18px, 3.4vw, 54px); bottom: clamp(18px, 4vh, 48px); width: min(560px, calc(100% - 36px)); color: #fff; }
+  .kaart h2 { font: 600 clamp(36px, 4.2vw, 68px)/.98 Archivo, sans-serif; letter-spacing: -.045em; text-shadow: 0 2px 26px rgba(0,0,0,.4); }
+  .kaart h2 em { font-style: normal; font-stretch: 125%; font-weight: 700; color: #f08a5d; }
+  .stap { margin-top: 22px; }
+  .stap[hidden] { display: none; }
+  .stap p { font-size: 17px; font-weight: 500; margin-bottom: 12px; text-shadow: 0 1px 14px rgba(0,0,0,.5); }
+  .stap small { font-weight: 400; opacity: .8; }
+  .opties { display: flex; flex-wrap: wrap; gap: 8px; }
+  .opties button { font: 500 15px/1 "General Sans", sans-serif; min-height: 46px; padding: 0 16px; border: 1px solid rgba(255,255,255,.6); border-radius: 3px; background: rgba(17,20,18,.35); color: #fff; cursor: pointer; transition: background-color .15s, color .15s, border-color .15s; }
+  .opties button:hover { border-color: #fff; background: rgba(17,20,18,.55); }
+  .opties button[aria-pressed=true] { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+  .opties button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  .verder { display: flex; align-items: center; gap: 20px; margin-top: 18px; }
+  .knop { display: inline-flex; align-items: center; gap: 24px; min-height: 54px; padding: 14px 22px; background: var(--paper); color: var(--ink); border: 0; border-radius: 3px; font: 600 15px/1.2 "General Sans", sans-serif; cursor: pointer; text-decoration: none; }
+  .knop:disabled { opacity: .45; cursor: default; }
+  .terug { font: inherit; font-size: 14px; color: #fff; background: none; border: 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; opacity: .85; }
+  .voortgang { position: absolute; z-index: 2; right: clamp(18px, 3.4vw, 54px); bottom: clamp(18px, 4vh, 48px); display: flex; gap: 8px; }
+  .voortgang i { width: 44px; height: 2px; background: rgba(255,255,255,.35); }
+  .voortgang i.is-aan { background: #fff; }
+  .slot { font-size: 17px; margin-top: 14px; max-width: 40ch; text-shadow: 0 1px 14px rgba(0,0,0,.5); }
+  @media (max-width: 700px) { .podium img { object-position: 40% 50%; } .voortgang { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .laag, .avond { transition: none; } }
+</style>
+</head>
+<body>
+<section class="nest" aria-labelledby="nest-titel">
+ <div class="podium" aria-hidden="true">
+  <img src="/assets/web/film-0.webp" alt=""/>
+  <img class="laag laag-dak" data-laag="dak" src="/assets/web/film-1.webp" alt=""/>
+  <img class="laag laag-zon" data-laag="zon" src="/assets/web/film-2.webp" alt=""/>
+  <img class="laag laag-gevel" data-laag="gevel" src="/assets/web/film-3.webp" alt=""/>
+  <img class="laag laag-warmte" data-laag="warmte" src="/assets/web/film-3.webp" alt=""/>
+  <img class="avond" data-avond src="/assets/web/film-4.webp" alt=""/>
+ </div>
+
+ <div class="kaart">
+  <h2 id="nest-titel" data-titel>Zet de koffie maar <em>klaar.</em></h2>
+
+  <div class="stap" data-stap="0">
+   <p>Wat wil je aanpakken? <small>Kies wat je wil, het huis doet mee.</small></p>
+   <div class="opties" data-meer>
+    <button type="button" data-zet="dak" aria-pressed="false">Dak</button>
+    <button type="button" data-zet="zon" aria-pressed="false">Zonnepanelen</button>
+    <button type="button" data-zet="gevel" aria-pressed="false">Gevel</button>
+    <button type="button" data-zet="warmte" aria-pressed="false">Warmtepomp of airco</button>
+   </div>
+  </div>
+  <div class="stap" data-stap="1" hidden>
+   <p>Wat voor woning is het?</p>
+   <div class="opties" data-een><button type="button" aria-pressed="false">Rijwoning</button><button type="button" aria-pressed="false">Halfopen</button><button type="button" aria-pressed="false">Vrijstaand</button><button type="button" aria-pressed="false">Appartement</button></div>
+  </div>
+  <div class="stap" data-stap="2" hidden>
+   <p>Wanneer wil je starten?</p>
+   <div class="opties" data-een><button type="button" aria-pressed="false">Zo snel mogelijk</button><button type="button" aria-pressed="false">Binnen het halfjaar</button><button type="button" aria-pressed="false">Ik kijk nog rond</button></div>
+  </div>
+  <div class="stap" data-stap="3" hidden>
+   <p class="slot">Zo kan het worden. We komen gratis langs om op te meten en alles uit te leggen aan je keukentafel.</p>
+  </div>
+
+  <div class="verder">
+   <button class="knop" type="button" data-volgende disabled>Volgende <span aria-hidden="true">→</span></button>
+   <button class="terug" type="button" data-terug hidden>Terug</button>
+  </div>
+ </div>
+ <div class="voortgang" aria-hidden="true"><i class="is-aan"></i><i></i><i></i></div>
+</section>
+
+<script>
+const $ = (s, el = document) => el.querySelector(s), $$ = (s, el = document) => [...el.querySelectorAll(s)];
+let stap = 0;
+const stappen = $$('[data-stap]'), volgende = $('[data-volgende]'), terug = $('[data-terug]');
+const gekozen = () => { const s = stappen[stap]; return stap === 3 || !!$('[aria-pressed=true]', s); };
+
+function toon() {
+  stappen.forEach((s, i) => s.hidden = i !== stap);
+  $$('.voortgang i').forEach((b, i) => b.classList.toggle('is-aan', i <= Math.min(stap, 2)));
+  terug.hidden = stap === 0;
+  volgende.disabled = !gekozen();
+  volgende.firstChild.textContent = stap === 3 ? 'Plan het gratis bezoek ' : stap === 2 ? 'Bekijk je nest ' : 'Volgende ';
+  $('[data-avond]').classList.toggle('is-aan', stap === 3);
+  $('[data-titel]').innerHTML = stap === 3 ? 'Welkom in je <em>droomnest.</em>' : 'Zet de koffie maar <em>klaar.</em>';
+}
+
+$$('[data-meer] button').forEach(b => b.addEventListener('click', () => {
+  const aan = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(aan));
+  $(`[data-laag="${b.dataset.zet}"]`).classList.toggle('is-aan', aan);
+  // panelen liggen op een nieuw dak? neen: op het dak dat er ligt. De paneellaag bevat alleen de panelen.
+  volgende.disabled = !gekozen();
+}));
+$$('[data-een]').forEach(groep => $$('button', groep).forEach(b => b.addEventListener('click', () => {
+  $$('button', groep).forEach(x => x.setAttribute('aria-pressed', String(x === b))); volgende.disabled = false;
+})));
+volgende.addEventListener('click', () => { if (stap === 3) { location.href = '/contact/#jouw-plan'; return; } stap++; toon(); });
+terug.addEventListener('click', () => { stap--; toon(); });
+toon();
+</script>
+</body>
+</html>

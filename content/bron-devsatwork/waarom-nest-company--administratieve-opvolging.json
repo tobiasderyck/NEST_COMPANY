@@ -1,0 +1,27 @@
+{
+"pad": "/waarom-nest-company/administratieve-opvolging/",
+"titel": "Administratieve opvolging - Nest Company",
+"metaBeschrijving": "",
+"blokken": [
+{"t":"p","x":"Administratieve opvolging"},
+{"t":"h1","x":"Een zorgeloze opvolging, ook na installatie"},
+{"t":"p","x":"Een energieproject of dakwerk stopt niet zodra de installatie geplaatst is. Ook daarna blijft een goede opvolging belangrijk."},
+{"t":"p","x":"Of je nu kiest voor zonnepanelen, een thuisbatterij, laadpaal, warmtepomp of dakwerken: NEST Company blijft bereikbaar en helpt je bij de opvolging van jouw project."},
+{"t":"p","x":"Van attesten en technische documenten tot service en garantie: wij houden het overzicht."},
+{"t":"knop","x":"Plan je gratis adviesgesprek","href":"https://nest.devsatwork.eu/contact/"},
+{"t":"h1","x":"Alles overzichtelijk geregeld"},
+{"t":"p","x":"Na de installatie zorgen we ervoor dat je beschikt over de nodige informatie en documenten."},
+{"t":"p","x":"Wij helpen je met:"},
+{"t":"lijst","items":["Keuringsdocumenten en attesten","Technische documentatie","Garantiegegevens","Opvolging van je installatie","Service na plaatsing"]},
+{"t":"p","x":"Zo blijft je dossier compleet en weet je waar je terechtkan."},
+{"t":"h1","x":"Ook na de plaatsing blijven we betrokken"},
+{"t":"p","x":"Een installatie verandert mee met je woning en je energieverbruik."},
+{"t":"p","x":"Heb je later vragen, wil je uitbreiden of verandert je situatie? NEST Company denkt graag met je mee."},
+{"t":"h1","x":"Waarom NEST Company?"},
+{"t":"lijst","items":["Eén aanspreekpunt tijdens je volledige traject","Duidelijke communicatie en opvolging","Persoonlijke begeleiding ook na installatie","Ervaring met energieoplossingen en dakwerken","Ondersteuning wanneer je die nodig hebt"]},
+{"t":"h1","x":"Hulp nodig met de opvolging van je project?"},
+{"t":"p","x":"Wil je weten welke ondersteuning je nodig hebt na je installatie? We bekijken samen jouw situatie en helpen je verder."},
+{"t":"knop","x":"Plan je gratis adviesgesprek","href":"https://nest.devsatwork.eu/contact/"},
+{"t":"knop","x":"Contacteer ons","href":"https://nest.devsatwork.eu/contact/"}
+]
+}

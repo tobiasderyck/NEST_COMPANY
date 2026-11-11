@@ -1,0 +1,27 @@
+{
+"pad": "/over-ons/",
+"titel": "Over ons - Nest Company",
+"metaBeschrijving": "",
+"blokken": [
+{"t":"p","x":"Over ons"},
+{"t":"h1","x":"Energieoplossingen en dakwerken met één duidelijke visie"},
+{"t":"p","x":"NEST Company helpt particulieren, gezinnen en bedrijven om hun woning of gebouw klaar te maken voor de toekomst. Met slimme energieoplossingen en duurzame dakwerken combineren we comfort, efficiëntie en duurzaamheid in oplossingen die passen bij jouw situatie."},
+{"t":"p","x":"Elke woning en elk energieverbruik is anders. Daarom vertrekken we niet vanuit standaardoplossingen, maar vanuit persoonlijk advies en een aanpak op maat."},
+{"t":"p","x":"**Eerlijke oplossingen. Technische expertise. Persoonlijke begeleiding.**"},
+{"t":"h1","x":"Wat ons typeert"},
+{"t":"p","x":"Bij NEST Company kies je voor een partner die verder kijkt dan één installatie:"},
+{"t":"lijst","items":["Persoonlijk en merkonafhankelijk advies","Oplossingen die technisch én praktisch kloppen","Erkende vakkennis voor hernieuwbare energie-installaties","Begeleiding van advies tot opvolging","Eén aanspreekpunt tijdens het volledige traject","Ervaring in energieoplossingen en dakwerken"]},
+{"t":"p","x":"Of je nu kiest voor één gerichte installatie of een volledig energiesysteem: we denken mee in functie van jouw woning, verbruik en toekomstplannen."},
+{"t":"h1","x":"Ontdek NEST Company"},
+{"t":"h4","x":"Over NEST Company"},
+{"t":"p","x":"Wil je weten hoe NEST Company ontstaan is en waarom we kiezen voor een merkonafhankelijke aanpak?"},
+{"t":"knop","x":"Lees meer over NEST Company","href":"https://nest.devsatwork.eu/over-ons/over-nest-company/"},
+{"t":"h4","x":"Ons team"},
+{"t":"p","x":"Maak kennis met de mensen achter NEST Company en ontdek wie jouw project opvolgt."},
+{"t":"knop","x":"Ontmoet ons team","href":"https://nest.devsatwork.eu/over-ons/ons-team/"},
+{"t":"h1","x":"Klaar om jouw project te bespreken?"},
+{"t":"p","x":"Plan een vrijblijvend adviesgesprek en ontdek welke oplossing past bij jouw woning of gebouw."},
+{"t":"knop","x":"Plan je gratis adviesgesprek","href":"https://nest.devsatwork.eu/contact/"},
+{"t":"knop","x":"Contacteer ons","href":"https://nest.devsatwork.eu/contact/"}
+]
+}

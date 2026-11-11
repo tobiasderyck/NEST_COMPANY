@@ -1,0 +1,24 @@
+{
+"pad": "/realisaties/realisatie-zonnepanelen-en-thuisbatterij/",
+"titel": "Zonnepanelen en thuisbatterij - Nest Company",
+"metaBeschrijving": "",
+"blokken": [
+{"t":"p","x":"Realisatie: Zonnepanelen en thuisbatterij"},
+{"t":"h1","x":"De vraag"},
+{"t":"p","x":"Deze klant wilde minder afhankelijk worden van het elektriciteitsnet en zoveel mogelijk eigen opgewekte energie zelf gebruiken."},
+{"t":"h1","x":"Onze analyse"},
+{"t":"p","x":"Na een analyse van het energieverbruik, de dakoriëntatie en de toekomstplannen bleek een combinatie van zonnepanelen en een thuisbatterij de meest interessante oplossing."},
+{"t":"h1","x":"De oplossing"},
+{"t":"p","x":"We realiseerden een energieoplossing bestaande uit:"},
+{"t":"img","src":"https://nest.devsatwork.eu/wp-content/uploads/2026/07/NEST-Company-Zonnepanelen-3.jpg","alt":"","b":1280,"h":720},
+{"t":"lijst","items":["Zonnepanelen","Thuisbatterij","Slimme configuratie van de installatie"]},
+{"t":"p","x":"Alles werd afgestemd op het energieverbruik van de woning, zodat zoveel mogelijk zelf opgewekte energie ook effectief zelf gebruikt wordt."},
+{"t":"h1","x":"Het resultaat"},
+{"t":"lijst","items":["Meer eigen energieverbruik","Minder afname van het elektriciteitsnet","Lagere energiekosten","Meer onafhankelijkheid"]},
+{"t":"img","src":"https://nest.devsatwork.eu/wp-content/uploads/2026/07/Thuisbatterijen-2.jpeg","alt":"","b":1536,"h":1536},
+{"t":"h1","x":"Ook benieuwd hoeveel je zelf kunt besparen met zonnepanelen en een thuisbatterij?"},
+{"t":"p","x":"We bekijken graag welke oplossing het best past bij jouw woning en jouw situatie."},
+{"t":"knop","x":"Plan je gratis adviesgesprek","href":"https://nest.devsatwork.eu/contact/"},
+{"t":"knop","x":"Contacteer ons","href":"https://nest.devsatwork.eu/contact/"}
+]
+}

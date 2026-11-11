@@ -60,6 +60,8 @@ type Query {
   editorialConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: EditorialFilter): EditorialConnection!
   homepage(relativePath: String): Homepage!
   homepageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: HomepageFilter): HomepageConnection!
+  verkenner(relativePath: String): Verkenner!
+  verkennerConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: VerkennerFilter): VerkennerConnection!
   reviews(relativePath: String): Reviews!
   reviewsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ReviewsFilter): ReviewsConnection!
   privacy(relativePath: String): Privacy!
@@ -74,6 +76,7 @@ input DocumentFilter {
   services: ServicesFilter
   editorial: EditorialFilter
   homepage: HomepageFilter
+  verkenner: VerkennerFilter
   reviews: ReviewsFilter
   privacy: PrivacyFilter
   cookies: CookiesFilter
@@ -103,7 +106,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Services | Editorial | Homepage | Reviews | Privacy | Cookies | Voorwaarden | Folder
+union DocumentNode = Services | Editorial | Homepage | Verkenner | Reviews | Privacy | Cookies | Voorwaarden | Folder
 
 type ServicesItemsSections {
   title: String
@@ -359,6 +362,44 @@ type HomepageConnection implements Connection {
   edges: [HomepageConnectionEdges]
 }
 
+type VerkennerFormulier {
+  sleutel: String
+  ontvanger: String
+  onderwerp: String
+}
+
+type Verkenner implements Node & Document {
+  titel: String
+  intro: String
+  formulier: VerkennerFormulier
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input VerkennerFormulierFilter {
+  sleutel: StringFilter
+  ontvanger: StringFilter
+  onderwerp: StringFilter
+}
+
+input VerkennerFilter {
+  titel: StringFilter
+  intro: StringFilter
+  formulier: VerkennerFormulierFilter
+}
+
+type VerkennerConnectionEdges {
+  cursor: String!
+  node: Verkenner
+}
+
+type VerkennerConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [VerkennerConnectionEdges]
+}
+
 type ReviewsItems {
   klant: String
   tekst: String
@@ -545,6 +586,8 @@ type Mutation {
   createEditorial(relativePath: String!, params: EditorialMutation!): Editorial!
   updateHomepage(relativePath: String!, params: HomepageMutation!): Homepage!
   createHomepage(relativePath: String!, params: HomepageMutation!): Homepage!
+  updateVerkenner(relativePath: String!, params: VerkennerMutation!): Verkenner!
+  createVerkenner(relativePath: String!, params: VerkennerMutation!): Verkenner!
   updateReviews(relativePath: String!, params: ReviewsMutation!): Reviews!
   createReviews(relativePath: String!, params: ReviewsMutation!): Reviews!
   updatePrivacy(relativePath: String!, params: PrivacyMutation!): Privacy!
@@ -559,6 +602,7 @@ input DocumentUpdateMutation {
   services: ServicesMutation
   editorial: EditorialMutation
   homepage: HomepageMutation
+  verkenner: VerkennerMutation
   reviews: ReviewsMutation
   privacy: PrivacyMutation
   cookies: CookiesMutation
@@ -570,6 +614,7 @@ input DocumentMutation {
   services: ServicesMutation
   editorial: EditorialMutation
   homepage: HomepageMutation
+  verkenner: VerkennerMutation
   reviews: ReviewsMutation
   privacy: PrivacyMutation
   cookies: CookiesMutation
@@ -673,6 +718,18 @@ input HomepageMutation {
   delen: [HomepageDelenMutation]
   ploeg: HomepagePloegMutation
   meter: HomepageMeterMutation
+}
+
+input VerkennerFormulierMutation {
+  sleutel: String
+  ontvanger: String
+  onderwerp: String
+}
+
+input VerkennerMutation {
+  titel: String
+  intro: String
+  formulier: VerkennerFormulierMutation
 }
 
 input ReviewsItemsMutation {

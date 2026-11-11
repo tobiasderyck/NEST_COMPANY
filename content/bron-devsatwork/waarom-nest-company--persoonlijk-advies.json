@@ -1,0 +1,29 @@
+{
+"pad": "/waarom-nest-company/persoonlijk-advies/",
+"titel": "Persoonlijk advies - Nest Company",
+"metaBeschrijving": "",
+"blokken": [
+{"t":"p","x":"Persoonlijk advies"},
+{"t":"h1","x":"Persoonlijk energieadvies op maat van jouw woning"},
+{"t":"p","x":"Elke woning is anders. Daarom bestaat er geen standaardoplossing die voor iedereen werkt."},
+{"t":"p","x":"Bij NEST Company starten we met een persoonlijk adviesgesprek waarin we jouw woning, energieverbruik en toekomstplannen bekijken. Zo bepalen we samen welke oplossingen écht passen bij jouw situatie."},
+{"t":"p","x":"**Geen verkooppraatjes. Geen onnodige installaties. Wel eerlijk advies op maat.**"},
+{"t":"knop","x":"Plan je gratis adviesgesprek","href":"https://nest.devsatwork.eu/contact/"},
+{"t":"h1","x":"Een oplossing die past bij jouw situatie"},
+{"t":"p","x":"Of je nu interesse hebt in zonnepanelen, een thuisbatterij, een laadpaal, warmtepomp of dakwerken: de juiste keuze begint bij een goed inzicht in je woning."},
+{"t":"p","x":"We bekijken onder andere:"},
+{"t":"lijst","items":["Je huidige energieverbruik","Mogelijke combinaties tussen oplossingen","Je woning en bestaande installaties","Je woning en bestaande installaties"]},
+{"t":"p","x":"Op basis daarvan krijg je een duidelijk advies waarmee je verder kan."},
+{"t":"h1","x":"Merkonafhankelijk advies"},
+{"t":"p","x":"Niet elk merk of systeem past bij elke woning."},
+{"t":"p","x":"Daarom werkt NEST Company met verschillende kwalitatieve oplossingen en kijken we naar wat technisch én praktisch het beste aansluit bij jouw situatie."},
+{"t":"p","x":"Zo krijg je een oplossing die niet alleen vandaag werkt, maar ook klaar is voor de toekomst."},
+{"t":"h1","x":"Waarom NEST Company?"},
+{"t":"p","x":"Met een netoplossing van NEST Company:"},
+{"t":"lijst","items":["Persoonlijke begeleiding van begin tot einde","Ervaring met energieoplossingen en dakwerken","Transparante uitleg zonder standaardoplossingen","Advies afgestemd op jouw woning","Eén aanspreekpunt voor jouw volledige traject"]},
+{"t":"h1","x":"Klaar om jouw mogelijkheden te bekijken?"},
+{"t":"p","x":"Wil je weten welke oplossing het beste past bij jouw woning? We bekijken samen jouw situatie en geven eerlijk advies."},
+{"t":"knop","x":"Plan je gratis adviesgesprek","href":"https://nest.devsatwork.eu/contact/"},
+{"t":"knop","x":"Contacteer ons","href":"https://nest.devsatwork.eu/contact/"}
+]
+}

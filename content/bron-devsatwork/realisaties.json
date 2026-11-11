@@ -1,0 +1,24 @@
+{
+"pad": "/realisaties/",
+"titel": "Realisaties - Nest Company",
+"metaBeschrijving": "",
+"blokken": [
+{"t":"p","x":"Realisaties"},
+{"t":"h1","x":"Energie- en dakprojecten in de praktijk"},
+{"t":"p","x":"Elke woning en elk bedrijf vraagt een andere aanpak. Daarom werken we elk project uit op maat van de situatie, het energieverbruik en de toekomstplannen van de klant."},
+{"t":"p","x":"Van zonnepanelen en thuisbatterijen tot airco, warmtepompboilers, laadpalen en dakwerken: ontdek hoe onze oplossingen er in de praktijk uitzien."},
+{"t":"img","src":"https://nest.devsatwork.eu/wp-content/uploads/2026/07/Over-ons-1.jpeg","alt":"","b":1175,"h":1175},
+{"t":"h1","x":"Ontdek onze realisaties"},
+{"t":"p","x":"Bekijk hieronder een selectie van projecten en ontdek hoe we klanten begeleiden met persoonlijk advies, een correcte installatie en een oplossing die écht bij hun situatie past."},
+{"t":"img","src":"https://nest.devsatwork.eu/wp-content/uploads/2026/07/Icoon-zonnepanelen-en-thuisbatterij.png","alt":"","b":1259,"h":698},
+{"t":"h4","x":"Zonnepanelen en thuisbatterij voor maximaal eigen verbruik"},
+{"t":"knop","x":"Lees meer over dit project","href":"https://nest.devsatwork.eu/realisaties/realisatie-zonnepanelen-en-thuisbatterij/"},
+{"t":"img","src":"https://nest.devsatwork.eu/wp-content/uploads/2026/07/Icoon-zonnepanelen.png","alt":"","b":815,"h":1128},
+{"t":"h4","x":"Zonnepanelen op maat voor een gezinswoning"},
+{"t":"knop","x":"Lees meer over dit project","href":"https://nest.devsatwork.eu/realisaties/realisatie-zonnepanelen-op-maat/"},
+{"t":"h1","x":"Klaar om jouw project te starten?"},
+{"t":"p","x":"Wil je weten wat er mogelijk is voor jouw woning of gebouw? We bekijken graag jouw situatie en geven advies op maat."},
+{"t":"knop","x":"Plan je gratis adviesgesprek","href":"https://nest.devsatwork.eu/contact/"},
+{"t":"knop","x":"Contacteer ons","href":"https://nest.devsatwork.eu/contact/"}
+]
+}

@@ -1,0 +1,23 @@
+{
+"pad": "/realisaties/realisatie-zonnepanelen-op-maat/",
+"titel": "Zonnepanelen op maat - Nest Company",
+"metaBeschrijving": "",
+"blokken": [
+{"t":"p","x":"Realisatie: Zonnepanelen op maat"},
+{"t":"h1","x":"De vraag"},
+{"t":"p","x":"Deze klant wilde investeren in zonnepanelen om de energiekosten te verlagen, maar zag door het grote aanbod en de verschillende adviezen het bos niet meer. De belangrijkste vraag was: welke oplossing past écht bij onze woning?"},
+{"t":"h1","x":"Onze analyse"},
+{"t":"p","x":"We bekeken de volledige situatie: de dakoriëntatie, het energieverbruik, de beschikbare dakoppervlakte en de toekomstplannen van de klant. Op basis daarvan stelden we een installatie samen die perfect aansloot bij de woning, zonder meer te installeren dan nodig was."},
+{"t":"h1","x":"De oplossing"},
+{"t":"p","x":"We realiseerden een zonnepaneleninstallatie die volledig afgestemd is op de woning en het verbruik."},
+{"t":"lijst","items":["Zonnepanelen op maat van de woning","Correcte dimensionering van de installatie","Persoonlijk en merkonafhankelijk advies","Professionele installatie en configuratie"]},
+{"t":"h1","x":"Het resultaat"},
+{"t":"lijst","items":["Lagere energiekosten","Een installatie op maat van het verbruik","Meer zekerheid dankzij persoonlijk advies","Een toekomstgerichte energieoplossing"]},
+{"t":"img","src":"https://nest.devsatwork.eu/wp-content/uploads/2026/07/Zonnepanelen-1.jpg","alt":"","b":1280,"h":720},
+{"t":"p","x":"Goede energieoplossingen beginnen met een doordachte analyse. Daarom vertrekken we bij NEST Company altijd vanuit jouw situatie, niet vanuit een standaardoplossing."},
+{"t":"h1","x":"Wil je ook duidelijk advies over zonnepanelen voor jouw woning?"},
+{"t":"p","x":"We analyseren jouw situatie en stellen een installatie samen die écht bij je past."},
+{"t":"knop","x":"Plan je gratis adviesgesprek","href":"https://nest.devsatwork.eu/contact/"},
+{"t":"knop","x":"Contacteer ons","href":"https://nest.devsatwork.eu/contact/"}
+]
+}

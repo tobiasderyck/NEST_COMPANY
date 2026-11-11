@@ -1,0 +1,28 @@
+{
+"pad": "/over-ons/ons-team/",
+"titel": "Ons team - Nest Company",
+"metaBeschrijving": "",
+"blokken": [
+{"t":"p","x":"Ons team"},
+{"t":"h1","x":"De mensen achter NEST Company"},
+{"t":"p","x":"Achter NEST Company staat een hecht team dat elke klant persoonlijk begeleidt."},
+{"t":"p","x":"Geen grote organisatie met verschillende tussenpersonen, maar korte communicatielijnen en rechtstreeks contact. Zo weet je altijd bij wie je terechtkan en wie jouw project opvolgt."},
+{"t":"p","x":"Bij NEST geloven we dat een goed resultaat begint met luisteren, meedenken en duidelijke communicatie."},
+{"t":"h1","x":"De oprichters"},
+{"t":"p","x":"Tommy en Joeri richtten NEST Company op vanuit één duidelijke overtuiging: energieoplossingen werken pas écht wanneer ze afgestemd zijn op de situatie van elke klant."},
+{"t":"p","x":"Tijdens hun eerdere ervaring binnen de sector merkten ze dat veel bedrijven vertrekken vanuit één vast merk, terwijl elke woning, elk bedrijf en elk energieverbruik anders is. Daarom kozen ze bewust voor een merkonafhankelijke aanpak, waarbij de juiste oplossing altijd centraal staat."},
+{"t":"p","x":"Vandaag combineren ze hun technische kennis, praktijkervaring en persoonlijk advies om klanten te begeleiden van de eerste analyse tot de uiteindelijke installatie en opvolging."},
+{"t":"h4","x":"Tommy Van der Haegen – Zaakvoerder"},
+{"t":"p","x":"Tommy groeide op in een dakwerkersfamilie en kent een dak van binnen én van buiten. Zijn ervaring in dakwerken vormt een sterke basis voor energieprojecten waarbij dak en installatie perfect op elkaar aansluiten."},
+{"t":"h4","x":"Joeri Vranckx – Zaakvoerder"},
+{"t":"p","x":"Joeri specialiseerde zich in zonnepanelen, batterijsystemen en intelligent energiebeheer (EMS). Hij denkt mee over energieoplossingen die technisch kloppen, efficiënt samenwerken en afgestemd zijn op de behoeften van elke klant."},
+{"t":"h1","x":"Onze specialisten"},
+{"t":"p","x":"Achter elk project staat een team van mensen met hun eigen expertise. Samen zorgen we voor een vlotte planning, een kwalitatieve uitvoering en een persoonlijke opvolging, zodat je tijdens het hele traject kunt rekenen op één betrokken team."},
+{"t":"lijst","items":["Tessa – Back Office","Glenn – Elektricien","Frederic – Elektricien","Christophe – Dakwerker","Jeroen – Energie Architect","Ruben – Elektricien","Danny – Projectleider Dakwerken & Dakrenovaties","Peter – Dakwerker"]},
+{"t":"p","x":"Dankzij de samenwerking tussen onze verschillende specialisten mag je rekenen op een kwalitatieve uitvoering, duidelijke communicatie en een zorgeloze begeleiding tijdens het volledige traject."},
+{"t":"h1","x":"Samen bouwen aan jouw project"},
+{"t":"p","x":"Of je nu start met zonnepanelen, een thuisbatterij, laadpaal, warmtepomp of dakwerken: ons team denkt mee en begeleidt je doorheen het volledige traject."},
+{"t":"knop","x":"Plan je gratis adviesgesprek","href":"https://nest.devsatwork.eu/contact/"},
+{"t":"knop","x":"Contacteer ons","href":"https://nest.devsatwork.eu/contact/"}
+]
+}

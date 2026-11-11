@@ -81,11 +81,11 @@
   }catch{}
 
   form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;
-   const name=$('#name').value.trim(),email=$('#email').value.trim(),message=$('#message').value.trim();
+   const name=$('#name').value.trim(),email=$('#email').value.trim(),gsm=($('#gsm')?.value||'').trim(),message=$('#message').value.trim();
    if(!name||!message){$('[data-form-status]').textContent='Vul je naam en een korte omschrijving in.';return;}
    const context=new URLSearchParams(location.search).get('onderwerp')?.slice(0,120);
    const topics=[...new Set([...plan,...(context?[context]:[])])];
-   requestText=`Dag NEST,\n\nIk wil graag een vrijblijvend adviesgesprek aanvragen.\n\nNaam: ${name}\nE-mail: ${email}\n${topics.length?'Mijn plannen: '+topics.join(', ')+'\n':''}\n${message}\n\nVriendelijke groeten,\n${name}`;
+   requestText=`Dag NEST,\n\nIk wil graag een vrijblijvend adviesgesprek aanvragen.\n\nNaam: ${name}\nE-mail: ${email}\n${gsm?'Gsm: '+gsm+'\n':''}${topics.length?'Mijn plannen: '+topics.join(', ')+'\n':''}\n${message}\n\nVriendelijke groeten,\n${name}`;
    if(calculatorText)requestText+='\n\nMijn verkenning (indicatief):\n'+calculatorText;
    const target='mailto:info@nestcompany.be?subject='+encodeURIComponent('Adviesaanvraag'+(topics.length?' — '+topics.join(', '):''))+'&body='+encodeURIComponent(requestText);
    $('[data-form-status]').textContent='Je e-mailprogramma wordt geopend. Je aanvraag is pas verstuurd wanneer je daar op verzenden klikt. Opent er niets? Kopieer de aanvraag en mail ze naar info@nestcompany.be.';
@@ -149,3 +149,12 @@
  try{const o=JSON.parse(sessionStorage.getItem('nest-opmeting')||'null');
   if(o&&typeof o.tekst==='string'&&o.tekst.length<2000&&Date.now()-o.gemaakt<7200000&&!veld.value.trim()){veld.value=o.tekst+'\n\n';}
   sessionStorage.removeItem('nest-opmeting');}catch{}})();
+
+/* Beweging bij het scrollen: beeld veegt binnen, lijnen tekenen zich, nadruk rekt zich uit.
+   Alleen wat onder de vouw staat doet mee, zodat er bij het laden niets verspringt. */
+(()=>{if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const kies='main h2, .detail-section, .foto-band, .overview-link img, .related-list img, .project-gallery img, .benefit-list, .brand-list, .nh-diensten-foto';
+ const els=[...document.querySelectorAll(kies)].filter(e=>!e.closest('.nh-diensten-lijst')&&e.getBoundingClientRect().top>innerHeight*.92);
+ if(!els.length)return;els.forEach(e=>e.setAttribute('data-zicht',''));
+ const io=new IntersectionObserver(l=>l.forEach(x=>{if(x.isIntersecting){x.target.classList.add('is-zicht');io.unobserve(x.target);}}),{rootMargin:'0px 0px -10% 0px'});
+ els.forEach(e=>io.observe(e));})();

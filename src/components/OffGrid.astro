@@ -1,0 +1,31 @@
+---
+// Off-grid en hybride, uitgelegd op het huis zelf. Het schema staat in OffGridSchema.astro.
+// Tekst letterlijk van nestcompany.be (netoplossingen); alleen knoppen, titel en de prijsregel zijn nieuw.
+import Icon from './Icon.astro';
+import OffGridSchema from './OffGridSchema.astro';
+const { thuis = false } = Astro.props;   // thuis = de band op de homepage
+---
+<section class:list={['og', { 'og--thuis': thuis }]} id="off-grid" aria-labelledby="og-titel" data-offgrid>
+ <div class="og-binnen">
+  <OffGridSchema/>
+
+  <div class="og-tekst">
+   <h2 id="og-titel">Off-grid. <em>Of hybride.</em></h2>
+   <p class="og-slag">Altijd energie. Meer onafhankelijkheid. Maximale zekerheid.</p>
+   <p class="og-lead">Flexibele energieoplossingen die je verbinden met het elektriciteitsnet of je net onafhankelijk maken. Ideaal voor wie extra zekerheid, autonomie of back-up wil.</p>
+   <h3>Off-grid / hybride systemen</h3>
+   <p>Je creëert (gedeeltelijke) onafhankelijkheid van het net.</p>
+   <ul>
+    <li>Back-up bij stroomuitval</li>
+    <li>Maximale autonomie</li>
+    <li>Ideaal voor afgelegen woningen of kritische bedrijfstoepassingen</li>
+   </ul>
+   <p class="og-merken"><span>Victron</span><span>Sigenergy</span><span>Fronius</span></p>
+   <div class="og-acties">
+    {thuis
+      ? <><a class="button og-knop" href="/energieoplossingen/netoplossingen/">Ontdek off-grid <Icon name="arrow" size={18}/></a><a class="og-link" href="/contact/?onderwerp=Off-grid">Bespreek je off-grid plan</a></>
+      : <><button class="button og-knop" type="button" data-offgrid-knop>Bespreek je off-grid plan <Icon name="arrow" size={18}/></button><p>Prijs op aanvraag. Elk off-grid systeem rekenen we op maat uit.</p></>}
+   </div>
+  </div>
+ </div>
+</section>

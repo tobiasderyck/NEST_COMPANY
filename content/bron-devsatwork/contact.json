@@ -1,0 +1,19 @@
+{
+"pad": "/contact/",
+"titel": "Contact - Nest Company",
+"metaBeschrijving": "",
+"blokken": [
+{"t":"p","x":"Contact"},
+{"t":"h1","x":"Neem contact op met NEST Company"},
+{"t":"p","x":"Heb je een vraag over energieoplossingen of dakwerken? Wil je weten welke oplossing past bij jouw woning of gebouw?"},
+{"t":"p","x":"We bekijken graag jouw situatie en geven persoonlijk advies op maat."},
+{"t":"h1","x":"Contactgegevens"},
+{"t":"p","x":"**NEST Company BV**\nDe Kleetlaan 5\n1831 Machelen"},
+{"t":"p","x":"Opwijksestraat 91\n9280 Lebbeke"},
+{"t":"p","x":"**Telefoon**\n+32 492 86 42 02"},
+{"t":"p","x":"**E-mail**\ninfo@nestcompany.be"},
+{"t":"h1","x":"Stel je vraag"},
+{"t":"p","x":"Heb je een specifieke vraag of wil je een vrijblijvend adviesgesprek aanvragen? Laat je gegevens achter en we nemen zo snel mogelijk contact met je op."},
+{"t":"widget","x":"contactformulier","velden":["Voornaam","Achternaam","E-mail","Telefoonnummer","Onderwerp","Bericht"],"keuzes":["Energieadvies op maat","Thuisbatterijen","Industriële batterijen","Zonnepanelen","Laadpalen","Airco & warmtepompboilers","EMS-systemen","Netoplossingen","Dakrenovatie","Dakisolatie","Asbest verwijderen","Andere"],"knop":"Verstuur aanvraag"}
+]
+}

@@ -91,6 +91,18 @@ fragment HomepageParts on Homepage {
   }
 }
 
+fragment VerkennerParts on Verkenner {
+  __typename
+  titel
+  intro
+  formulier {
+    __typename
+    sleutel
+    ontvanger
+    onderwerp
+  }
+}
+
 fragment ReviewsParts on Reviews {
   __typename
   gemiddelde

@@ -1,0 +1,288 @@
+{
+ "nieuwbouw-zonnepanelen": {
+  "alt": "Nieuwbouwwoning met zonnepanelen in het dakvlak en een houten aanbouw, van bovenaf gefotografeerd",
+  "focus": "52% 45%",
+  "soort": "zon",
+  "staand": false,
+  "b": [
+   800,
+   1280,
+   1280
+  ],
+  "h": 720,
+  "w": 1280
+ },
+ "pannendak-zonnepanelen": {
+  "alt": "Oranje pannendak met zwarte zonnepanelen en een dakraam, met weilanden op de achtergrond",
+  "focus": "40% 50%",
+  "soort": "zon",
+  "staand": false,
+  "b": [
+   800,
+   1280,
+   1280
+  ],
+  "h": 720,
+  "w": 1280
+ },
+ "dakrenovatie-werf": {
+  "alt": "Dakrenovatie in uitvoering: stelling met een spandoek van NEST Company tegen een bakstenen woning",
+  "focus": "40% 45%",
+  "soort": "dak",
+  "staand": false,
+  "b": [
+   800,
+   1280,
+   1700
+  ],
+  "h": 955,
+  "w": 1700
+ },
+ "gerenoveerd-dak": {
+  "alt": "Nieuw antraciet pannendak op een woning met veranda, van bovenaf gefotografeerd",
+  "focus": "50% 55%",
+  "soort": "dak",
+  "staand": false,
+  "b": [
+   800,
+   1280,
+   1700
+  ],
+  "h": 1275,
+  "w": 1700
+ },
+ "dakwerkers-drone": {
+  "alt": "Twee dakwerkers leggen nieuwe pannen op een dak met nieuw onderdak en panlatten",
+  "focus": "55% 50%",
+  "soort": "dak",
+  "staand": false,
+  "b": [
+   800,
+   1280,
+   1280
+  ],
+  "h": 720,
+  "w": 1280
+ },
+ "dakwerkers-onderdak": {
+  "alt": "Dakwerkers op een dak met nieuw onderdak en panlatten, tegen een wolkenlucht",
+  "focus": "60% 40%",
+  "soort": "dak",
+  "staand": false,
+  "b": [
+   800,
+   1280,
+   1700
+  ],
+  "h": 957,
+  "w": 1700
+ },
+ "villa-zonnepanelen": {
+  "alt": "Woning met zonnepanelen op het pannendak, tussen de tuinen van een woonwijk",
+  "focus": "50% 50%",
+  "soort": "zon",
+  "staand": false,
+  "b": [
+   800,
+   1280,
+   1280
+  ],
+  "h": 720,
+  "w": 1280
+ },
+ "plat-dak-zonnepanelen": {
+  "alt": "Plat dak met rijen zonnepanelen en lichtkoepels, recht van boven gefotografeerd",
+  "focus": "50% 50%",
+  "soort": "zon",
+  "staand": false,
+  "b": [
+   800,
+   1000,
+   1000
+  ],
+  "h": 562,
+  "w": 1000
+ },
+ "thuisbatterij": {
+  "alt": "Twee Dyness-thuisbatterijen met een Solis-omvormer, netjes geplaatst in een berging",
+  "focus": "50% 65%",
+  "soort": "batterij",
+  "staand": true,
+  "b": [
+   800,
+   1280,
+   1700
+  ],
+  "h": 3022,
+  "w": 1700
+ },
+ "laadpaal": {
+  "alt": "Laadpaal met opgerolde laadkabel aan een bakstenen gevel",
+  "focus": "45% 50%",
+  "soort": "laadpaal",
+  "staand": true,
+  "b": [
+   800,
+   1280,
+   1700
+  ],
+  "h": 3022,
+  "w": 1700
+ },
+ "airco-zolder": {
+  "alt": "Airco-binnenunit in een zolderkamer met houten kasten en zonlicht door het dakraam",
+  "focus": "65% 40%",
+  "soort": "airco",
+  "staand": false,
+  "b": [
+   800,
+   1280,
+   1700
+  ],
+  "h": 956,
+  "w": 1700
+ },
+ "airco-buitenunit": {
+  "alt": "Buitenunit van een Gree-airco op een plat dak",
+  "focus": "50% 40%",
+  "soort": "airco",
+  "staand": true,
+  "b": [
+   800,
+   1200,
+   1200
+  ],
+  "h": 1600,
+  "w": 1200
+ },
+ "nest-bestelwagen": {
+  "alt": "Bestelwagen van NEST Company geparkeerd in een woonstraat",
+  "focus": "45% 55%",
+  "soort": "ploeg",
+  "staand": false,
+  "b": [
+   800,
+   1280,
+   1700
+  ],
+  "h": 956,
+  "w": 1700
+ },
+ "zonnepanelen-blauwe-lucht": {
+  "alt": "Zonnepanelen op een bakstenen woning onder een blauwe lucht met wolken",
+  "focus": "50% 55%",
+  "soort": "zon",
+  "staand": true,
+  "b": [
+   800,
+   1027,
+   1027
+  ],
+  "h": 1588,
+  "w": 1027
+ },
+ "offgrid-victron": {
+  "alt": "Drie Victron-omvormers boven een Dyness-thuisbatterij, gemonteerd tegen een bakstenen muur",
+  "focus": "50% 40%",
+  "soort": "offgrid",
+  "staand": true,
+  "b": [
+   800,
+   1280,
+   1200
+  ],
+  "h": 1600,
+  "w": 1200
+ },
+ "victron-technische-ruimte": {
+  "alt": "Technische ruimte met drie Victron-omvormers, een Dyness-thuisbatterij en de zekeringkast",
+  "focus": "45% 40%",
+  "soort": "offgrid",
+  "staand": true,
+  "b": [
+   800,
+   1280,
+   1500
+  ],
+  "h": 2000,
+  "w": 1500
+ },
+ "victron-pylontech": {
+  "alt": "Drie Victron Quattro-omvormers op een zwart paneel, met Pylontech-batterijen ernaast",
+  "focus": "55% 45%",
+  "soort": "offgrid",
+  "staand": true,
+  "b": [
+   800,
+   1059,
+   1059
+  ],
+  "h": 1884,
+  "w": 1059
+ },
+ "leien-dakwerkers": {
+  "alt": "Twee dakwerkers leggen leien op een dak met dakramen, gezien vanaf de stelling",
+  "focus": "50% 45%",
+  "soort": "dak",
+  "staand": true,
+  "b": [
+   800,
+   1200,
+   1200
+  ],
+  "h": 1600,
+  "w": 1200
+ },
+ "stalen-dak": {
+  "alt": "Nieuw antraciet stalen dak met lichtstroken, met uitzicht over de wijk",
+  "focus": "50% 60%",
+  "soort": "dak",
+  "staand": true,
+  "b": [
+   800,
+   1200,
+   1200
+  ],
+  "h": 1600,
+  "w": 1200
+ },
+ "solis-dyness": {
+  "alt": "Solis-omvormer met een Dyness-thuisbatterij tegen een wit geschilderde muur",
+  "focus": "55% 50%",
+  "soort": "batterij",
+  "staand": true,
+  "b": [
+   800,
+   1125,
+   1125
+  ],
+  "h": 2000,
+  "w": 1125
+ },
+ "solis-pylontech": {
+  "alt": "Solis-omvormer boven drie gestapelde Pylontech-batterijen",
+  "focus": "50% 55%",
+  "soort": "batterij",
+  "staand": true,
+  "b": [
+   800,
+   1126,
+   1126
+  ],
+  "h": 2000,
+  "w": 1126
+ },
+ "gevel-crepi": {
+  "alt": "Gerenoveerde woning met lichte crepi-gevel, zwarte ramen en voordeur, naast een bakstenen buurwoning",
+  "focus": "60% 50%",
+  "soort": "gevel",
+  "staand": false,
+  "b": [
+   800,
+   1280,
+   1448
+  ],
+  "h": 1086,
+  "w": 1448
+ }
+}
