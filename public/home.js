@@ -56,7 +56,7 @@
 
     function kies(i, door) {
       huidig = i;
-      if (door) zelfGekozen = true;
+      if (door) { zelfGekozen = true; buhne.classList.add('is-open'); }
       tabs.forEach((t, n) => { t.setAttribute('aria-selected', String(n === i)); t.tabIndex = n === i ? 0 : -1; });
       gsmTabs.forEach((t, n) => t.classList.toggle('is-actief', n === i));
       rail.forEach((t, n) => t.classList.toggle('is-actief', n === i));
@@ -101,6 +101,10 @@
     });
     gsmTabs.forEach((t, n) => t.addEventListener('click', () => kies(n, true)));
     rail.forEach((t, n) => t.addEventListener('click', () => kies(n, true)));
+    // de uitleg staat pas open als iemand een onderdeel kiest; het kruisje of Escape sluit ze weer
+    const sluit = () => { if (!buhne.classList.contains('is-open')) return; buhne.classList.remove('is-open'); tabs[huidig]?.focus({ preventScroll: true }); };
+    $('[data-p-sluit]', paneel)?.addEventListener('click', sluit);
+    buhne.addEventListener('keydown', e => { if (e.key === 'Escape') sluit(); });
     $('[data-alle-diensten]', buhne)?.addEventListener('click', () => {
       const knop = document.querySelector('.nav-toggle');
       if (knop && getComputedStyle(knop).display !== 'none') { scrollTo({ top: 0 }); knop.click(); knop.focus(); }

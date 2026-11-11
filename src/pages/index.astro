@@ -72,7 +72,7 @@ const opties = {
    <p class="nh-tabs-hint">Tik op een onderdeel van het huis</p>
    <div class="nh-tabs-gsm" aria-hidden="true">{delen.map((d, i) => <button tabindex="-1" data-deel={i} class:list={[{ 'is-actief': i === 0 }]}>{d.naam}</button>)}</div>
    <aside class="nh-paneel" id="nh-paneel" role="tabpanel" aria-labelledby="nh-tab-0" aria-live="polite">
-    <div class="nh-paneel-kop"><span data-p-nr>01</span><span>van 04</span></div>
+    <div class="nh-paneel-kop"><span data-p-nr>01</span><span>van 04</span><button type="button" class="nh-paneel-sluit" data-p-sluit aria-label="Uitleg sluiten"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button></div>
     <h2 data-p-titel>{d0.titel}</h2>
     <p data-p-tekst>{d0.tekst}</p>
     <ul data-p-punten>{d0.punten.map(p => <li>{p}</li>)}</ul>

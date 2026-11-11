@@ -346,3 +346,16 @@ html:not(.js-meter) .nh-vraag { margin-bottom: 30px; }
 .nk-b.is-in[data-veeg="type"] { animation-duration: .38s; }
 
 @media (max-width: 900px) { .nk-kader figcaption { display: none; } }
+
+/* de uitleg in de hero: dicht tot iemand een onderdeel kiest, dan veegt ze open */
+.nh-paneel-sluit { margin-left: auto; display: grid; place-items: center; width: 34px; height: 34px; margin-top: -8px; margin-right: -10px; border-radius: 50%; color: var(--ink); cursor: pointer; transition: background-color .15s; }
+.nh-paneel-sluit:hover { background: rgba(29, 35, 32, .08); }
+.nh-paneel-sluit:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.nh-paneel-kop { align-items: center; }
+@media (min-width: 861px) {
+  .nh-buhne:not(.is-open) .nh-paneel { visibility: hidden; clip-path: inset(0 0 0 100%); }
+  .nh-buhne .nh-paneel { clip-path: inset(0); transition: clip-path .45s cubic-bezier(.65, 0, .35, 1), visibility 0s; }
+  .nh-buhne:not(.is-open) .nh-paneel { transition: clip-path .3s cubic-bezier(.65, 0, .35, 1), visibility 0s .3s; }
+}
+@media (max-width: 860px) { .nh-paneel-sluit { display: none; } }
+@media (prefers-reduced-motion: reduce) { .nh-buhne .nh-paneel { transition: none !important; } }
