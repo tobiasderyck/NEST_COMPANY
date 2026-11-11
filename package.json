@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ASTRO_DEV_BACKGROUND=1 tinacms dev -c \"astro dev --port 4327\"",
     "dev:site": "astro dev --port 4327",
-    "build": "tinacms build && astro build",
+    "build": "astro build",
+    "build:tina": "tinacms build && astro build",
     "preview": "astro preview --port 4327"
   },
   "dependencies": {
