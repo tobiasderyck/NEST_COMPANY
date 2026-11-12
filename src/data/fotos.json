@@ -284,5 +284,18 @@
   ],
   "h": 1086,
   "w": 1448
+ },
+ "film-4": {
+  "alt": "Dezelfde Vlaamse woning na de renovatie: nieuw dak, zonnepanelen en een opgefriste gevel (beeld ter illustratie)",
+  "focus": "50% 55%",
+  "soort": "concept",
+  "staand": false,
+  "b": [
+   800,
+   1280,
+   1700
+  ],
+  "h": 956,
+  "w": 1700
  }
 }
